@@ -1,5 +1,5 @@
 import App from "../App";
-import LandingPage from "../pages/LandingPage";
+import LandingPage from "../pages/landingPage/LandingPage";
 import GamePage from "../pages//GamePage";
 import RouterErrorPage from "../pages//RouterErrorPage";
 import LeaderBoardPage from "../pages/LeaderBoardPage";
