@@ -1,7 +1,7 @@
 
 import styles from "./header.module.css";
 import { Link } from "react-router-dom";
-import Navbar from "../navBar/navBar";
+import Navbar from "../navBar/NavBar";
 
 function Header() {
   return (
