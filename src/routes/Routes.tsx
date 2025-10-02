@@ -1,6 +1,6 @@
 import App from "../App";
 import LandingPage from "../pages/landingPage/LandingPage";
-import GamePage from "../pages//GamePage";
+import GamePage from "../pages/gamePage/GamePage";
 import RouterErrorPage from "../pages//RouterErrorPage";
 import LeaderBoardPage from "../pages/LeaderBoardPage";
 import React from "react";
