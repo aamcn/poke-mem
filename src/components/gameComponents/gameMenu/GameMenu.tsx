@@ -1,17 +1,15 @@
 import React from "react";
 import styles from "./gameMenu.module.css";
+import { useGameContext } from "../hooks/useGameContext";
+function GameMenu() {
 
-function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
-  /* 
-  The difficulty of the game is set by the cardTotal, this limits how many cards 
-  are drawn, the value of the button clicked is stored as the cardTotal.
-*/
-  const handleClickDifficulty = (event) => {
-    setCardTotal(parseInt(event.target.value));
-  };
+
+  const { state, dispatch } = useGameContext();
+  console.log(state)
 
   return (
     <div className={styles.gameMenuContainer} data-testid="game-menu-container">
+      <h1></h1>
       {/* Title of the Game Menu */}
       <div className={styles.titleContainer}>
         <h2 id="game-menu-title">Menu</h2>
@@ -20,12 +18,12 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
         <p data-testid="difficulty-title" className={styles.difficultyTitle}>
           Choose Your Difficulty
         </p>
-        <p data-testid="difficultyText">{cardTotal} Cards</p>
+        <p data-testid="difficultyText">{4} Cards</p>
         <div className={styles.difficultyButtons}>
           <button
             data-testid="easy-button"
             className={styles.optionButton}
-            onClick={handleClickDifficulty}
+            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: 'easy'})}
             value={4}
           >
             Easy
@@ -33,7 +31,7 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
           <button
             data-testid="medium-button"
             className={styles.optionButton}
-            onClick={handleClickDifficulty}
+            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: 'medium'})}
             value={6}
           >
             Medium
@@ -41,7 +39,7 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
           <button
             data-testid="hard-button"
             className={styles.optionButton}
-            onClick={handleClickDifficulty}
+            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: 'hard'})}
             value={9}
           >
             Hard
@@ -52,7 +50,7 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
         <button
           data-testid="start-button"
           className={styles.startButton}
-          onClick={handleStartClick}
+          onClick={() => dispatch({type: 'toggleGameStarted', payload: true})}
         >
           Start
         </button>
