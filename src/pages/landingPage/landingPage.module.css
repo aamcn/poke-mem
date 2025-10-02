@@ -1,0 +1,173 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
+  background-color: black;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 1em 0px;
+  animation: appear 4s;
+  width: 100%;
+}
+
+.mainImage {
+  width: 70vw;
+  animation: float 5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.mainHeading {
+  color: rgb(218, 57, 65);
+  animation: slideUp 3s;
+  font-size: 12vw;
+  text-align: center;
+}
+
+.startButton {
+  font-size: 5vw;
+  animation: waitAndAppear 4s;
+  text-align: center;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes waitAndAppear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-2em);
+    transform: translateX(0em);
+  }
+  60% {
+    transform: translateY(-2em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-2em);
+    transform: translateX(2em);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+    scale: 1;
+  }
+  50% {
+    transform: translateY(1000px);
+    opacity: 0;
+    scale: 1;
+  }
+  50% {
+    transform: translateY(0px);
+    scale: 1;
+  }
+  81% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mainHeading {
+    font-size: 10vw;
+  }
+
+  .mainImage {
+    width: 60vw;
+    margin-bottom: 10em;
+  }
+
+  .startButton {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .mainHeading {
+    font-size: 8vw;
+  }
+
+  .mainImage {
+    width: 60vw;
+    margin-bottom: 8em;
+  }
+
+  .startButton {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .mainHeading {
+    font-size: 6vw;
+  }
+
+  .mainImage {
+    width: 40vw;
+    margin-bottom: 6em;
+  }
+
+  .startButton {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-height: 599px) and (orientation: landscape) {
+  .mainHeading {
+    font-size: 5vw;
+  }
+
+  .mainImage {
+    width: 30vw;
+    margin-bottom: 2em;
+  }
+
+  .startButton {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-height: 600px) and (orientation: landscape) {
+  .mainHeading {
+    font-size: 5vw;
+  }
+
+  .mainImage {
+    width: 35vw;
+    margin-bottom: 5em;
+  }
+
+  .startButton {
+    font-size: 2vw;
+  }
+}
