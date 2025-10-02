@@ -1,0 +1,201 @@
+.gameMenuContainer {
+  position: absolute;
+  width: 70vw;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+  justify-self: center;
+  align-self: center;
+  background-color: rgb(94, 217, 194);
+  border: rgb(74, 109, 109);
+  border-style: double;
+  border-width: 0.5em;
+  border-radius: 2em;
+  padding: 1em;
+  box-shadow: 0px 0px 1em 0.1em rgb(0, 0, 0);
+  animation: menuAppear 1s;
+  text-align: center;
+}
+
+.titleContainer {
+  color: rgb(24, 61, 61);
+  grid-row: 1;
+  font-size: 4vw;
+}
+
+.difficultyContainer {
+  display: grid;
+  grid-row: 2;
+  font-size: 3vw;
+  color: rgb(24, 61, 61);
+}
+
+.difficultyButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.difficultyTitle {
+  display: flex;
+  font-size: 4vw;
+  justify-content: center;
+}
+
+button {
+  color: rgb(24, 61, 61);
+  height: fit-content;
+  background-color:rgb(94, 217, 194);
+  animation: buttonFade 2s;
+  border: solid;
+  border-radius: 1em;
+  box-shadow: 0px 0.1em 0.1em 0px;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: inset 0em 0em 0.3em 0.1em black;
+  color:rgb(103, 231, 231);
+}
+
+button:hover {
+  background-color: rgb(103, 231, 231);
+}
+
+@media screen and (min-width: 768px) {
+  .gameMenuContainer {
+    width: 50dvw;
+    height: 40dvh;
+  }
+
+  .startButton {
+    font-size: 2.5dvw;
+  }
+
+  .optionButton {
+    font-size: 2.5dvw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .gameMenuContainer {
+    width: 40vw;
+    height: 50vh;
+  }
+
+  button {
+    height: fit-content;
+    animation: buttonFade 2s;
+    width: 8vw;
+    height: 4vw;
+    border: solid;
+    box-shadow: 0px 0.1em 0.1em 0px;
+    font-size: 1.5vw;
+  }
+
+  .titleContainer {
+    font-size: 2vw;
+  }
+
+  .difficultyContainer {
+    display: grid;
+    grid-row: 2;
+    font-size: 3vw;
+    color: rgb(24, 61, 61);
+  }
+
+  .difficultyButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .difficultyTitle {
+    display: flex;
+    font-size: 2vw;
+    justify-content: center;
+  }
+
+  .startButton {
+    padding: 1em;
+    font-size: 1.5dvw;
+  }
+
+  .optionButton {
+    padding: 1em;
+    font-size: 1.5dvw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* .gameMenuContainer {
+   width:40vw;
+   height: 40vh;
+  }
+
+  button {
+    height: fit-content;
+    animation: buttonFade 2s;
+    width:8vw;
+    height:4vw;
+    border:solid;
+    box-shadow: 0px 0.1em 0.1em 0px;
+    font-size: 1.5vw;
+  }
+
+  .titleContainer {
+  font-size: 2vw;
+  }
+
+  .difficultyContainer {
+  display: grid;
+  grid-row: 2;
+  font-size: 3vw;
+  color:wheat;
+}
+
+.difficultyButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.difficultyTitle {
+  display: flex;
+  font-size: 2vw;
+  justify-content: center;
+}
+
+ .startButton{
+    padding:1em;
+     font-size: 1.5dvw;
+  }
+
+  .optionButton {
+    padding:1em;
+    font-size: 1.5dvw;
+  } */
+}
+
+@keyframes menuAppear {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes buttonFade {
+  0% {
+    scale: 0;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}

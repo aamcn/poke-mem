@@ -1,0 +1,82 @@
+.headerContainer {
+  grid-row: 1;
+  align-items: center;
+  min-width: 320px;
+  height: 10dvh;
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-evenly;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.titleContainer {
+  grid-row: 1;
+  text-align: center;
+}
+
+.gameTitle {
+  color: rgb(24, 61, 61);
+  text-shadow: rgb(65, 165, 165) 0.05em 0.09em 0.05em;
+  text-decoration: double;
+  text-decoration-thickness: 0.05em;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .gameTitle {
+    font-size: 9vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .gameTitle {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 6vw;
+  }
+  
+  .titleContainer{
+    padding-left: 4em;
+    text-align: left;
+  }
+
+  .headerContainer {
+    justify-content: start;
+    min-width: max-content;
+  }
+}
+
+/* 
+ @media screen and (min-width:1200px) {
+  
+  .gameTitle {
+    grid-column: 1;
+    grid-row: 1; 
+    font-size: 7vw;
+    text-shadow:rgb(138, 5, 45) 0.05em 0.05em 0.05em;
+ }
+
+  .headerContainer {
+    justify-content: center;
+    min-width:max-content;
+  }
+}
+
+
+@media (orientation: landscape) and (max-height: 850px) {
+  .gameTitle {
+    grid-column: 1;
+    grid-row: 1; 
+    font-size: 6vw;
+    text-shadow:rgb(138, 5, 45) 0.05em 0.05em 0.05em;
+ }
+
+  .headerContainer {
+    justify-content: center;
+    min-width:max-content;
+  }
+}
+ */

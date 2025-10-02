@@ -1,0 +1,19 @@
+.gameContainer {
+  display: grid;
+  height: 90dvh;
+  grid-template-rows: 0.5fr 11.5fr;
+ 
+}
+
+@media screen and (min-width: 1024px) {
+  .gameContainer {
+    grid-template-rows: 1fr;
+    grid-template-columns: 4fr 9fr;
+  }
+
+  .gameInfoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+}

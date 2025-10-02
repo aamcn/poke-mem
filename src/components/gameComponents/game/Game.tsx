@@ -1,5 +1,6 @@
 import GameMenu from "../gameMenu/GameMenu";
 import { useContext, createContext, useReducer } from "react";
+import styles from "./game.module.css";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -154,12 +155,15 @@ function Game() {
   };
 
   return (
-    <>
-      <h1>Game Component</h1>
+    <div className={styles.gameContainer} data-testid="game-container">
+      <div
+        className={styles.gameInfoContainer}
+        data-testid="game-info-container"
+      ></div>
       <GameContext.Provider value={gameContextValue}>
         <GameMenu />
       </GameContext.Provider>
-    </>
+    </div>
   );
 }
 

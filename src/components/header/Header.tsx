@@ -1,4 +1,3 @@
-
 import styles from "./header.module.css";
 import { Link } from "react-router-dom";
 import Navbar from "../navBar/NavBar";
@@ -8,7 +7,6 @@ function Header() {
     <header
       className={styles.headerContainer}
       data-testid="header"
-      aria-label="header"
     >
       <Navbar />
       <div
