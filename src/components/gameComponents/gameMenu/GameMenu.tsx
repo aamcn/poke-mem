@@ -1,11 +1,11 @@
-import React from "react";
 import styles from "./gameMenu.module.css";
-import { useGameContext } from "../hooks/useGameContext";
+import { useGameContext } from "../game/Game";
 function GameMenu() {
 
 
-  const { state, dispatch } = useGameContext();
-  console.log(state)
+// const { state, dispatch } = useGameContext();
+const { state, dispatch } = useGameContext();
+console.log(state);
 
   return (
     <div className={styles.gameMenuContainer} data-testid="game-menu-container">
@@ -23,15 +23,15 @@ function GameMenu() {
           <button
             data-testid="easy-button"
             className={styles.optionButton}
-            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: 'easy'})}
+            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: ['Easy', 4]})}
             value={4}
           >
             Easy
-          </button>
+          </button> 
           <button
             data-testid="medium-button"
             className={styles.optionButton}
-            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: 'medium'})}
+            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: ['Medium', 6]})}
             value={6}
           >
             Medium
@@ -39,7 +39,7 @@ function GameMenu() {
           <button
             data-testid="hard-button"
             className={styles.optionButton}
-            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: 'hard'})}
+            onClick={() => dispatch({type: 'toggleGameDifficulty', payload: ['hard', 9]})}
             value={9}
           >
             Hard
@@ -50,7 +50,7 @@ function GameMenu() {
         <button
           data-testid="start-button"
           className={styles.startButton}
-          onClick={() => dispatch({type: 'toggleGameStarted', payload: true})}
+          onClick={() => dispatch({type: "toggleGameStarted", payload: true})}
         >
           Start
         </button>
