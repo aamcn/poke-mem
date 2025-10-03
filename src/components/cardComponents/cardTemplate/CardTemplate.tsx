@@ -1,7 +1,7 @@
 import type PokemonCardObject from "./cardConstructor/cardConstructor";
 import { useGameContext } from "../../gameComponents/game/Game";
 import styles from "./cardTemplate.module.css";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 interface CardTemplateProps {
   key?: number; // Optional key prop for list rendering
