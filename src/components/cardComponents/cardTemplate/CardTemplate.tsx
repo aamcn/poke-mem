@@ -17,6 +17,21 @@ function CardTemplate({ cardDetails }: CardTemplateProps) {
     is set to true ending the game which renders the gameOver pop up menu component.
   */
 
+  const handleCardClick = () => {
+    if (cardDetails.isClicked === false) {
+      dispatch({ type: "incrementScore", payload: null });
+      cardDetails.isClicked = true;
+    } else if (cardDetails.isClicked === true) {
+      dispatch({ type: "toggleGameLost", payload: true });
+    }
+  };
+
+  const cardClassSize = useMemo(() => {
+    if(state.cardTotal === 9) return [styles.nineCardContainer, styles.nineImageContainer];
+    if(state.cardTotal === 6) return [styles.sixCardContainer, styles.sixImageContainer];
+    if(state.cardTotal === 4) return [styles.fourCardContainer, styles.fourImageContainer];
+    return ['', ''];
+  }, [state.cardTotal]);
 
   return (
     <div
