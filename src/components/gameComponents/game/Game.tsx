@@ -1,6 +1,7 @@
 import GameMenu from "../gameMenu/GameMenu";
 import { useContext, createContext, useReducer } from "react";
 import styles from "./game.module.css";
+import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -70,7 +71,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
     // Toggle the game difficulty value.
     case "toggleGameDifficulty":
       return {
-        gameStarted: !state.gameStarted,
+        gameStarted: state.gameStarted,
         gameWon: state.gameWon,
         gameLost: state.gameLost,
         gameDifficulty: payload[0] as string,
@@ -80,7 +81,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
     // Change the game won boolean value.
     case "toggleGameWon":
       return {
-        gameStarted: !state.gameStarted,
+        gameStarted: state.gameStarted,
         gameWon: payload as boolean,
         gameLost: state.gameLost,
         gameDifficulty: state.gameDifficulty,
@@ -90,7 +91,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
     // Change the game lost boolean value.
     case "toggleGameLost":
       return {
-        gameStarted: !state.gameStarted,
+        gameStarted: state.gameStarted,
         gameWon: payload as boolean,
         gameLost: state.gameLost,
         gameDifficulty: state.gameDifficulty,
@@ -100,7 +101,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
     // Increment the score by 1.
     case "incrementScore":
       return {
-        gameStarted: !state.gameStarted,
+        gameStarted: state.gameStarted,
         gameWon: state.gameWon,
         gameLost: state.gameLost,
         gameDifficulty: state.gameDifficulty,
@@ -154,6 +155,8 @@ function Game() {
     dispatch,
   };
 
+  console.log("Game State:", state);
+
   return (
     <div className={styles.gameContainer} data-testid="game-container">
       <div
@@ -161,7 +164,8 @@ function Game() {
         data-testid="game-info-container"
       ></div>
       <GameContext.Provider value={gameContextValue}>
-        <GameMenu />
+        { !state.gameStarted && <GameMenu /> }
+        <CardsDisplay />
       </GameContext.Provider>
     </div>
   );
