@@ -155,6 +155,11 @@ function Game() {
   const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
   const [chosenPokemon, setChosenPokemon] = useState<Array<object>>([]);
 
+  const gameContextValue: GameContextType = {
+    state,
+    dispatch,
+  };
+  
   const apiUrlPrefix = "https://pokeapi.co/api/v2/pokemon/";
 
 /* Resets chosenPokemon and pokeApiUrls to original value.
@@ -188,10 +193,7 @@ useEffect(() => {
   console.log(allPokemonObjects);
 }, [allPokemonObjects]);
 
-  const gameContextValue: GameContextType = {
-    state,
-    dispatch,
-  };
+
 
   return (
     <div className={styles.gameContainer} data-testid="game-container">
