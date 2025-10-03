@@ -1,5 +1,5 @@
 import GameMenu from "../gameMenu/GameMenu";
-import { useContext, createContext, useReducer } from "react";
+import { useContext, createContext, useReducer, useEffect, useState, useMemo} from "react";
 import styles from "./game.module.css";
 import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
 
@@ -140,6 +140,7 @@ export const useGameContext = () => {
   return context;
 };
 
+
 function Game() {
   const [state, dispatch] = useReducer(gameReducer, {
     gameStarted: false,
@@ -150,12 +151,47 @@ function Game() {
     score: 0,
   });
 
+
+  const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
+  const [chosenPokemon, setChosenPokemon] = useState<Array<object>>([]);
+
+  const apiUrlPrefix = "https://pokeapi.co/api/v2/pokemon/";
+
+/* Resets chosenPokemon and pokeApiUrls to original value.
+     Creates and stores random pokemon api urls by appending the apiUrl
+     with a random number. if a duplicate url is created it is disregarded.
+  */
+
+
+function generatePokemonUrls() {
+  setAllPokemonObjects([]);
+  const pokemon: Array<object> = [];
+  console.log("Generating Pokemon URLs...");
+  for (let i = 1; i < 3; i++) {
+   const pokeUrl = apiUrlPrefix + i;
+   console.log(pokeUrl);
+    fetch(pokeUrl, { mode: "cors" })
+      .then((response) => response.json())
+      .then((response) =>
+        setAllPokemonObjects((prev) => [...prev, response])
+      )
+      .catch((error) => console.error(error));
+  }
+  return pokemon;
+}
+
+useEffect(() => {
+     generatePokemonUrls();
+}, []);
+
+useEffect(() => {
+  console.log(allPokemonObjects);
+}, [allPokemonObjects]);
+
   const gameContextValue: GameContextType = {
     state,
     dispatch,
   };
-
-  console.log("Game State:", state);
 
   return (
     <div className={styles.gameContainer} data-testid="game-container">
@@ -165,7 +201,7 @@ function Game() {
       ></div>
       <GameContext.Provider value={gameContextValue}>
         { !state.gameStarted && <GameMenu /> }
-        <CardsDisplay />
+        <CardsDisplay allPokemonObjects={allPokemonObjects} />
       </GameContext.Provider>
     </div>
   );
