@@ -1,9 +1,33 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./cardsDisplay.module.css";
 import { useGameContext } from "../../gameComponents/game/Game";
+import  { v4 as uuidv4 } from "uuid";
+import PokemonCardObject from "../cardTemplate/cardConstructor/cardConstructor";
 
-function CardsDisplay() {
+// First, fix the props interface - assuming allPokemonObjects should be an array
+interface CardsDisplayProps {
+  allPokemonObjects: Array<Pokemon>; // Change this to be an array of Pokemon
+}
+
+interface Pokemon {
+  name: string;
+  sprites: {
+    other: {
+      dream_world: {
+        front_default: string;
+      };
+    };
+  };
+  types: Array<{
+    type: {
+      name: string;
+    };
+  }>;
+}
+
+function CardsDisplay({ allPokemonObjects }: CardsDisplayProps ) {
   const [isHidden, setIsHidden] = useState(false);
+  const [cardObjects, setCardObjects] = useState<Array<PokemonCardObject>>([]);
   const { state, dispatch } = useGameContext();
 
   // If isHidden is true, set it back to false after 0.5 seconds to re-render the cards.
@@ -17,6 +41,31 @@ function CardsDisplay() {
     }
   }, [isHidden]);
 
+  useEffect(() => {
+    console.log("CardsDisplay state:", allPokemonObjects);
+    if (allPokemonObjects && allPokemonObjects.length > 0) {
+      createCardObjects(allPokemonObjects);
+    }
+  }, [allPokemonObjects]);
+
+    useEffect(() => {
+      console.log(cardObjects);
+  }, [cardObjects]);
+
+
+  function createCardObjects(chosenPokemon: Array<Pokemon>) {
+    // Clear existing card objects before creating new ones
+    setCardObjects([]);
+    chosenPokemon.map((pokemon) => {
+      const newId = uuidv4();
+      const imageUrl = pokemon.sprites.other.dream_world.front_default;
+      const name = pokemon.name;
+      const type = pokemon.types[0].type.name;
+        const newCard = new PokemonCardObject(name, imageUrl, newId, type);
+        setCardObjects((cardObjects) => [...cardObjects, newCard]);
+      })
+     }
+  
   // Determine the appropriate CSS class based on the card total.
   const cardContainerClass = useMemo(() => {
     if (state.cardTotal === 9) return styles.nineCardsContainer;
