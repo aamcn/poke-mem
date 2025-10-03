@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./cardsDisplay.module.css";
 import { useGameContext } from "../../gameComponents/game/Game";
-import  { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import PokemonCardObject from "../cardTemplate/cardConstructor/cardConstructor";
+import CardTemplate from "../cardTemplate/CardTemplate";
 
 // First, fix the props interface - assuming allPokemonObjects should be an array
 interface CardsDisplayProps {
@@ -25,7 +26,7 @@ interface Pokemon {
   }>;
 }
 
-function CardsDisplay({ allPokemonObjects }: CardsDisplayProps ) {
+function CardsDisplay({ allPokemonObjects }: CardsDisplayProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [cardObjects, setCardObjects] = useState<Array<PokemonCardObject>>([]);
   const { state, dispatch } = useGameContext();
@@ -42,16 +43,12 @@ function CardsDisplay({ allPokemonObjects }: CardsDisplayProps ) {
   }, [isHidden]);
 
   useEffect(() => {
-    console.log("CardsDisplay state:", allPokemonObjects);
     if (allPokemonObjects && allPokemonObjects.length > 0) {
       createCardObjects(allPokemonObjects);
     }
   }, [allPokemonObjects]);
 
-    useEffect(() => {
-      console.log(cardObjects);
-  }, [cardObjects]);
-
+  useEffect(() => {}, [cardObjects]);
 
   function createCardObjects(chosenPokemon: Array<Pokemon>) {
     // Clear existing card objects before creating new ones
@@ -61,11 +58,11 @@ function CardsDisplay({ allPokemonObjects }: CardsDisplayProps ) {
       const imageUrl = pokemon.sprites.other.dream_world.front_default;
       const name = pokemon.name;
       const type = pokemon.types[0].type.name;
-        const newCard = new PokemonCardObject(name, imageUrl, newId, type);
-        setCardObjects((cardObjects) => [...cardObjects, newCard]);
-      })
-     }
-  
+      const newCard = new PokemonCardObject(name, imageUrl, newId, type);
+      setCardObjects((cardObjects) => [...cardObjects, newCard]);
+    });
+  }
+
   // Determine the appropriate CSS class based on the card total.
   const cardContainerClass = useMemo(() => {
     if (state.cardTotal === 9) return styles.nineCardsContainer;
@@ -78,6 +75,9 @@ function CardsDisplay({ allPokemonObjects }: CardsDisplayProps ) {
     <div className={cardContainerClass}>
       <h1>Cards Display</h1>
       {/* Render your card components here */}
+      {cardObjects && cardObjects.map((card) => (
+        <CardTemplate key={card.id} cardDetails={card} />
+      ))}
     </div>
   );
 }
