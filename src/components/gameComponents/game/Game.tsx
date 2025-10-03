@@ -9,6 +9,7 @@ import {
 import styles from "./game.module.css";
 import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
 import ScoreBoard from "../scoreBoard/scoreBoard";
+import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -98,8 +99,8 @@ function gameReducer(state: gameObjectState, action: AppActions) {
     case "toggleGameLost":
       return {
         gameStarted: state.gameStarted,
-        gameWon: payload as boolean,
-        gameLost: state.gameLost,
+        gameWon: state.gameWon,
+        gameLost: payload as boolean,
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score,
@@ -203,7 +204,10 @@ function Game() {
       <GameContext.Provider value={gameContextValue}>
         <ScoreBoard />
         {!state.gameStarted && <GameMenu />}
-        <CardsDisplay allPokemonObjects={allPokemonObjects} />
+        {state.gameLost && <GameOverPopUp />}
+        {state.gameStarted && !state.gameLost && !state.gameWon && (
+          <CardsDisplay allPokemonObjects={allPokemonObjects} />
+        )}
       </GameContext.Provider>
     </div>
   );
