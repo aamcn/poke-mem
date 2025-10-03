@@ -1,0 +1,64 @@
+.scoreBoardContainer {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  color: rgb(24, 61, 61);
+  font-size: 5vw;
+  text-shadow: rgb(65, 165, 165) 0.1em 0.1em 0.1em;
+  border: solid 0.1em;
+}
+
+
+.scoreTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 768px) {
+  .scoreBoardContainer {
+    font-size: 4vw;
+  }
+
+  .scoreTextContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .scoreBoardContainer {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%;
+    justify-self: center;
+    font-size: 2.5vw;
+    text-align: left;
+    padding: 1em;
+    border: solid 0.2em;
+  }
+
+  .scoreTextContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* 
+
+ @media screen and (min-width:1200px) {
+  
+  .scoreBoardContainer {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    font-size:2.5vw;
+    text-shadow: rgb(138, 5, 45) 0.4em 0.2em 0.1em;
+ }
+} */
