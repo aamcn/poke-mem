@@ -4,8 +4,13 @@ import React from "react";
 const RouterErrorPage = () => {
   return (
     <div>
-      <h1>Oh no, this route doesn`&apos;`t exist!</h1>
-      <Link to="/">
+      <h1 aria-label="Error Heading: Oh no, this route doesn't exist!">
+        Oh no, this route doesn't exist!
+      </h1>
+      <Link
+        to="/"
+        aria-label="Home Page Link: Go back to the home page by clicking here"
+      >
         You can go back to the home page by clicking here, though!
       </Link>
     </div>

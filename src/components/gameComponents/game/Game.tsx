@@ -148,6 +148,7 @@ export const useGameContext = () => {
 };
 
 function Game() {
+  // Use useReducer to manage the game state. Initial state is defined here.
   const [state, dispatch] = useReducer(gameReducer, {
     gameStarted: false,
     gameWon: false,
@@ -160,40 +161,32 @@ function Game() {
   const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
   const [chosenPokemon, setChosenPokemon] = useState<Array<object>>([]);
 
-  const gameContextValue: GameContextType = {
-    state,
-    dispatch,
-  };
+  // Value to be provided by the GameContext
+  const gameContextValue: GameContextType = {state, dispatch};
 
   const apiUrlPrefix = "https://pokeapi.co/api/v2/pokemon/";
-
-  /* Resets chosenPokemon and pokeApiUrls to original value.
-     Creates and stores random pokemon api urls by appending the apiUrl
-     with a random number. if a duplicate url is created it is disregarded.
-  */
-
+  // Fetch Pokemon data from the API and store it in allPokemonDataObjects
   function generatePokemonUrls() {
     setAllPokemonObjects([]);
     const pokemon: Array<object> = [];
-    console.log("Generating Pokemon URLs...");
     for (let i = 1; i < 3; i++) {
+      // Generate the API URL for each Pokemon
       const pokeUrl = apiUrlPrefix + i;
-      console.log(pokeUrl);
+      // Fetch the Pokemon data from the API
       fetch(pokeUrl, { mode: "cors" })
         .then((response) => response.json())
+        // Add the fetched Pokemon data to the array
         .then((response) => setAllPokemonObjects((prev) => [...prev, response]))
         .catch((error) => console.error(error));
     }
     return pokemon;
   }
 
+  //MAKE USECALLBACK
   useEffect(() => {
+    // Generate Pokemon URLs when the component mounts
     generatePokemonUrls();
   }, []);
-
-  useEffect(() => {
-    console.log(allPokemonObjects);
-  }, [allPokemonObjects]);
 
   return (
     <div className={styles.gameContainer} data-testid="game-container">

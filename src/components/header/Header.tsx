@@ -4,10 +4,7 @@ import Navbar from "../navBar/NavBar";
 
 function Header() {
   return (
-    <header
-      className={styles.headerContainer}
-      data-testid="header"
-    >
+    <header className={styles.headerContainer} data-testid="header">
       <Navbar />
       <div
         className={styles.titleContainer}

@@ -1,5 +1,6 @@
 import styles from "./gameMenu.module.css";
 import { useGameContext } from "../game/Game";
+
 function GameMenu() {
   // Access the game state and dispatch function from the context
   const { state, dispatch } = useGameContext();
@@ -11,6 +12,7 @@ function GameMenu() {
           Menu
         </h2>
       </div>
+
       <div className={styles.difficultyContainer}>
         <p
           data-testid="difficulty-title"
@@ -19,6 +21,7 @@ function GameMenu() {
         >
           Choose Your Difficulty
         </p>
+
         <p
           data-testid="difficultyText"
           aria-label={`Current Difficulty: ${state.gameDifficulty} and Card Total: ${state.cardTotal}`}
@@ -26,6 +29,7 @@ function GameMenu() {
         >
           {state.gameDifficulty} - {state.cardTotal} Cards
         </p>
+
         <div className={styles.difficultyButtons}>
           <button
             data-testid="easy-button"
@@ -39,6 +43,7 @@ function GameMenu() {
           >
             Easy
           </button>
+
           <button
             data-testid="medium-button"
             className={styles.optionButton}
@@ -51,6 +56,7 @@ function GameMenu() {
           >
             Medium
           </button>
+
           <button
             data-testid="hard-button"
             className={styles.optionButton}

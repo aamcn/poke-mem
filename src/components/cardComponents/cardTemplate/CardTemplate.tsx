@@ -19,6 +19,7 @@ function CardTemplate({ cardDetails }: CardTemplateProps) {
 
   const handleCardClick = () => {
     if (cardDetails.isClicked === false) {
+      console.log("Card clicked:", cardDetails.isClicked);
       dispatch({ type: "incrementScore", payload: null });
       cardDetails.isClicked = true;
     } else if (cardDetails.isClicked === true) {
