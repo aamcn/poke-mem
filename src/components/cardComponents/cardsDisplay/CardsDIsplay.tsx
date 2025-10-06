@@ -25,9 +25,6 @@ interface Pokemon {
     };
   }>;
 }
-
-console.log()
-
 function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [cardObjects, setCardObjects] = useState<Array<PokemonCardObject>>([]);
@@ -50,7 +47,6 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
     }
   }, [chosenPokemon]);
 
-  useEffect(() => {}, [cardObjects]);
 
   function createCardObjects(chosenPokemon: Array<Pokemon>) {
     // Clear existing card objects before creating new ones
@@ -74,11 +70,10 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
   }, [state.cardTotal]);
 
   return (
-    <div className={cardContainerClass}>
-      <h1>Cards Display</h1>
+    !isHidden && <div className={cardContainerClass}>
       {/* Render your card components here */}
       {cardObjects && cardObjects.map((card) => (
-        <CardTemplate key={card.id} cardDetails={card} />
+        <CardTemplate key={card.id} cardDetails={card} setIsHidden={setIsHidden} />
       ))}
     </div>
   );
