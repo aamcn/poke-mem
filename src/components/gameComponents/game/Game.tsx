@@ -5,6 +5,7 @@ import {
   useReducer,
   useEffect,
   useState,
+  useMemo,
 } from "react";
 import styles from "./game.module.css";
 import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
@@ -12,6 +13,7 @@ import ScoreBoard from "../scoreBoard/scoreBoard";
 import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 import { generatePokemonUrls } from "../modules/fetchAllPokemonObjects/fetchAllPokemonObjects";
+import { getRandomInt } from "../modules/getRandomInt/getRandomInt";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -156,12 +158,11 @@ function Game() {
     gameWon: false,
     gameLost: false,
     gameDifficulty: "easy",
-    cardTotal: 4,
+    cardTotal: 0,
     score: 0,
   });
 
   const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
-  const [chosenPokemon, setChosenPokemon] = useState<Array<object>>([]);
 
   // Value to be provided by the GameContext
   const gameContextValue: GameContextType = { state, dispatch };
@@ -170,9 +171,33 @@ function Game() {
   useEffect(() => {
     // Clear previous Pokemon objects
     setAllPokemonObjects([]);
+    console.log("rendered")
     const pokemonDataObjects = generatePokemonUrls();
     setAllPokemonObjects(pokemonDataObjects);
   }, []);
+
+
+const getChosenPokemon = useMemo(() => {
+
+  //Simplify and move to module later.
+  const randomIndexNumbers: Array<number> = [];
+    for(let i = 0; i < state.cardTotal; i++){
+      const randomIndex: number = getRandomInt(0, allPokemonObjects.length - 1);
+      randomIndexNumbers.push(randomIndex);
+  }
+
+  const pokeBoys: Array<object> = [];
+  if(allPokemonObjects.length !== 0){
+    for (let i = 0; i < state.cardTotal; i++) {
+      const pokeObject = allPokemonObjects[randomIndexNumbers[i]] as object;
+      pokeBoys.push(pokeObject);
+    } 
+  }
+  console.log(pokeBoys)
+   return pokeBoys;
+}, [allPokemonObjects, state.cardTotal]);
+
+
 
   return (
     <div className={styles.gameContainer} data-testid="game-container">
@@ -186,7 +211,7 @@ function Game() {
         {state.gameLost && <GameOverPopUp />}
         {state.gameWon && <GameWonPopUp />}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
-          <CardsDisplay allPokemonObjects={allPokemonObjects} />
+        <CardsDisplay getChosenPokemon={getChosenPokemon} />
         )}
       </GameContext.Provider>
     </div>
