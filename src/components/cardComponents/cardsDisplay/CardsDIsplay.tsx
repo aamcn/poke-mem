@@ -7,7 +7,7 @@ import CardTemplate from "../cardTemplate/CardTemplate";
 import { shuffleArray } from "../modules/shuffleArray";
 
 interface CardsDisplayProps {
-  chosenPokemon: Array<Pokemon>;
+  chosenPokemon: Array<Pokemon>; 
 }
 
 interface Pokemon {
@@ -31,15 +31,25 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
   const [cardObjects, setCardObjects] = useState<Array<PokemonCardObject>>([]);
   const { state } = useGameContext();
 
-  // Determine the appropriate CSS class based on the card total.
-  const cardContainerClass = useMemo(() => {
-    if (state.cardTotal === 9) return styles.nineCardsContainer;
-    if (state.cardTotal === 6) return styles.sixCardsContainer;
-    if (state.cardTotal === 4) return styles.fourCardsContainer;
-    return "";
-  }, [state.cardTotal]);
+  // If isHidden is true, set it back to false after 0.5 seconds to re-render the cards.
+  useEffect(() => {
+    setCardObjects(shuffleArray(cardObjects));
+    if (isHidden !== false) {
+      const timer = setTimeout(() => {
+        setIsHidden(false);
+      }, 500);
+      // Cleanup function to prevent memory leaks
+      return () => clearTimeout(timer);
+    }
+  }, [isHidden]);
 
-  // Create card objects from the chosenPokemon array.
+  //
+  useEffect(() => {
+    if (chosenPokemon && chosenPokemon.length > 0) {
+      createCardObjects(chosenPokemon);
+    }
+  }, [chosenPokemon]);
+
   function createCardObjects(chosenPokemon: Array<Pokemon>) {
     if (!chosenPokemon || chosenPokemon.length === 0) return;
     // Clear existing card objects before creating new ones
@@ -54,24 +64,13 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
     });
   }
 
-  // When chosenPokemon changes, create new card objects.
-  useEffect(() => {
-    if (chosenPokemon && chosenPokemon.length > 0) {
-      createCardObjects(chosenPokemon);
-    }
-  }, [chosenPokemon]);
-
-  // If isHidden is true, set it back to false after 0.5 seconds to re-render the cards.
-  useEffect(() => {
-    setCardObjects(shuffleArray(cardObjects));
-    if (isHidden !== false) {
-      const timer = setTimeout(() => {
-        setIsHidden(false);
-      }, 500);
-      // Cleanup function to prevent memory leaks
-      return () => clearTimeout(timer);
-    }
-  }, [isHidden]);
+  // Determine the appropriate CSS class based on the card total.
+  const cardContainerClass = useMemo(() => {
+    if (state.cardTotal === 9) return styles.nineCardsContainer;
+    if (state.cardTotal === 6) return styles.sixCardsContainer;
+    if (state.cardTotal === 4) return styles.fourCardsContainer;
+    return "";
+  }, [state.cardTotal]);
 
   return (
     !isHidden && (
