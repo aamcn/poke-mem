@@ -4,6 +4,7 @@ import { useGameContext } from "../../gameComponents/game/Game";
 import { v4 as uuidv4 } from "uuid";
 import PokemonCardObject from "../cardTemplate/cardConstructor/cardConstructor";
 import CardTemplate from "../cardTemplate/CardTemplate";
+import { shuffleArray } from "../modules/shuffleArray";
 
 // First, fix the props interface - assuming allPokemonObjects should be an array
 interface CardsDisplayProps {
@@ -25,6 +26,9 @@ interface Pokemon {
     };
   }>;
 }
+
+
+
 function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [cardObjects, setCardObjects] = useState<Array<PokemonCardObject>>([]);
@@ -32,6 +36,7 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
 
   // If isHidden is true, set it back to false after 0.5 seconds to re-render the cards.
   useEffect(() => {
+    setCardObjects(shuffleArray(cardObjects));
     if (isHidden !== false) {
       const timer = setTimeout(() => {
         setIsHidden(false);
@@ -61,6 +66,8 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
     });
   }
 
+  
+
   // Determine the appropriate CSS class based on the card total.
   const cardContainerClass = useMemo(() => {
     if (state.cardTotal === 9) return styles.nineCardsContainer;
@@ -73,7 +80,7 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
     !isHidden && <div className={cardContainerClass}>
       {/* Render your card components here */}
       {cardObjects && cardObjects.map((card) => (
-        <CardTemplate key={card.id} cardDetails={card} setIsHidden={setIsHidden} />
+        <CardTemplate key={card.id} cardDetails={card} setIsHidden={setIsHidden} shuffleArray={shuffleArray} />
       ))}
     </div>
   );
