@@ -1,0 +1,98 @@
+.leaderBoardContainer {
+  height: 79dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(86, 197, 176);
+  padding: 1em;
+  margin: 1em;
+  border: double 0.5em rgb(24, 61, 61);
+  border-radius: 1em;
+  justify-self: center;
+  margin-bottom: 2em;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.leaderBoardHeader{
+  position: sticky;
+  z-index: 2;
+  top: 0;
+}
+
+.tableWrapper {
+  overflow: scroll;
+  height: 80%;
+  border: solid 0.1em rgb(24, 61, 61);
+}
+
+.leaderBoardTable {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+
+.leaderBoardEntryCell {
+  padding: 0.5em;
+  border: 1px solid  rgb(24, 61, 61);
+  font-size: 4.5vw;
+  color: #360323;
+}
+
+.leaderBoardHeader {
+  background-color:  rgb(50, 142, 142);
+  font-size: 5vw;
+  color: rgb(13, 35, 35);
+  padding: 1em;
+  border: 1px solid rgb(24, 61, 61);
+}
+
+.leaderBoardRow {
+
+  
+}
+
+@media screen and (min-width: 768px) {
+  
+}
+
+@media screen and (min-width: 1024px) {
+.leaderBoardContainer {
+  height: 70dvh;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 1em;
+  justify-self: center;
+  margin-bottom: 2em;
+  text-align: center;
+  overflow: auto;
+}
+
+.tableWrapper {
+  overflow: auto;
+  height: 90%;
+}
+
+.leaderBoardTable {
+  margin-top: 2em;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+.leaderBoardEntryCell {
+  padding: 0.5em;
+  font-size: 2vw;
+}
+
+.leaderBoardHeader {
+  background-color:  rgb(50, 142, 142);
+  font-size: 2vw;
+  color: rgb(13, 35, 35);
+  padding: 1em;
+  border: 1px solid rgb(24, 61, 61);
+}
+
+.leaderBoardRow {
+  
+  
+}
+}

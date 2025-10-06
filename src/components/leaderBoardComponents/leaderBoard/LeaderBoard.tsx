@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
+import LeaderBoardTable from "../leaderBoardTable/LeaderBoardTable";
+import { sortByTime } from "../modules/sortByTime/sortByTime";
 import styles from "./LeaderBoard.module.css";
-function LeaderBoard() {
 
+function LeaderBoard() {
   const [sortedLeaderBoardData, setSortedLeaderBoardData] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("Easy");
   const [leaderBoardData, setLeaderBoardData] = useState([]);
 
-  const easyUrl = "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/all-easy-scores";
-  const mediumUrl = "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/all-medium-scores";
-  const hardUrl = "https://memory-game-backend-production-e873.up.railway.app/hard-leader-board/all-hard-scores";
+  const easyUrl =
+    "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/all-easy-scores";
+  const mediumUrl =
+    "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/all-medium-scores";
+  const hardUrl =
+    "https://memory-game-backend-production-e873.up.railway.app/hard-leader-board/all-hard-scores";
 
   // Fetch leaderboard data based on the selected difficulty
-  const fetchLeaderBoardData = async (url) => {
+  const fetchLeaderBoardData = async (url: string) => {
     try {
       if (!url) {
         throw new Error("No URL provided");
@@ -27,8 +32,8 @@ function LeaderBoard() {
 
   // Sort leaderboard data by time and store in state.
   useEffect(() => {
-    // if (!leaderBoardData || leaderBoardData.length === 0) return;
-    // setSortedLeaderBoardData(leaderBoardData.sort(sortByTime));
+    if (!leaderBoardData || leaderBoardData.length === 0) return;
+    setSortedLeaderBoardData(leaderBoardData.sort(sortByTime));
   }, [leaderBoardData]);
 
   // Fetch leaderboard data base when the selected difficulty changes.
@@ -48,12 +53,11 @@ function LeaderBoard() {
 
   return (
     <div className={styles.leaderBoardPage} data-testid="leaderboard-page">
-      {/* <LeaderBoardHeader selectedDifficulty={selectedDifficulty} />
       <LeaderBoardTable
+        sortedLeaderBoardData={sortedLeaderBoardData}
         setSelectedDifficulty={setSelectedDifficulty}
         selectedDifficulty={selectedDifficulty}
-        sortedLeaderBoardData={sortedLeaderBoardData}
-      /> */}
+      />
     </div>
   );
 }

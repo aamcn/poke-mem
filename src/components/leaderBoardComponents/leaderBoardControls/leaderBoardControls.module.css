@@ -1,0 +1,66 @@
+.leaderBoardControls {
+  font-size: 4vw;
+  border: solid rgb(30, 1, 30);
+  border-radius: 1em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1em 0em 0.5em 0em;
+}
+
+.leaderBoardLabel {
+  font-family: "VT323", monospace;
+  letter-spacing: 0.05em;
+  font-size: 5vw;
+}
+
+.leaderBoardSelect {
+  font-family: "VT323", monospace;
+  letter-spacing: 0.05em;
+  font-size: 4.5vw;
+  padding: 0.2em 1em 0.2em 1em;
+  border: none;
+  border-radius: 0.5em;
+  color: rgb(192, 239, 255);
+  background-color:rgb(24, 61, 61); 
+  text-align: center;
+}
+
+.leaderBoardDifficulty {
+  border: none;
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+  .leaderBoardControls {
+    font-size: 2vw;
+  }
+  
+  .leaderBoardSelect {
+    padding: 0.1em 0.2em 0.1em 0.2em;
+    font-size: 2.5vw;
+  }
+
+  .leaderBoardLabel {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .leaderBoardControls {
+    font-size: 1vw;
+  }
+  
+  .leaderBoardSelect {
+    padding: 0.1em 0.2em 0.1em 0.2em;
+    font-size: 1.5vw;
+  }
+
+  .leaderBoardLabel {
+    font-size: 1.5vw;
+  }
+}
+
