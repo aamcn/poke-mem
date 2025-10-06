@@ -10,28 +10,32 @@ interface CardTemplateProps {
 
 function CardTemplate({ cardDetails }: CardTemplateProps) {
   const { state, dispatch } = useGameContext();
-  /* 
-    When the card is clicked, if it is the first time, the isClicked state is 
-    changed to 'true' and a point is added to the current score. 
-    If the card has been previously clicked (meaning isClicked is already true) gameResults
-    is set to true ending the game which renders the gameOver pop up menu component.
-  */
 
+  // Handle card click event
   const handleCardClick = () => {
+    // If the card has not been clicked, increment score and mark as clicked.
     if (cardDetails.isClicked === false) {
-      console.log("Card clicked:", cardDetails.isClicked);
       dispatch({ type: "incrementScore", payload: null });
       cardDetails.isClicked = true;
+      // Check if the game is won after score increment, if true toggle game won state.
+      if (state.score + 1 === state.cardTotal) {
+        dispatch({ type: "toggleGameWon", payload: true });
+      }
+      // If the card has already been clicked, toggle game lost state.
     } else if (cardDetails.isClicked === true) {
       dispatch({ type: "toggleGameLost", payload: true });
     }
   };
 
+  // Determine card className based on state.cardTotal value on render/ cardTotal change.
   const cardClassSize = useMemo(() => {
-    if(state.cardTotal === 9) return [styles.nineCardContainer, styles.nineImageContainer];
-    if(state.cardTotal === 6) return [styles.sixCardContainer, styles.sixImageContainer];
-    if(state.cardTotal === 4) return [styles.fourCardContainer, styles.fourImageContainer];
-    return ['', ''];
+    if (state.cardTotal === 9)
+      return [styles.nineCardContainer, styles.nineImageContainer];
+    if (state.cardTotal === 6)
+      return [styles.sixCardContainer, styles.sixImageContainer];
+    if (state.cardTotal === 4)
+      return [styles.fourCardContainer, styles.fourImageContainer];
+    return ["", ""];
   }, [state.cardTotal]);
 
   return (
