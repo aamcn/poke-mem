@@ -10,6 +10,7 @@ import styles from "./game.module.css";
 import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
 import ScoreBoard from "../scoreBoard/scoreBoard";
 import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
+import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -169,7 +170,7 @@ function Game() {
   function generatePokemonUrls() {
     setAllPokemonObjects([]);
     const pokemon: Array<object> = [];
-    for (let i = 1; i < 3; i++) {
+    for (let i = 1; i < 5; i++) {
       // Generate the API URL for each Pokemon
       const pokeUrl = apiUrlPrefix + i;
       // Fetch the Pokemon data from the API
@@ -198,6 +199,7 @@ function Game() {
         <ScoreBoard />
         {!state.gameStarted && <GameMenu />}
         {state.gameLost && <GameOverPopUp />}
+        {state.gameWon && <GameWonPopUp />}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
           <CardsDisplay allPokemonObjects={allPokemonObjects} />
         )}
