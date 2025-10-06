@@ -22,13 +22,13 @@ function GameMenu() {
           Choose Your Difficulty
         </p>
 
-        <p
+       {state.cardTotal > 0 &&  <p
           data-testid="difficultyText"
           aria-label={`Current Difficulty: ${state.gameDifficulty} and Card Total: ${state.cardTotal}`}
           className={styles.currentDifficultyText}
         >
           {state.gameDifficulty} - {state.cardTotal} Cards
-        </p>
+        </p>}
 
         <div className={styles.difficultyButtons}>
           <button
