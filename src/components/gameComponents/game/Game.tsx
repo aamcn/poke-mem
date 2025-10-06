@@ -11,6 +11,7 @@ import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
 import ScoreBoard from "../scoreBoard/scoreBoard";
 import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
+import { generatePokemonUrls } from "../modules/fetchAllPokemonObjects/fetchAllPokemonObjects";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -163,30 +164,14 @@ function Game() {
   const [chosenPokemon, setChosenPokemon] = useState<Array<object>>([]);
 
   // Value to be provided by the GameContext
-  const gameContextValue: GameContextType = {state, dispatch};
+  const gameContextValue: GameContextType = { state, dispatch };
 
-  const apiUrlPrefix = "https://pokeapi.co/api/v2/pokemon/";
-  // Fetch Pokemon data from the API and store it in allPokemonDataObjects
-  function generatePokemonUrls() {
-    setAllPokemonObjects([]);
-    const pokemon: Array<object> = [];
-    for (let i = 1; i < 5; i++) {
-      // Generate the API URL for each Pokemon
-      const pokeUrl = apiUrlPrefix + i;
-      // Fetch the Pokemon data from the API
-      fetch(pokeUrl, { mode: "cors" })
-        .then((response) => response.json())
-        // Add the fetched Pokemon data to the array
-        .then((response) => setAllPokemonObjects((prev) => [...prev, response]))
-        .catch((error) => console.error(error));
-    }
-    return pokemon;
-  }
-
-  //MAKE USECALLBACK
+  // Fetch all Pokemon objects when the component mounts
   useEffect(() => {
-    // Generate Pokemon URLs when the component mounts
-    generatePokemonUrls();
+    // Clear previous Pokemon objects
+    setAllPokemonObjects([]);
+    const pokemonDataObjects = generatePokemonUrls();
+    setAllPokemonObjects(pokemonDataObjects);
   }, []);
 
   return (
