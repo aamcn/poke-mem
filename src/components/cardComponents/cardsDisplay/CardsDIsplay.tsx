@@ -7,7 +7,7 @@ import CardTemplate from "../cardTemplate/CardTemplate";
 
 // First, fix the props interface - assuming allPokemonObjects should be an array
 interface CardsDisplayProps {
-  getChosenPokemon: Array<Pokemon>; // Change this to be a function returning an array of Pokemon
+  chosenPokemon: Array<Pokemon>; // Change this to be a function returning an array of Pokemon
 }
 
 interface Pokemon {
@@ -28,7 +28,7 @@ interface Pokemon {
 
 console.log()
 
-function CardsDisplay({ getChosenPokemon }: CardsDisplayProps) {
+function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [cardObjects, setCardObjects] = useState<Array<PokemonCardObject>>([]);
   const { state, dispatch } = useGameContext();
@@ -45,10 +45,10 @@ function CardsDisplay({ getChosenPokemon }: CardsDisplayProps) {
   }, [isHidden]);
 
   useEffect(() => {
-    if (getChosenPokemon && getChosenPokemon.length > 0) {
-      createCardObjects(getChosenPokemon);
+    if (chosenPokemon && chosenPokemon.length > 0) {
+      createCardObjects(chosenPokemon);
     }
-  }, [getChosenPokemon]);
+  }, [chosenPokemon]);
 
   useEffect(() => {}, [cardObjects]);
 
