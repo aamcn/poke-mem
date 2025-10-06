@@ -1,9 +1,8 @@
-import { useState } from "react";
 import styles from "./GameWonPopUp.module.css";
 import { useGameContext } from "../game/Game";
 
 function GameWonPopUp() {
-  const { state, dispatch } = useGameContext();
+  const { dispatch } = useGameContext();
 
   /*
   TODO: 

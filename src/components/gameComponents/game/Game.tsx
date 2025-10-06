@@ -126,7 +126,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameWon: false,
         gameLost: false,
         gameDifficulty: "Easy",
-        cardTotal: 4,
+        cardTotal: 0,
         score: 0,
       };
     default:
@@ -201,7 +201,7 @@ function Game() {
         {state.gameLost && <GameOverPopUp />}
         {state.gameWon && <GameWonPopUp />}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
-          <CardsDisplay chosenPokemon={chosenPokemon} />
+        <CardsDisplay chosenPokemon={chosenPokemon} />
         )}
       </GameContext.Provider>
     </div>

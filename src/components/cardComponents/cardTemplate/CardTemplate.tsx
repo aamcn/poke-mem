@@ -4,9 +4,9 @@ import styles from "./cardTemplate.module.css";
 import { useMemo } from "react";
 
 interface CardTemplateProps {
-  key?: number; // Optional key prop for list rendering
+  key?: string; // Optional key prop for list rendering
   cardDetails: PokemonCardObject; // Make this optional to avoid errors if not provided
-  setIsHidden: (value: boolean) => boolean; // Optional function to set hidden state
+  setIsHidden: (value: boolean) => void; // Optional function to set hidden state
 }
 
 function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
@@ -19,7 +19,7 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
       setIsHidden(true);
       dispatch({ type: "incrementScore", payload: null });
       cardDetails.isClicked = true;
-      
+
       // Check if the game is won after score increment, if true toggle game won state.
       if (state.score + 1 === state.cardTotal) {
         dispatch({ type: "toggleGameWon", payload: true });

@@ -1,8 +1,12 @@
 import { useGameContext } from "../../gameComponents/game/Game";
 import styles from "./scoreBoard.module.css";
 
-//Displays current score and high score during games
-//When player scores or beats the high score the component re-renders with updated props
+/* 
+Todo:
+  - Add high score functionality.
+  - Move scoreboard to container at top of screen.
+*/
+
 function ScoreBoard() {
   // Access state and dispatch from the game context
   const { state } = useGameContext();
