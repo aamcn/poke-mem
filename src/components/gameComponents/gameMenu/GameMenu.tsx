@@ -9,24 +9,28 @@ function GameMenu() {
 
   const handleStartGame = () => {
     // Dispatch an action to start the game
-    if(state.cardTotal === 0) { 
+    if (state.cardTotal === 0) {
       setError(true);
-      return; 
+      return;
     }
-     dispatch({ type: "toggleGameStarted", payload: true })
-  }
-  
-  // If error is true, set it back to false after 4 seconds to hide the error message.
+    dispatch({ type: "toggleGameStarted", payload: true });
+  };
+
   useEffect(() => {
-     if (error) {
+    //If user has selected a difficulty and error is true, set error back to false.
+    if (error && state.cardTotal !== 0) {
+      setError(false);
+      return;
+    }
+    // If user has not selected a difficulty, set it back to false after 4 seconds to hide the error message.
+    if (error && state.cardTotal === 0) {
       const timer = setTimeout(() => {
         setError(false);
       }, 4000);
       // Cleanup function to prevent memory leaks
       return () => clearTimeout(timer);
     }
-  }, [error]);  
-
+  }, [error, state.cardTotal]);
 
   return (
     <div className={styles.gameMenuContainer} data-testid="game-menu-container">
@@ -44,7 +48,11 @@ function GameMenu() {
         >
           Choose Your Difficulty
         </p>
-        {error && <p className={styles.errorText}>Please select a difficulty before starting the game.</p>}
+        {error && (
+          <p className={styles.errorText}>
+            Please select a difficulty before starting the game.
+          </p>
+        )}
         {state.cardTotal > 0 && (
           <p
             data-testid="difficultyText"
