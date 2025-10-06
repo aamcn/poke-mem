@@ -1,8 +1,6 @@
 import { useGameContext } from "../../gameComponents/game/Game";
 import styles from "./scoreBoard.module.css";
 
-
-
 /* 
 Todo:
   - Move scoreboard to container at top of screen.
@@ -11,7 +9,6 @@ Todo:
 function ScoreBoard() {
   // Access state and dispatch from the game context
   const { state } = useGameContext();
-
 
   function updateHighScore() {
     if(localStorage.getItem('highScore') === null) {

@@ -1,9 +1,32 @@
 import styles from "./gameMenu.module.css";
 import { useGameContext } from "../game/Game";
+import { useEffect, useState } from "react";
 
 function GameMenu() {
   // Access the game state and dispatch function from the context
   const { state, dispatch } = useGameContext();
+  const [error, setError] = useState(false);
+
+  const handleStartGame = () => {
+    // Dispatch an action to start the game
+    if(state.cardTotal === 0) { 
+      setError(true);
+      return; 
+    }
+     dispatch({ type: "toggleGameStarted", payload: true })
+  }
+  
+  // If error is true, set it back to false after 4 seconds to hide the error message.
+  useEffect(() => {
+     if (error) {
+      const timer = setTimeout(() => {
+        setError(false);
+      }, 4000);
+      // Cleanup function to prevent memory leaks
+      return () => clearTimeout(timer);
+    }
+  }, [error]);  
+
 
   return (
     <div className={styles.gameMenuContainer} data-testid="game-menu-container">
@@ -21,7 +44,7 @@ function GameMenu() {
         >
           Choose Your Difficulty
         </p>
-
+        {error && <p className={styles.errorText}>Please select a difficulty before starting the game.</p>}
         {state.cardTotal > 0 && (
           <p
             data-testid="difficultyText"
@@ -78,7 +101,7 @@ function GameMenu() {
           data-testid="start-button"
           className={styles.startButton}
           // Dispatch an action to start the game
-          onClick={() => dispatch({ type: "toggleGameStarted", payload: true })}
+          onClick={handleStartGame}
           aria-label="Start Game"
         >
           Start Game
