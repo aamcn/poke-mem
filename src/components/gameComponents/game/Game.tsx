@@ -13,7 +13,7 @@ import ScoreBoard from "../scoreBoard/scoreBoard";
 import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 import { generatePokemonUrls } from "../modules/fetchAllPokemonObjects/fetchAllPokemonObjects";
-import { getRandomInt } from "../modules/getRandomInt/getRandomInt";
+import { getRandomIndexArray } from "../modules/getRandomIndexArray/getRandomIndexArray";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -169,35 +169,25 @@ function Game() {
 
   // Fetch all Pokemon objects when the component mounts
   useEffect(() => {
-    // Clear previous Pokemon objects
-    setAllPokemonObjects([]);
-    console.log("rendered")
+    setAllPokemonObjects([]); // Clear existing data before fetching new data
     const pokemonDataObjects = generatePokemonUrls();
     setAllPokemonObjects(pokemonDataObjects);
   }, []);
 
-
-const getChosenPokemon = useMemo(() => {
-
-  //Simplify and move to module later.
-  const randomIndexNumbers: Array<number> = [];
-    for(let i = 0; i < state.cardTotal; i++){
-      const randomIndex: number = getRandomInt(0, allPokemonObjects.length - 1);
-      randomIndexNumbers.push(randomIndex);
-  }
-
-  const pokeBoys: Array<object> = [];
-  if(allPokemonObjects.length !== 0){
-    for (let i = 0; i < state.cardTotal; i++) {
-      const pokeObject = allPokemonObjects[randomIndexNumbers[i]] as object;
-      pokeBoys.push(pokeObject);
-    } 
-  }
-  console.log(pokeBoys)
-   return pokeBoys;
-}, [allPokemonObjects, state.cardTotal]);
-
-
+  const chosenPokemon = useMemo(() => {
+    // Get an array of random index numbers based on the current card total.
+    const randomIndexNumbers = getRandomIndexArray(state.cardTotal);
+    // Use the random index numbers to select Pokemon card data objects from allPokemonObjects.
+    const randomPokemonArray: Array<object> = [];
+    if (allPokemonObjects.length !== 0) {
+      //Add error handling for when allPokemonObjects is empty.
+      for (let i = 0; i < state.cardTotal; i++) {
+        const pokeObject = allPokemonObjects[randomIndexNumbers[i]] as object;
+        randomPokemonArray.push(pokeObject);
+      }
+    }
+    return randomPokemonArray;
+  }, [allPokemonObjects, state.cardTotal]);
 
   return (
     <div className={styles.gameContainer} data-testid="game-container">
@@ -211,7 +201,7 @@ const getChosenPokemon = useMemo(() => {
         {state.gameLost && <GameOverPopUp />}
         {state.gameWon && <GameWonPopUp />}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
-        <CardsDisplay getChosenPokemon={getChosenPokemon} />
+          <CardsDisplay chosenPokemon={chosenPokemon} />
         )}
       </GameContext.Provider>
     </div>
