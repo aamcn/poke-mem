@@ -15,7 +15,7 @@ function Navbar() {
       <Link
         id="leaderboard-link"
         to="/leader-board"
-        aria-label="Leader Board Link"
+        aria-label="Leaderboard Link"
       >
         Leader Board
       </Link>

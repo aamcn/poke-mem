@@ -6,10 +6,12 @@ import PokemonCardObject from "../cardTemplate/cardConstructor/cardConstructor";
 import CardTemplate from "../cardTemplate/CardTemplate";
 import { shuffleArray } from "../modules/shuffleArray";
 
+// Define the props for the CardsDisplay component.
 interface CardsDisplayProps {
   chosenPokemon: Array<Pokemon>; 
 }
 
+// Define the structure of a Pokemon object based on the expected data.
 interface Pokemon {
   name: string;
   sprites: {
@@ -43,7 +45,7 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
     }
   }, [isHidden]);
 
-  //
+  // When chosenPokemon changes, create new card objects.
   useEffect(() => {
     if (chosenPokemon && chosenPokemon.length > 0) {
       createCardObjects(chosenPokemon);
