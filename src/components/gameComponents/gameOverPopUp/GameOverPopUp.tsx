@@ -24,22 +24,13 @@ function GameOverPopUp() {
         <p aria-label="You already clicked on that">
           You already clicked on that
         </p>
-      </div>
-      <div>
-        <p aria-label="Your final time was:">Your final time was:</p>
-        <p
-          data-testid="final-time"
-          className={styles.finalTimeText}
-          aria-label={`Final Time: ${state.finalTime}`}
-        >
-          {state.finalTime}
-        </p>
-      </div>
-      <div>
-        <p aria-label="Would you like to try again?">
+          <br></br>
+         <p aria-label="Would you like to try again?">
           Would you like to try again?
         </p>
-        <br></br>
+      </div>
+      <div>
+       
         <button
           className={styles.retryButton}
           onClick={handleClickRetry}
