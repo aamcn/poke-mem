@@ -52,13 +52,13 @@ function LeaderBoard() {
   }, [selectedDifficulty]);
 
   return (
-    <div className={styles.leaderBoardPage} data-testid="leaderboard-page">
+    <>
       <LeaderBoardTable
         sortedLeaderBoardData={sortedLeaderBoardData}
         setSelectedDifficulty={setSelectedDifficulty}
         selectedDifficulty={selectedDifficulty}
       />
-    </div>
+    </>
   );
 }
 

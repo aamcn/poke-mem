@@ -18,18 +18,24 @@ interface LeaderBoardTableProps {
 }
 
 // Component to display the leaderboard table if no data is available.
-function LeaderBoardTable({ sortedLeaderBoardData, setSelectedDifficulty, selectedDifficulty }: LeaderBoardTableProps) {
+function LeaderBoardTable({
+  sortedLeaderBoardData,
+  setSelectedDifficulty,
+  selectedDifficulty,
+}: LeaderBoardTableProps) {
   if (!sortedLeaderBoardData || sortedLeaderBoardData.length === 0) {
     return (
-      <div
-        className={styles.leaderBoardContainer}
-        data-testid="leaderboard-container"
-      >
-        <LeaderBoardControls 
-          setSelectedDifficulty={setSelectedDifficulty}
-          selectedDifficulty={selectedDifficulty}
-        />
-        <p>No data available</p>
+      <div>
+        <div
+          className={styles.leaderBoardContainer}
+          data-testid="leaderboard-container"
+        >
+          <LeaderBoardControls
+            setSelectedDifficulty={setSelectedDifficulty}
+            selectedDifficulty={selectedDifficulty}
+          />
+          <p>No data available</p>
+        </div>
       </div>
     );
   }
@@ -41,7 +47,7 @@ function LeaderBoardTable({ sortedLeaderBoardData, setSelectedDifficulty, select
         className={styles.leaderBoardContainer}
         data-testid="leaderboard-container"
       >
-        <LeaderBoardControls 
+        <LeaderBoardControls
           setSelectedDifficulty={setSelectedDifficulty}
           selectedDifficulty={selectedDifficulty}
         />
@@ -82,7 +88,9 @@ function LeaderBoardTable({ sortedLeaderBoardData, setSelectedDifficulty, select
                   </td>
                   <td
                     className={styles.leaderBoardEntryCell}
-                    aria-label={`Player Name ${capitaliseString(entry.player_name)}`}
+                    aria-label={`Player Name ${capitaliseString(
+                      entry.player_name
+                    )}`}
                   >
                     {capitaliseString(entry.player_name)}
                   </td>

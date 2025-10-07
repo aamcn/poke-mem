@@ -52,13 +52,17 @@
 }
 
 @media screen and (min-width: 768px) {
-  
+
+.leaderBoardContainer{
+  height: 70dvh;
+  width: 60dvw;
+}
+
 }
 
 @media screen and (min-width: 1024px) {
 .leaderBoardContainer {
-  height: 70dvh;
-  width: 60dvw;
+  width: 80dvw;
   padding: 1em;
   margin: 1em;
   border-radius: 1em;
