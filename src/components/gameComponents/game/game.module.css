@@ -1,7 +1,12 @@
 .gameContainer {
   display: grid;
   height: 90dvh;
-  grid-template-rows: 0.5fr 11.5fr;
+  grid-template-rows: 1fr 11fr;
+}
+
+.gameInfoContainer{
+  align-content: center;
+  
 }
 
 @media screen and (min-width: 1024px) {
