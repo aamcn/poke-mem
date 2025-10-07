@@ -3,9 +3,8 @@
   align-content: center;
   grid-template-columns: 1fr 1fr;
   color: rgb(24, 61, 61);
-  font-size: 5vw;
-  text-shadow: rgb(65, 165, 165) 0.1em 0.1em 0.1em;
-  border: solid 0.1em;
+  font-size: 3dvh;
+
 }
 
 

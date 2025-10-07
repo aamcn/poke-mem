@@ -6,14 +6,12 @@
   color: rgb(24, 61, 61);
   font-size: 5vw;
   padding: 0em 1em 0em 1em;
-  text-shadow: rgb(65, 165, 165) 0.1em 0.1em 0.1em;
   font-weight: 1000;
-  
 }
 
 .timerDigits {
   font-family: "VT323", monospace;
-  font-size: 3vw;
+  font-size: 5vw;
   align-self: flex-end;
   padding-left: 1em;
 }
