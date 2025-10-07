@@ -2,7 +2,7 @@ import styles from "./GameWonPopUp.module.css";
 import { useGameContext } from "../game/Game";
 
 function GameWonPopUp() {
-  const { dispatch } = useGameContext();
+  const {state, dispatch } = useGameContext();
 
   /*
   TODO: 
@@ -27,7 +27,7 @@ function GameWonPopUp() {
           className={styles.winTimeText}
           aria-label="Final Time"
         >
-          final time here
+          {state.finalTime}
         </p>
       </div>
       <div>

@@ -3,9 +3,7 @@ import styles from "./gameOverPopUp.module.css";
 
 function GameOverPopUp() {
   // Access the game state and dispatch function from the context
-  const { dispatch } = useGameContext();
-
-  const finalTime = "2:34"; // Placeholder for final time - replace with actual value from state or props as needed
+  const { state, dispatch } = useGameContext();
 
   // Reset the game state when the retry button is clicked.
   const handleClickRetry = () => {
@@ -32,9 +30,9 @@ function GameOverPopUp() {
         <p
           data-testid="final-time"
           className={styles.finalTimeText}
-          aria-label={`Final Time: ${finalTime}`}
+          aria-label={`Final Time: ${state.finalTime}`}
         >
-          {finalTime}
+          {state.finalTime}
         </p>
       </div>
       <div>
