@@ -15,6 +15,7 @@ import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 import { generatePokemonUrls } from "../modules/fetchAllPokemonObjects/fetchAllPokemonObjects";
 import { getRandomIndexArray } from "../modules/getRandomIndexArray/getRandomIndexArray";
 import Timer from "../timer/Timer";
+import LeaderBoardForm from "../leaderBoardForm/LeaderBoardForm";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -86,7 +87,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score,
-         finalTime: state.finalTime
+        finalTime: state.finalTime,
       };
     // Toggle the game difficulty value.
     case "toggleGameDifficulty":
@@ -97,7 +98,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: payload[0] as string,
         cardTotal: payload[1] as number,
         score: state.score,
-         finalTime: state.finalTime
+        finalTime: state.finalTime,
       };
     // Change the game won boolean value.
     case "toggleGameWon":
@@ -119,7 +120,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score,
-         finalTime: state.finalTime
+        finalTime: state.finalTime,
       };
     // Increment the score by 1.
     case "incrementScore":
@@ -130,7 +131,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score + 1,
-         finalTime: state.finalTime
+        finalTime: state.finalTime,
       };
     case "setFinalTime":
       return {
@@ -184,13 +185,14 @@ function Game() {
     gameDifficulty: "easy",
     cardTotal: 0,
     score: 0,
-    finalTime : "",
+    finalTime: "",
   });
 
   const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
-
+  const [leaderBoardFormVisible, setLeaderBoardFormVisible] = useState<boolean>(false);
   // Value to be provided by the GameContext
   const gameContextValue: GameContextType = { state, dispatch };
+
 
   // Fetch all Pokemon objects when the component mounts
   useEffect(() => {
@@ -222,7 +224,7 @@ function Game() {
           data-testid="game-info-container"
         >
           {state.gameStarted && (
-            <>
+            <> 
               <ScoreBoard />
               <Timer />
             </>
@@ -230,9 +232,10 @@ function Game() {
         </div>
         {!state.gameStarted && <GameMenu />}
         {state.gameLost && <GameOverPopUp />}
-        {state.gameWon && <GameWonPopUp />}
+        {state.gameWon && !leaderBoardFormVisible && <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />}
+        {state.gameWon && leaderBoardFormVisible && <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
-          <CardsDisplay chosenPokemon={chosenPokemon} />
+        <CardsDisplay chosenPokemon={chosenPokemon} />
         )}
       </GameContext.Provider>
     </div>
