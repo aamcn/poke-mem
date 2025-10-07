@@ -56,6 +56,19 @@
     width: 50dvw;
     padding: 1em;
   }
+
+  .gameWonTitle {
+    font-size: 6dvw; 
+  }
+
+  .gameWonText {
+    font-size: 3dvw;
+  }
+
+  .newGameButton {
+    font-size: 3dvw;
+  }
+
 }
 
 @media screen and (min-width: 1024px) {
