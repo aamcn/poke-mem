@@ -12,18 +12,18 @@ interface LeaderBoardEntry {
 
 // Define the props for LeaderBoardTable
 interface LeaderBoardTableProps {
-  sortedLeaderBoardData: Array<LeaderBoardEntry>;
+  leaderBoardData: Array<LeaderBoardEntry>;
   setSelectedDifficulty: Dispatch<SetStateAction<string>>;
   selectedDifficulty: string;
 }
 
 // Component to display the leaderboard table if no data is available.
 function LeaderBoardTable({
-  sortedLeaderBoardData,
+leaderBoardData,
   setSelectedDifficulty,
   selectedDifficulty,
 }: LeaderBoardTableProps) {
-  if (!sortedLeaderBoardData || sortedLeaderBoardData.length === 0) {
+  if (!leaderBoardData || leaderBoardData.length === 0) {
     return (
       <div>
         <div
@@ -73,7 +73,7 @@ function LeaderBoardTable({
               </tr>
             </thead>
             <tbody className={styles.leaderBoardBody}>
-              {sortedLeaderBoardData.map((entry: LeaderBoardEntry, index) => (
+              {leaderBoardData.map((entry: LeaderBoardEntry, index) => (
                 <tr
                   key={entry.id}
                   className={styles.leaderBoardRow}
