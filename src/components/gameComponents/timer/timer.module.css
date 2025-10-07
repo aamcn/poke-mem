@@ -1,0 +1,47 @@
+.timerContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  color: rgb(24, 61, 61);
+  font-size: 5vw;
+  padding: 0em 1em 0em 1em;
+  text-shadow: rgb(65, 165, 165) 0.1em 0.1em 0.1em;
+  font-weight: 1000;
+  
+}
+
+.timerDigits {
+  font-family: "VT323", monospace;
+  font-size: 3vw;
+  align-self: flex-end;
+  padding-left: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .timerContainer {
+    font-size: 4vw;
+  }
+
+  .timerDigits {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .timerContainer {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2vw;
+    text-align: left;
+    padding: 1em;
+  }
+
+  .timerDigits {
+    font-size: 2vw;
+    align-self: center;
+  }
+}
