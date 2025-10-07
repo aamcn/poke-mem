@@ -111,3 +111,6 @@ leaderBoardData,
 }
 
 export default LeaderBoardTable;
+
+
+

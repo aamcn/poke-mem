@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import LeaderBoardTable from "../leaderBoardTable/LeaderBoardTable";
-import { sortByTime } from "../modules/sortByTime/sortByTime";
-import { fetchLeaderBoardData } from "../modules/fetchLeaderBoardData/fetchLeaderBoardData";
+import { sortByTime } from "../utilities/sortByTime/sortByTime";
+import { fetchLeaderBoardData } from "../utilities/fetchLeaderBoardData/fetchLeaderBoardData";
 import { leaderBoardUrls } from "../constants/leaderBoardUrls";
 
 function LeaderBoard() {
