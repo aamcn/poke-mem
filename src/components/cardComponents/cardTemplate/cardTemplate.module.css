@@ -35,34 +35,32 @@
 }
 
 .sixCardContainer {
-  border-radius: 0.5em;
-  font-size: 4dvw;
-  height: 25dvh;
+  border-radius: 0.2em;
+  font-size: 4vw;
+  height: 24dvh;
   aspect-ratio: 3/5;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   border-width: 0.3em;
-
 }
 
 .sixImageContainer {
-  width: 12dvh;
-  height: 10dvh;
+  width: 11dvh;
+  height: 9dvh;
 }
 
 .nineCardContainer {
-
   aspect-ratio: 3/5;
-  height: 20dvh;
+  height: 22dvh;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
   border-width: 0.3em;
 }
 
 .nineImageContainer {
-  width: 75%;
-  height: 45%;
+  width: 10dvh;
+  height: 9dvh;
 }
 
 .cardTitleContainer {
@@ -73,7 +71,7 @@
   outline-style: inset;
   outline-color: rgb(255, 255, 255);
   color: rgb(36, 53, 53);
-  font-size: 1.8dvh;
+  font-size: 2dvh;
   text-align: center;
   box-shadow: rgb(156, 108, 19) -2px 2px 5px 1px;
 }
