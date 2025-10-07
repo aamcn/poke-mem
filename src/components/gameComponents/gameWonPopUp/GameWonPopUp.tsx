@@ -1,15 +1,22 @@
 import styles from "./GameWonPopUp.module.css";
 import { useGameContext } from "../game/Game";
 
-function GameWonPopUp() {
+interface GameWonPopUpProps {
+  setLeaderBoardFormVisible: (value: boolean) => void; // Function to set the visibility of the leaderboard form
+}
+
+function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
   const {state, dispatch } = useGameContext();
 
   /*
   TODO: 
-    implement final time.
-    Display final time.
     Implement submit score functionality.
   */
+
+  const handleLeaderBoardClick = () => {
+    // Show the leaderboard form when the button is clicked
+    setLeaderBoardFormVisible(true);
+  };
 
   return (
     <div className={styles.gameWonWindow} data-testid="game-won-popup">
@@ -44,9 +51,7 @@ function GameWonPopUp() {
         </button>
         <button
           className={styles.newGameButton}
-          onClick={() =>
-            alert("Submit Score functionality not yet implemented")
-          }
+          onClick={handleLeaderBoardClick}
           aria-label="Submit Score Button"
         >
           Submit Score
