@@ -14,6 +14,7 @@ import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 import { generatePokemonUrls } from "../modules/fetchAllPokemonObjects/fetchAllPokemonObjects";
 import { getRandomIndexArray } from "../modules/getRandomIndexArray/getRandomIndexArray";
+import Timer from "../timer/Timer";
 
 // Define action types for the reducer
 interface ToggleGameStartedAction {
@@ -46,6 +47,11 @@ interface ResetGameAction {
   payload: null;
 }
 
+interface SetFinalTimeAction {
+  type: "setFinalTime";
+  payload: string;
+}
+
 // Union type for all possible actions
 type AppActions =
   | ToggleGameStartedAction
@@ -53,7 +59,8 @@ type AppActions =
   | ToggleGameWonAction
   | ToggleGameLostAction
   | IncrementScoreAction
-  | ResetGameAction;
+  | ResetGameAction
+  | SetFinalTimeAction;
 
 // Define the shape of the game state
 interface gameObjectState {
@@ -63,6 +70,7 @@ interface gameObjectState {
   gameDifficulty: string;
   cardTotal: number;
   score: number;
+  finalTime: string;
 }
 
 // Reducer function to manage object state transitions
@@ -78,6 +86,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score,
+         finalTime: state.finalTime
       };
     // Toggle the game difficulty value.
     case "toggleGameDifficulty":
@@ -88,6 +97,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: payload[0] as string,
         cardTotal: payload[1] as number,
         score: state.score,
+         finalTime: state.finalTime
       };
     // Change the game won boolean value.
     case "toggleGameWon":
@@ -98,6 +108,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score,
+        finalTime: state.finalTime,
       };
     // Change the game lost boolean value.
     case "toggleGameLost":
@@ -108,6 +119,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score,
+         finalTime: state.finalTime
       };
     // Increment the score by 1.
     case "incrementScore":
@@ -118,6 +130,17 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: state.gameDifficulty,
         cardTotal: state.cardTotal,
         score: state.score + 1,
+         finalTime: state.finalTime
+      };
+    case "setFinalTime":
+      return {
+        gameStarted: state.gameStarted,
+        gameWon: state.gameWon,
+        gameLost: state.gameLost,
+        gameDifficulty: state.gameDifficulty,
+        cardTotal: state.cardTotal,
+        score: state.score,
+        finalTime: payload as string,
       };
     // Reset the game to initial state.
     case "resetGame":
@@ -128,6 +151,7 @@ function gameReducer(state: gameObjectState, action: AppActions) {
         gameDifficulty: "Easy",
         cardTotal: 0,
         score: 0,
+        finalTime: "",
       };
     default:
       throw new Error("Unknown action type");
@@ -160,6 +184,7 @@ function Game() {
     gameDifficulty: "easy",
     cardTotal: 0,
     score: 0,
+    finalTime : "",
   });
 
   const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
@@ -191,17 +216,23 @@ function Game() {
 
   return (
     <div className={styles.gameContainer} data-testid="game-container">
-      <div
-        className={styles.gameInfoContainer}
-        data-testid="game-info-container"
-      ></div>
       <GameContext.Provider value={gameContextValue}>
-        <ScoreBoard />
+        <div
+          className={styles.gameInfoContainer}
+          data-testid="game-info-container"
+        >
+          {state.gameStarted && (
+            <>
+              <ScoreBoard />
+              <Timer />
+            </>
+          )}
+        </div>
         {!state.gameStarted && <GameMenu />}
         {state.gameLost && <GameOverPopUp />}
         {state.gameWon && <GameWonPopUp />}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
-        <CardsDisplay chosenPokemon={chosenPokemon} />
+          <CardsDisplay chosenPokemon={chosenPokemon} />
         )}
       </GameContext.Provider>
     </div>
