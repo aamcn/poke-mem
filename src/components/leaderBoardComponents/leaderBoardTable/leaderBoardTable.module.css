@@ -1,5 +1,6 @@
 .leaderBoardContainer {
-  height: 79dvh;
+  height: 75dvh;
+  width: 80dvw;
   display: flex;
   flex-direction: column;
   background-color: rgb(86, 197, 176);
@@ -48,7 +49,6 @@
 
 .leaderBoardRow {
 
-  
 }
 
 @media screen and (min-width: 768px) {
@@ -58,6 +58,7 @@
 @media screen and (min-width: 1024px) {
 .leaderBoardContainer {
   height: 70dvh;
+  width: 60dvw;
   padding: 1em;
   margin: 1em;
   border-radius: 1em;
