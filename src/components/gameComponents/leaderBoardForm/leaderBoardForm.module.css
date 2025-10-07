@@ -1,0 +1,17 @@
+.leaderBoardForm {
+  position: absolute;
+  width: 70dvw;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-self: center;
+  align-self: center;
+  background-color: rgb(201, 230, 255);
+  z-index: 3;
+  border: double;
+  border-width: 0.5em;
+  border-radius: 2em;
+  padding: 1em;
+  animation: menuAppear 1s;
+  box-shadow: 0px 0px 2em 1em rgb(0, 0, 0);
+}
