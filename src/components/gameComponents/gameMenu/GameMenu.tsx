@@ -42,8 +42,8 @@ function GameMenu() {
 
       <div className={styles.difficultyContainer}>
         <p
-          data-testid="difficulty-title"
-          className={styles.difficultyTitle}
+          data-testid="difficulty-prompt"
+          className={styles.difficultyPrompt}
           aria-label="Choose Your Difficulty"
         >
           Choose Your Difficulty
@@ -66,7 +66,7 @@ function GameMenu() {
         <div className={styles.difficultyButtons}>
           <button
             data-testid="easy-button"
-            className={styles.optionButton}
+            className={styles.menuButton}
             // Dispatch an action to update the game difficulty and card total
             onClick={() =>
               dispatch({ type: "toggleGameDifficulty", payload: ["Easy", 4] })
@@ -79,7 +79,7 @@ function GameMenu() {
 
           <button
             data-testid="medium-button"
-            className={styles.optionButton}
+            className={styles.menuButton}
             // Dispatch an action to update the game difficulty and card total
             onClick={() =>
               dispatch({ type: "toggleGameDifficulty", payload: ["Medium", 6] })
@@ -92,7 +92,7 @@ function GameMenu() {
 
           <button
             data-testid="hard-button"
-            className={styles.optionButton}
+            className={styles.menuButton}
             // Dispatch an action to update the game difficulty and card total
             onClick={() =>
               dispatch({ type: "toggleGameDifficulty", payload: ["Hard", 9] })
@@ -107,7 +107,7 @@ function GameMenu() {
       <div id="menu-buttons-container">
         <button
           data-testid="start-button"
-          className={styles.startButton}
+          className={styles.menuButton}
           // Dispatch an action to start the game
           onClick={handleStartGame}
           aria-label="Start Game"

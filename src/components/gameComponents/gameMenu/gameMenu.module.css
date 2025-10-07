@@ -1,9 +1,10 @@
 .gameMenuContainer {
   position: absolute;
   width: 70vw;
+  height: 40vh;
   z-index: 3;
   display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
   justify-self: center;
   align-self: center;
   background-color: rgb(94, 217, 194);
@@ -13,20 +14,20 @@
   border-radius: 2em;
   padding: 1em;
   box-shadow: 0px 0px 1em 0.1em rgb(0, 0, 0);
-  animation: menuAppear 1s;
   text-align: center;
+  animation: menuAppear 1s;
 }
 
 .titleContainer {
   color: rgb(24, 61, 61);
   grid-row: 1;
-  font-size: 4vw;
+  font-size: 7dvw;
 }
 
 .difficultyContainer {
   display: grid;
   grid-row: 2;
-  font-size: 3vw;
+  font-size: 4dvw;
   color: rgb(24, 61, 61);
 }
 
@@ -36,13 +37,17 @@
   justify-content: space-around;
 }
 
-.difficultyTitle {
+.difficultyPrompt {
   display: flex;
-  font-size: 4vw;
+  font-size: 6dvw;
   justify-content: center;
 }
 
-button {
+.currentDifficultyText{
+  font-size: 4dvw;
+}
+
+.menuButton {
   color: rgb(24, 61, 61);
   height: fit-content;
   background-color: rgb(94, 217, 194);
@@ -50,15 +55,16 @@ button {
   border: solid;
   border-radius: 1em;
   box-shadow: 0px 0.1em 0.1em 0px;
+  font-size: 4.5dvw;
 }
 
-button:active {
+.menuButton:active {
   transform: translateY(4px);
   box-shadow: inset 0em 0em 0.3em 0.1em black;
   color: rgb(103, 231, 231);
 }
 
-button:hover {
+.menuButton:hover {
   background-color: rgb(103, 231, 231);
 }
 
@@ -68,13 +74,10 @@ button:hover {
     height: 40dvh;
   }
 
-  .startButton {
+  .menuButton {
     font-size: 2.5dvw;
   }
 
-  .optionButton {
-    font-size: 2.5dvw;
-  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -83,7 +86,7 @@ button:hover {
     height: 50vh;
   }
 
-  button {
+  .menuButton {
     height: fit-content;
     animation: buttonFade 2s;
     width: 8vw;
@@ -116,15 +119,11 @@ button:hover {
     justify-content: center;
   }
 
-  .startButton {
+  .menuButton {
     padding: 1em;
     font-size: 1.5dvw;
   }
 
-  .optionButton {
-    padding: 1em;
-    font-size: 1.5dvw;
-  }
 }
 
 @media screen and (min-width: 1200px) {
