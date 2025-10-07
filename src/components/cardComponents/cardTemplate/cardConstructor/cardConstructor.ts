@@ -1,6 +1,4 @@
-// Card Constructor
-
-//Create pokemon card object from input arguments.
+import { capitaliseString } from "../../../../modules/capitaliseString";
 
 class PokemonCardObject {
 
@@ -12,7 +10,7 @@ class PokemonCardObject {
 
   constructor(name: string, imageUrl: string, id: string, type: string, isClicked = false) {
     this.validateInputs(name, imageUrl, id, type, isClicked);
-    this.name = name;
+    this.name = capitaliseString(name);
     this.imageUrl = imageUrl;
     this.id = id;
     this.type = type;

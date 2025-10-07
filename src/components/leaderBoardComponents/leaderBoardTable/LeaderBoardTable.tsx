@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls";
 import styles from "./LeaderBoardTable.module.css";
+import { capitaliseString } from "../../../modules/capitaliseString";
 
 // Define the structure of a leaderboard entry
 interface LeaderBoardEntry {
@@ -81,9 +82,9 @@ function LeaderBoardTable({ sortedLeaderBoardData, setSelectedDifficulty, select
                   </td>
                   <td
                     className={styles.leaderBoardEntryCell}
-                    aria-label={`Player Name ${entry.player_name}`}
+                    aria-label={`Player Name ${capitaliseString(entry.player_name)}`}
                   >
-                    {entry.player_name}
+                    {capitaliseString(entry.player_name)}
                   </td>
                   <td
                     className={styles.leaderBoardEntryCell}
