@@ -1,4 +1,5 @@
 import { useGameContext } from "../../gameComponents/game/Game";
+import { initHighScore } from "./utilities/initHighScore";
 import styles from "./scoreBoard.module.css";
 
 /* 
@@ -10,12 +11,10 @@ function ScoreBoard() {
   // Access state and dispatch from the game context
   const { state } = useGameContext();
 
-  function updateHighScore() {
-    if(localStorage.getItem('highScore') === null) {
-    localStorage.setItem('highScore', '0')
-    }
-  }
-  updateHighScore()
+  // Initialize high score in localStorage with a value of 0 if it doesn't already exist
+  initHighScore()
+
+  // Update high score if highscore exists and current score is greater
   if(state.score > Number(localStorage.getItem('highScore'))) {
     localStorage.setItem('highScore', state.score.toString())
   }
