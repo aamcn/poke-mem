@@ -1,6 +1,8 @@
 import styles from "./leaderBoardForm.module.css";
 import axios from "axios";
 import { useGameContext } from "../game/Game";
+import { postToLeaderBoardUrls } from "./constants/postToLeaderBoardUrls.ts";
+import type { MouseEventHandler } from "react";
 
 interface LeaderBoardFormProps {
   setLeaderBoardFormVisible: (visible: boolean) => void;
@@ -9,32 +11,8 @@ interface LeaderBoardFormProps {
 function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
   const {state, dispatch} = useGameContext();
 
-  console.log(state.cardTotal);
-
-  //URLs to POST game data to each difficulty database table.
-  const easyLeaderBoardUrl =
-    "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/add-easy-top-scorer";
-  const mediumLeaderBoardUrl =
-    "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/add-medium-top-scorer";
-  const hardLeaderBoardUrl =
-    "https://memory-game-backend-production-e873.up.railway.app/hard-leader-board/add-hard-top-scorer";
-
-  //Default URL to easy leader board.
-  let leaderBoardPostUrl = easyLeaderBoardUrl;
-
-  // Sets the leaderBoardPostUrl depending on cardTotal when called.
-  //If cardTotal is 4 it returns without changing the url.
-  function pickUrl() {
-    if (state.cardTotal < 9 && state.cardTotal > 5) {
-      leaderBoardPostUrl = mediumLeaderBoardUrl;
-    }
-    if (state.cardTotal === 9) {
-      leaderBoardPostUrl = hardLeaderBoardUrl;
-    }
-    return;
-  }
-
-  pickUrl();
+  //Pick the correct URL based on the current game difficulty.
+  const leaderBoardPostUrl = postToLeaderBoardUrls[state.gameDifficulty as keyof typeof postToLeaderBoardUrls];
 
   //Create form data object and convert to JSON, then call post function with the JSON data.
   const handleSubmitScore = (event: React.FormEvent<HTMLFormElement>) => {
@@ -56,19 +34,17 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
         leaderBoardPostUrl,
         body,
         { method: "cors" },
-        { withCredentials: true },
       )
       .catch((error: unknown) => {
         console.error(error);
       });
   }
 
-  //Hides form when user clicks cancel.
-  const handleCancelForm = (e: React.FormEvent<HTMLFormElement>) => {
+  //Hide form and reset game state when user clicks cancel.
+  const handleCancelForm: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     setLeaderBoardFormVisible(false);
     dispatch({ type: "resetGame", payload: null });
-    return;
   };
 
   return (
@@ -93,7 +69,7 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
         Submit
       </button>
       <button
-        onClick={handleCancelForm as React.MouseEventHandler<HTMLButtonElement>}
+        onClick={handleCancelForm }
         type="button"
         aria-label="Cancel button"
       >
