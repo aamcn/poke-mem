@@ -8,7 +8,7 @@
   justify-content: space-around;
   justify-self: center;
   align-self: center;
-  background-color:rgb(94, 217, 194);
+  background-color: rgb(94, 217, 194);
   border: double;
   border-width: 0.5em;
   border-radius: 2em;
@@ -21,7 +21,7 @@
 .retryButton {
   color: rgb(24, 61, 61);
   height: fit-content;
-  background-color:rgb(94, 217, 194);
+  background-color: rgb(94, 217, 194);
   animation: buttonFade 2s;
   border: solid;
   border-radius: 1em;
@@ -39,7 +39,7 @@
 }
 
 .gameOverTitle {
-  font-size: 5dvh;
+  font-size: 7dvw;
 }
 
 .gameOverText {
@@ -52,16 +52,17 @@
 
 @media screen and (min-width: 768px) {
   .lostGameWindow {
-    width: 60dvw;
+    width: 50dvw;
+    height: 35dvh;
     padding: 1em;
   }
 
   .gameOverText {
-  font-size: 3dvw;
-}
+    font-size: 3dvw;
+  }
 
   .gameOverTitle {
-    font-size: 6dvw; 
+    font-size: 6dvw;
   }
 
   .retryButton {
@@ -69,6 +70,31 @@
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .lostGameWindow {
+    width: 40dvw;
+    height: 40dvh;
+  }
+
+  .gameOverText {
+    font-size: 3dvh;
+  }
+
+  .gameOverTitle {
+    font-size: 5dvh;
+  }
+
+  .retryButton {
+    font-size: 3dvh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lostGameWindow {
+    width: 30dvw;
+    height: 40dvh;
+  }
+}
 
 @keyframes menuAppear {
   0% {

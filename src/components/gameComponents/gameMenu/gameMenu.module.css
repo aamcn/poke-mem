@@ -43,7 +43,7 @@
   justify-content: center;
 }
 
-.currentDifficultyText{
+.currentDifficultyText {
   font-size: 4dvw;
 }
 
@@ -82,14 +82,13 @@
     font-size: 4dvw;
   }
 
-  .currentDifficultyText{
-  font-size: 4dvw;
-}
+  .currentDifficultyText {
+    font-size: 4dvw;
+  }
 
   .menuButton {
     font-size: 3dvw;
   }
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -97,7 +96,6 @@
     width: 40dvw;
     height: 40dvh;
   }
-
 
   .menuButton {
     font-size: 3dvh;
@@ -111,7 +109,7 @@
     font-size: 4dvh;
   }
 
-  .currentDifficultyText{
+  .currentDifficultyText {
     font-size: 4dvh;
   }
 
@@ -136,12 +134,10 @@
 }
 
 @media screen and (min-width: 1200px) {
-
   .gameMenuContainer {
-   width:30dvw;
-   height: 40dvh;
+    width: 30dvw;
+    height: 40dvh;
   }
-
 }
 
 @keyframes menuAppear {
