@@ -3,12 +3,7 @@ import styles from "./gameOverPopUp.module.css";
 
 function GameOverPopUp() {
   // Access the game state and dispatch function from the context
-  const { state, dispatch } = useGameContext();
-
-  // Reset the game state when the retry button is clicked.
-  const handleClickRetry = () => {
-    dispatch({ type: "resetGame", payload: null });
-  };
+  const { dispatch } = useGameContext();
 
   return (
     <div className={styles.lostGameWindow} data-testid="game-over-popup">
@@ -33,7 +28,7 @@ function GameOverPopUp() {
        
         <button
           className={styles.retryButton}
-          onClick={handleClickRetry}
+          onClick={() => dispatch({ type: "resetGame", payload: null })}
           aria-label="Retry Button"
         >
           Retry?
