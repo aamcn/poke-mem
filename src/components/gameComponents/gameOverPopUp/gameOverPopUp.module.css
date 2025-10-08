@@ -57,12 +57,12 @@
     padding: 1em;
   }
 
-  .gameOverText {
-    font-size: 3dvw;
-  }
-
   .gameOverTitle {
     font-size: 6dvw;
+  }
+
+  .gameOverText {
+    font-size: 3dvw;
   }
 
   .retryButton {
@@ -76,13 +76,14 @@
     height: 40dvh;
   }
 
+  .gameOverTitle {
+    font-size: 5dvh;
+  }
+  
   .gameOverText {
     font-size: 3dvh;
   }
 
-  .gameOverTitle {
-    font-size: 5dvh;
-  }
 
   .retryButton {
     font-size: 3dvh;

@@ -18,6 +18,13 @@
   text-align: center;
 }
 
+.winMenuButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .newGameButton {
   color: rgb(24, 61, 61);
   height: fit-content;
@@ -54,6 +61,7 @@
 @media screen and (min-width: 768px) {
   .gameWonWindow {
     width: 50dvw;
+    height: 35dvh;
     padding: 1em;
   }
 
@@ -73,18 +81,30 @@
 
 @media screen and (min-width: 1024px) {
   .gameWonWindow {
-    width: 30dvw;
-    padding: 1em;
+    width: 40dvw;
+    height: 40dvh;
   }
 
   .gameWonTitle {
-    font-size: 3dvw;
+    font-size: 5dvh;
   }
 
   .gameWonText {
-    font-size: 2vw;
+    font-size: 3dvh;
+  }
+
+  .newGameButton {
+    font-size: 3dvh;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .gameWonWindow {
+    width: 30dvw;
+    height: 40dvh;
+  }
+}
+
 
 @keyframes menuAppear {
   0% {

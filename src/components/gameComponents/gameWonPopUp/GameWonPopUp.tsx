@@ -8,11 +8,6 @@ interface GameWonPopUpProps {
 function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
   const {state, dispatch } = useGameContext();
 
-  /*
-  TODO: 
-    Implement submit score functionality.
-  */
-
   const handleLeaderBoardClick = () => {
     // Show the leaderboard form when the button is clicked
     setLeaderBoardFormVisible(true);
@@ -42,7 +37,8 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
           Would you like to play again?
         </p>
         <br></br>
-        <button
+        <div className={styles.winMenuButtonsContainer}>
+          <button
           className={styles.newGameButton}
           onClick={() => dispatch({ type: "resetGame", payload: null })}
           aria-label="Start a New Game Button"
@@ -56,6 +52,7 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
         >
           Submit Score
         </button>
+        </div>
       </div>
     </div>
   );
