@@ -12,11 +12,11 @@ function ScoreBoard() {
   const { state } = useGameContext();
 
   // Initialize high score in localStorage with a value of 0 if it doesn't already exist
-  initHighScore()
+  initHighScore();
 
   // Update high score if highscore exists and current score is greater
-  if(state.score > Number(localStorage.getItem('highScore'))) {
-    localStorage.setItem('highScore', state.score.toString())
+  if (state.score > Number(localStorage.getItem("highScore"))) {
+    localStorage.setItem("highScore", state.score.toString());
   }
 
   return (
@@ -34,7 +34,7 @@ function ScoreBoard() {
         <p className={styles.highScore} aria-label="High Score">
           High Score:
         </p>
-        <p data-testid="high-score-text">{localStorage.getItem('highScore')}</p>
+        <p data-testid="high-score-text">{localStorage.getItem("highScore")}</p>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ function LeaderBoardPage() {
       <Header />
       <LeaderBoard />
     </div>
-  )
+  );
 }
 
 export default LeaderBoardPage;

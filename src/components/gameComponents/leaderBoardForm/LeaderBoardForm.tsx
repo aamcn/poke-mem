@@ -9,10 +9,13 @@ interface LeaderBoardFormProps {
 }
 
 function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
-  const {state, dispatch} = useGameContext();
+  const { state, dispatch } = useGameContext();
 
   //Pick the correct URL based on the current game difficulty.
-  const leaderBoardPostUrl = postToLeaderBoardUrls[state.gameDifficulty as keyof typeof postToLeaderBoardUrls];
+  const leaderBoardPostUrl =
+    postToLeaderBoardUrls[
+      state.gameDifficulty as keyof typeof postToLeaderBoardUrls
+    ];
 
   //Create form data object and convert to JSON, then call post function with the JSON data.
   const handleSubmitScore = (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,11 +33,7 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
     const body: object = formData;
     console.log(formData);
     axios
-      .post(
-        leaderBoardPostUrl,
-        body,
-        { method: "cors" },
-      )
+      .post(leaderBoardPostUrl, body, { method: "cors" })
       .catch((error: unknown) => {
         console.error(error);
       });
@@ -69,7 +68,7 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
         Submit
       </button>
       <button
-        onClick={handleCancelForm }
+        onClick={handleCancelForm}
         type="button"
         aria-label="Cancel button"
       >
@@ -78,6 +77,5 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
     </form>
   );
 }
-
 
 export default LeaderBoardForm;

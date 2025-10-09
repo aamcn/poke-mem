@@ -83,8 +83,8 @@
   width: 80%;
 }
 
-@media screen and (min-width: 576px) and (orientation: landscape)  {
-    .cardTitleContainer {
+@media screen and (min-width: 576px) and (orientation: landscape) {
+  .cardTitleContainer {
     font-size: 3vh;
   }
 
@@ -262,7 +262,7 @@
   }
 
   .nineImageContainer {
-     width: 12dvh;
+    width: 12dvh;
     height: 10dvh;
     border-width: 0.3em;
   }

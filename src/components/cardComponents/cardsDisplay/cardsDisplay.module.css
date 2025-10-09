@@ -28,7 +28,7 @@
   overflow: hidden;
 }
 
-@media screen and (min-width: 576px) and (orientation: landscape)  {
+@media screen and (min-width: 576px) and (orientation: landscape) {
   .fourCardsContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
@@ -47,10 +47,9 @@
     justify-items: center;
     overflow: none;
   }
-
 }
 
-@media screen and (min-width: 768px) and (orientation: portrait)  {
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .fourCardsContainer {
     display: grid;
     gap: 0px;
@@ -86,13 +85,11 @@
   }
 
   .nineCardsContainer {
-  display: grid;
-  gap: 5px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-
-
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 }
 
 @media screen and (min-width: 1200px) {

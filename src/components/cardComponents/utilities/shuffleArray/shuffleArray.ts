@@ -1,4 +1,4 @@
-import type PokemonCardObject from "../cardTemplate/cardConstructor/cardConstructor";
+import type PokemonCardObject from "../cardConstructor/cardConstructor";
 
 // Function to shuffle an array and ensure the shuffled array is not the same as the original.
 

@@ -12,12 +12,13 @@ function LeaderBoard() {
   useEffect(() => {
     // Reset leaderboard data when difficulty changes
     setLeaderBoardData([]);
-    const url = leaderBoardUrls[selectedDifficulty as keyof typeof leaderBoardUrls];
+    const url =
+      leaderBoardUrls[selectedDifficulty as keyof typeof leaderBoardUrls];
     const fetchData = async () => {
-    const data = await fetchLeaderBoardData(url);
-    setLeaderBoardData(data.sort(sortByTime));
-  };
-  fetchData();
+      const data = await fetchLeaderBoardData(url);
+      setLeaderBoardData(data.sort(sortByTime));
+    };
+    fetchData();
   }, [selectedDifficulty]);
 
   return (

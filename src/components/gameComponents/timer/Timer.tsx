@@ -3,8 +3,7 @@ import styles from "./timer.module.css";
 import { useGameContext } from "../game/Game";
 
 function Timer() {
-
-  const {state, dispatch} = useGameContext();
+  const { state, dispatch } = useGameContext();
 
   const [startTime, setStartTime] = useState<number>(0);
   const [time, setTime] = useState(0);
@@ -14,7 +13,10 @@ function Timer() {
     let intervalId: number;
     if (state.gameStarted && !state.gameWon && !state.gameLost) {
       // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
-      intervalId = setInterval(() => setTime(currentDate.getTime() - startTime), 10);
+      intervalId = setInterval(
+        () => setTime(currentDate.getTime() - startTime),
+        10,
+      );
     }
     if (state.gameStarted && (state.gameLost || state.gameWon)) {
       dispatch({
@@ -23,7 +25,7 @@ function Timer() {
       });
     }
     return () => clearInterval(intervalId);
-  }, [state.gameStarted, time])
+  }, [state.gameStarted, time]);
 
   useEffect(() => {
     const d: Date = new Date();
@@ -50,6 +52,5 @@ function Timer() {
     </div>
   );
 }
-
 
 export default Timer;

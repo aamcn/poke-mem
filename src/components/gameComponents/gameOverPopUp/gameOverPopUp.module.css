@@ -50,7 +50,7 @@
   font-family: "Courier New", Courier, monospace;
 }
 
-@media screen and (min-width: 567px) and (orientation: landscape)  {
+@media screen and (min-width: 567px) and (orientation: landscape) {
   .lostGameWindow {
     width: 40dvw;
     height: 50dvh;
@@ -61,16 +61,15 @@
   }
 
   .gameOverText {
-    font-size: 2.5dvw;  
+    font-size: 2.5dvw;
   }
 
   .retryButton {
     font-size: 2dvw;
   }
-
 }
 
-@media screen and (min-width: 768px) and (orientation: portrait)  {
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .lostGameWindow {
     width: 50dvw;
     height: 35dvh;
@@ -99,11 +98,10 @@
   .gameOverTitle {
     font-size: 5dvh;
   }
-  
+
   .gameOverText {
     font-size: 3dvh;
   }
-
 
   .retryButton {
     font-size: 3dvh;

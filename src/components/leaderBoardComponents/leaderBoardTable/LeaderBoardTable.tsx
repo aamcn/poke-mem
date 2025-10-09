@@ -19,7 +19,7 @@ interface LeaderBoardTableProps {
 
 // Component to display the leaderboard table if no data is available.
 function LeaderBoardTable({
-leaderBoardData,
+  leaderBoardData,
   setSelectedDifficulty,
   selectedDifficulty,
 }: LeaderBoardTableProps) {
@@ -89,7 +89,7 @@ leaderBoardData,
                   <td
                     className={styles.leaderBoardEntryCell}
                     aria-label={`Player Name ${capitaliseString(
-                      entry.player_name
+                      entry.player_name,
                     )}`}
                   >
                     {capitaliseString(entry.player_name)}
@@ -111,6 +111,3 @@ leaderBoardData,
 }
 
 export default LeaderBoardTable;
-
-
-

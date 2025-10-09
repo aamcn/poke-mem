@@ -1,6 +1,6 @@
 const apiUrlPrefix = "https://pokeapi.co/api/v2/pokemon/";
 
-function generatePokemonUrls() {
+function fetchAllPokemonObjects() {
   const pokemon: Array<object> = [];
   for (let i = 1; i <= 151; i++) {
     // Generate the API URL for each Pokemon
@@ -16,4 +16,4 @@ function generatePokemonUrls() {
   return pokemon;
 }
 
-export { generatePokemonUrls };
+export { fetchAllPokemonObjects };

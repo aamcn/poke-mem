@@ -6,7 +6,7 @@ interface GameWonPopUpProps {
 }
 
 function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
-  const {state, dispatch } = useGameContext();
+  const { state, dispatch } = useGameContext();
 
   const handleLeaderBoardClick = () => {
     // Show the leaderboard form when the button is clicked
@@ -39,19 +39,19 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
         <br></br>
         <div className={styles.winMenuButtonsContainer}>
           <button
-          className={styles.newGameButton}
-          onClick={() => dispatch({ type: "resetGame", payload: null })}
-          aria-label="Start a New Game Button"
-        >
-          New Game?
-        </button>
-        <button
-          className={styles.newGameButton}
-          onClick={handleLeaderBoardClick}
-          aria-label="Submit Score Button"
-        >
-          Submit Score
-        </button>
+            className={styles.newGameButton}
+            onClick={() => dispatch({ type: "resetGame", payload: null })}
+            aria-label="Start a New Game Button"
+          >
+            New Game?
+          </button>
+          <button
+            className={styles.newGameButton}
+            onClick={handleLeaderBoardClick}
+            aria-label="Submit Score Button"
+          >
+            Submit Score
+          </button>
         </div>
       </div>
     </div>

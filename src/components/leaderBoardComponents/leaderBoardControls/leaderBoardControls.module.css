@@ -23,7 +23,7 @@
   border: none;
   border-radius: 0.5em;
   color: rgb(192, 239, 255);
-  background-color:rgb(24, 61, 61); 
+  background-color: rgb(24, 61, 61);
   text-align: center;
 }
 
@@ -31,14 +31,11 @@
   border: none;
 }
 
-
-
 @media screen and (min-width: 768px) {
-
   .leaderBoardControls {
     font-size: 2vw;
   }
-  
+
   .leaderBoardSelect {
     padding: 0.1em 0.2em 0.1em 0.2em;
     font-size: 2.5vw;
@@ -53,7 +50,7 @@
   .leaderBoardControls {
     font-size: 1vw;
   }
-  
+
   .leaderBoardSelect {
     padding: 0.1em 0.2em 0.1em 0.2em;
     font-size: 1.5vw;
@@ -63,4 +60,3 @@
     font-size: 1.5vw;
   }
 }
-

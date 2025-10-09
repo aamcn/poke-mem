@@ -4,9 +4,7 @@
   grid-template-columns: 1fr 1fr;
   color: rgb(24, 61, 61);
   font-size: 3dvh;
-
 }
-
 
 .scoreTextContainer {
   display: flex;
@@ -14,7 +12,7 @@
   justify-content: space-evenly;
 }
 
-@media screen and (min-width: 576px) and (orientation: landscape)  {
+@media screen and (min-width: 576px) and (orientation: landscape) {
   .scoreBoardContainer {
     font-size: 2.5dvw;
   }
@@ -26,7 +24,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (orientation: portrait)  {
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .scoreBoardContainer {
     font-size: 4vw;
   }

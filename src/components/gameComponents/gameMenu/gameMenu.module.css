@@ -68,7 +68,7 @@
   background-color: rgb(103, 231, 231);
 }
 
-@media screen and (min-width: 567px) and (orientation: landscape)  {
+@media screen and (min-width: 567px) and (orientation: landscape) {
   .gameMenuContainer {
     width: 40dvw;
     height: 50dvh;

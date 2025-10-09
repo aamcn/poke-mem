@@ -26,14 +26,14 @@
 }
 
 @media screen and (min-width: 567px) and (orientation: landscape) {
-.titleContainer {
+  .titleContainer {
     display: none;
   }
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
   .titleContainer {
-        display: block;
+    display: block;
 
     font-size: 3dvw;
   }
@@ -46,8 +46,8 @@
     grid-row: 1;
     font-size: 6dvw;
   }
-  
-  .titleContainer{
+
+  .titleContainer {
     display: block;
     padding-left: 4em;
     text-align: left;

@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import styles from "./cardsDisplay.module.css";
 import { useGameContext } from "../../gameComponents/game/Game";
 import { v4 as uuidv4 } from "uuid";
-import PokemonCardObject from "../cardTemplate/cardConstructor/cardConstructor";
+import PokemonCardObject from "../utilities/cardConstructor/cardConstructor";
 import CardTemplate from "../cardTemplate/CardTemplate";
-import { shuffleArray } from "../modules/shuffleArray";
+import { shuffleArray } from "../utilities/shuffleArray/shuffleArray";
 
 // Define the props for the CardsDisplay component.
 interface CardsDisplayProps {
-  chosenPokemon: Array<Pokemon>; 
+  chosenPokemon: Array<Pokemon>;
 }
 
 // Define the structure of a Pokemon object based on the expected data.

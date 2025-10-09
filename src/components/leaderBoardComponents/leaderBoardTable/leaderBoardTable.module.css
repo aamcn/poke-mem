@@ -14,7 +14,7 @@
   justify-content: space-evenly;
 }
 
-.leaderBoardHeader{
+.leaderBoardHeader {
   position: sticky;
   z-index: 2;
   top: 0;
@@ -34,13 +34,13 @@
 
 .leaderBoardEntryCell {
   padding: 0.5em;
-  border: 1px solid  rgb(24, 61, 61);
+  border: 1px solid rgb(24, 61, 61);
   font-size: 4.5vw;
   color: #360323;
 }
 
 .leaderBoardHeader {
-  background-color:  rgb(50, 142, 142);
+  background-color: rgb(50, 142, 142);
   font-size: 5vw;
   color: rgb(13, 35, 35);
   padding: 1em;
@@ -48,56 +48,51 @@
 }
 
 .leaderBoardRow {
-
 }
 
 @media screen and (min-width: 768px) {
-
-.leaderBoardContainer{
-  height: 70dvh;
-  width: 60dvw;
-}
-
+  .leaderBoardContainer {
+    height: 70dvh;
+    width: 60dvw;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-.leaderBoardContainer {
-  width: 80dvw;
-  padding: 1em;
-  margin: 1em;
-  border-radius: 1em;
-  justify-self: center;
-  margin-bottom: 2em;
-  text-align: center;
-  overflow: auto;
-}
+  .leaderBoardContainer {
+    width: 80dvw;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
+    justify-self: center;
+    margin-bottom: 2em;
+    text-align: center;
+    overflow: auto;
+  }
 
-.tableWrapper {
-  overflow: auto;
-  height: 90%;
-}
+  .tableWrapper {
+    overflow: auto;
+    height: 90%;
+  }
 
-.leaderBoardTable {
-  margin-top: 2em;
-  border-collapse: collapse;
-  width: 100%;
-  height: 100%;
-}
-.leaderBoardEntryCell {
-  padding: 0.5em;
-  font-size: 2vw;
-}
+  .leaderBoardTable {
+    margin-top: 2em;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+  }
+  .leaderBoardEntryCell {
+    padding: 0.5em;
+    font-size: 2vw;
+  }
 
-.leaderBoardHeader {
-  background-color:  rgb(50, 142, 142);
-  font-size: 2vw;
-  color: rgb(13, 35, 35);
-  padding: 1em;
-  border: 1px solid rgb(24, 61, 61);
-}
+  .leaderBoardHeader {
+    background-color: rgb(50, 142, 142);
+    font-size: 2vw;
+    color: rgb(13, 35, 35);
+    padding: 1em;
+    border: 1px solid rgb(24, 61, 61);
+  }
 
-.leaderBoardRow {
-  
-  
-}
+  .leaderBoardRow {
+  }
 }

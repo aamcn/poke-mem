@@ -26,7 +26,8 @@ body {
     rgb(74, 109, 109),
     rgb(86, 197, 176),
     rgb(179, 246, 246)
-  );  font-family: "VT323", monospace;
+  );
+  font-family: "VT323", monospace;
   letter-spacing: 0.05em;
   margin: 0px;
   font-weight: 800;

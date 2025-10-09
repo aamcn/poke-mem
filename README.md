@@ -1,4 +1,4 @@
-# Memory Game 
+# Memory Game
 
     A card game to test your memory skills. The game includes three difficulty levels and if the player wins the round they can upload their finish time to the leaderboard.
 

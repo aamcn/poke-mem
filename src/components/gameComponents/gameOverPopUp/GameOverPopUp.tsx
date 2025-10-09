@@ -19,13 +19,12 @@ function GameOverPopUp() {
         <p aria-label="You already clicked on that">
           You already clicked on that
         </p>
-          <br></br>
-         <p aria-label="Would you like to try again?">
+        <br></br>
+        <p aria-label="Would you like to try again?">
           Would you like to try again?
         </p>
       </div>
       <div>
-       
         <button
           className={styles.retryButton}
           onClick={() => dispatch({ type: "resetGame", payload: null })}

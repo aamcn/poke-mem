@@ -12,8 +12,8 @@ import CardsDisplay from "../../cardComponents/cardsDisplay/CardsDIsplay";
 import ScoreBoard from "../scoreBoard/scoreBoard";
 import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
-import { generatePokemonUrls } from "../modules/fetchAllPokemonObjects/fetchAllPokemonObjects";
-import { getRandomIndexArray } from "../modules/getRandomIndexArray/getRandomIndexArray";
+import { fetchAllPokemonObjects } from "./utilities/fetchAllPokemonObjects/fetchAllPokemonObjects";
+import { getRandomIndexArray } from "./utilities/getRandomIndexArray/getRandomIndexArray";
 import Timer from "../timer/Timer";
 import LeaderBoardForm from "../leaderBoardForm/LeaderBoardForm";
 
@@ -189,15 +189,15 @@ function Game() {
   });
 
   const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
-  const [leaderBoardFormVisible, setLeaderBoardFormVisible] = useState<boolean>(false);
+  const [leaderBoardFormVisible, setLeaderBoardFormVisible] =
+    useState<boolean>(false);
   // Value to be provided by the GameContext
   const gameContextValue: GameContextType = { state, dispatch };
-
 
   // Fetch all Pokemon objects when the component mounts
   useEffect(() => {
     setAllPokemonObjects([]); // Clear existing data before fetching new data
-    const pokemonDataObjects = generatePokemonUrls();
+    const pokemonDataObjects = fetchAllPokemonObjects();
     setAllPokemonObjects(pokemonDataObjects);
   }, []);
 
@@ -224,7 +224,7 @@ function Game() {
           data-testid="game-info-container"
         >
           {state.gameStarted && (
-            <> 
+            <>
               <ScoreBoard />
               <Timer />
             </>
@@ -232,10 +232,16 @@ function Game() {
         </div>
         {!state.gameStarted && <GameMenu />}
         {state.gameLost && <GameOverPopUp />}
-        {state.gameWon && !leaderBoardFormVisible && <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />}
-        {state.gameWon && leaderBoardFormVisible && <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />}
+        {state.gameWon && !leaderBoardFormVisible && (
+          <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+        )}
+        {state.gameWon && leaderBoardFormVisible && (
+          <LeaderBoardForm
+            setLeaderBoardFormVisible={setLeaderBoardFormVisible}
+          />
+        )}
         {state.gameStarted && !state.gameLost && !state.gameWon && (
-        <CardsDisplay chosenPokemon={chosenPokemon} />
+          <CardsDisplay chosenPokemon={chosenPokemon} />
         )}
       </GameContext.Provider>
     </div>

@@ -3,16 +3,19 @@ import styles from "./LeaderBoardControls.module.css";
 
 // Define the props for LeaderBoardControls
 interface LeaderBoardControlsProps {
-    setSelectedDifficulty: Dispatch<SetStateAction<string>>;
-    selectedDifficulty: string;
+  setSelectedDifficulty: Dispatch<SetStateAction<string>>;
+  selectedDifficulty: string;
 }
 
-function LeaderBoardControls({ setSelectedDifficulty, selectedDifficulty }: LeaderBoardControlsProps) {
+function LeaderBoardControls({
+  setSelectedDifficulty,
+  selectedDifficulty,
+}: LeaderBoardControlsProps) {
   const handleDifficultyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedDifficulty(e.target.value);
   };
-    return (
-        <div
+  return (
+    <div
       className={styles.leaderBoardControls}
       data-testid="leaderboard-controls-container"
     >
@@ -51,8 +54,7 @@ function LeaderBoardControls({ setSelectedDifficulty, selectedDifficulty }: Lead
         </option>
       </select>
     </div>
-    )
-
+  );
 }
 
 export default LeaderBoardControls;
