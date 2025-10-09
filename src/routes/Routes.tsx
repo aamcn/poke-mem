@@ -3,7 +3,6 @@ import LandingPage from "../pages/landingPage/LandingPage";
 import GamePage from "../pages/gamePage/GamePage";
 import RouterErrorPage from "../pages/routerErrorPage/RouterErrorPage";
 import LeaderBoardPage from "../pages/leaderBoardPage/LeaderBoardPage";
-import React from "react";
 
 const routes = [
   {

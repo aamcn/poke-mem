@@ -4,7 +4,7 @@ interface TimeArg {
   finish_time: string;
 }
 
-function sortByTime(a: TimeArg, b: TimeArg): number {
+function sortByTime(a: TimeArg, b: TimeArg): number | undefined {
   if (typeof a.finish_time === "string" && typeof b.finish_time === "string") {
     const timeA: number = parseInt(a.finish_time.replaceAll(":", ""), 10);
     const timeB: number = parseInt(b.finish_time.replaceAll(":", ""), 10);
