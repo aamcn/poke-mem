@@ -16,7 +16,19 @@
   padding-left: 1em;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) and (orientation: landscape)  {
+
+}
+  .timerContainer {
+    font-size: 2.5dvw;
+  }
+
+  .timerDigits {
+    font-size: 2.5dvw;
+  }
+
+
+@media screen and (min-width: 768px) and (orientation: portrait)  {
   .timerContainer {
     font-size: 4vw;
   }
