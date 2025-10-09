@@ -1,9 +1,14 @@
 .leaderBoardPage {
-  display: flex;
-  flex-direction: column;
   height: 100dvh;
   width: 100dvw;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 567px) and (orientation: landscape) {
+  .leaderBoardPage {
+    height: 100dvh;
+    width: 100dvw;
+  }
 }
 
 @media screen and (min-width: 1024px) {

@@ -1,0 +1,45 @@
+.leaderBoardHeadContainer {
+  min-width: 100%;
+  text-align: center;
+}
+
+.leaderBoardTitle {
+  color: rgb(24, 61, 61);
+  text-shadow: rgb(65, 165, 165) 0.05em 0.09em 0.05em;
+  text-decoration: double;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
+  align-content: center;
+  font-size: 5dvh;
+}
+
+@media screen and (min-width: 567px) and (orientation: landscape) {
+  .leaderBoardTitle{
+      font-size: 12dvh;
+    padding: 0.1em;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+
+  .leaderBoardTitle{
+     font-size: 7dvh;
+    padding: 0.1em;
+  }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .leaderBoardTitle {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 6vw;
+    padding: 0.1em;
+  }
+
+   .leaderBoardHeadContainer {
+    justify-content: start;
+    min-width: max-content;
+  }
+
+}

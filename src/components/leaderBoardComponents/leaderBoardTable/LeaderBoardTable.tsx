@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls";
 import styles from "./LeaderBoardTable.module.css";
 import { capitaliseString } from "../../../modules/capitaliseString";
+import LeaderBoardHeader from "../leaderBoardHeader/LeaderBoardHeader";
 
 // Define the structure of a leaderboard entry
 interface LeaderBoardEntry {
@@ -42,11 +43,12 @@ function LeaderBoardTable({
 
   // Render the leaderboard table with data.
   return (
-    <div>
       <div
         className={styles.leaderBoardContainer}
         data-testid="leaderboard-container"
       >
+        <LeaderBoardHeader 
+          selectedDifficulty={selectedDifficulty}/>
         <LeaderBoardControls
           setSelectedDifficulty={setSelectedDifficulty}
           selectedDifficulty={selectedDifficulty}
@@ -57,7 +59,7 @@ function LeaderBoardTable({
             aria-label="Leader Board Table"
           >
             <thead className={styles.leaderBoardHeader}>
-              <tr className={styles.leaderBoardRow}>
+              <tr className={styles.leaderBoardHeadRow}>
                 <th
                   className={styles.leaderBoardCell}
                   aria-label="Leaderboard Position"
@@ -106,7 +108,6 @@ function LeaderBoardTable({
           </table>
         </div>
       </div>
-    </div>
   );
 }
 
