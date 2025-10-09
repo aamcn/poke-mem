@@ -25,20 +25,30 @@
   font-weight: 600;
 }
 
-@media screen and (min-width: 768px) {
-  .gameTitle {
-    font-size: 9vw;
+@media screen and (min-width: 567px) and (orientation: landscape) {
+.titleContainer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .titleContainer {
+        display: block;
+
+    font-size: 3dvw;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .gameTitle {
+    display: block;
     grid-column: 1;
     grid-row: 1;
-    font-size: 6vw;
+    font-size: 6dvw;
   }
   
   .titleContainer{
+    display: block;
     padding-left: 4em;
     text-align: left;
   }
