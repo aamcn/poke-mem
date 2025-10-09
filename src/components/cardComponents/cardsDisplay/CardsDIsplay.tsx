@@ -35,8 +35,8 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
 
   // If isHidden is true, set it back to false after 0.5 seconds to re-render the cards.
   useEffect(() => {
-    setCardObjects(shuffleArray(cardObjects));
-    if (isHidden !== false) {
+    if (isHidden === true) {
+      setCardObjects((currentCards) => shuffleArray(currentCards)); // Functional update to ensure latest state
       const timer = setTimeout(() => {
         setIsHidden(false);
       }, 500);
@@ -54,16 +54,16 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
 
   function createCardObjects(chosenPokemon: Array<Pokemon>) {
     if (!chosenPokemon || chosenPokemon.length === 0) return;
-    // Clear existing card objects before creating new ones
-    setCardObjects([]);
-    chosenPokemon.map((pokemon) => {
+    // Map through chosenPokemon to create new PokemonCardObject instances.
+    const newCards = chosenPokemon.map((pokemon) => {
       const newId = uuidv4();
       const imageUrl = pokemon.sprites.other.dream_world.front_default;
       const name = pokemon.name;
       const type = pokemon.types[0].type.name;
-      const newCard = new PokemonCardObject(name, imageUrl, newId, type);
-      setCardObjects((cardObjects) => [...cardObjects, newCard]);
+      return new PokemonCardObject(name, imageUrl, newId, type);
     });
+    // Update state with the new array of card objects.
+    setCardObjects(newCards);
   }
 
   // Determine the appropriate CSS class based on the card total.
