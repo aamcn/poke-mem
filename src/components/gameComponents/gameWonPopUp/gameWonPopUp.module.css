@@ -58,7 +58,26 @@
   font-family: "Courier New", Courier, monospace;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 567px) and (orientation: landscape)  {
+  .gameWonWindow {
+    width: 40dvw;
+    height: 50dvh;
+  }
+
+  .gameWonTitle {
+    font-size: 4dvw; 
+  }
+
+  .gameWonText {
+    font-size: 2.5dvw;
+  }
+
+  .newGameButton {
+    font-size: 2dvw;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait)  {
   .gameWonWindow {
     width: 50dvw;
     height: 35dvh;

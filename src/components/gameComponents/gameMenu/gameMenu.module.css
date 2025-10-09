@@ -68,7 +68,30 @@
   background-color: rgb(103, 231, 231);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 567px) and (orientation: landscape)  {
+  .gameMenuContainer {
+    width: 40dvw;
+    height: 50dvh;
+  }
+
+  .difficultyPrompt {
+    font-size: 2dvw;
+  }
+
+  .titleContainer {
+    font-size: 3dvw;
+  }
+
+  .currentDifficultyText {
+    font-size: 2dvw;
+  }
+
+  .menuButton {
+    font-size: 2dvw;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .gameMenuContainer {
     width: 50dvw;
     height: 35dvh;
