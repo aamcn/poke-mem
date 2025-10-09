@@ -83,7 +83,50 @@
   width: 80%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) and (orientation: landscape)  {
+    .cardTitleContainer {
+    font-size: 3vh;
+  }
+
+  .fourCardContainer {
+    height: 50dvh;
+    border-width: 0.4em;
+    border-radius: 0.3em;
+  }
+
+  .fourImageContainer {
+    width: 22dvh;
+    height: 20dvh;
+    border-width: 0.2em;
+  }
+
+  .sixImageContainer {
+    border-width: 0.1em;
+    width: 18dvh;
+    height: 16dvh;
+  }
+
+  .sixCardContainer {
+    font-size: 5dvw;
+    height: 38dvh;
+    border-width: 0.1em;
+    border-radius: 0.1em;
+  }
+
+  .nineCardContainer {
+    height: 30dvh;
+    border-width: 0.3em;
+    border-radius: 0.2em;
+  }
+
+  .nineImageContainer {
+    border-width: 0.2em;
+    width: 14dvh;
+    height: 12dvh;
+  }
+}
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .cardTitleContainer {
     font-size: 2.5dvh;
   }
@@ -120,25 +163,25 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .fourCardContainer {
     height: 34dvh;
     border-radius: 0.5em;
   }
 
   .fourImageContainer {
-    width: 13dvh;
-    height: 13dvh;
+    width: 16dvh;
+    height: 14dvh;
   }
 
   .cardTitleContainer {
-    font-size: 1.5dvw;
+    font-size: 2dvh;
   }
 
   .sixCardContainer {
-    border-radius: 5%;
+    border-radius: 0.1em;
     height: 32dvh;
-    border-width: 0.2em;
+    border-width: 0.15em;
   }
 
   .sixImageContainer {
@@ -146,11 +189,19 @@
     height: 13dvh;
   }
 
+  .nineImageContainer {
+    width: 12dvh;
+    height: 10dvh;
+    border-width: 0.3em;
+  }
+
   .nineCardContainer {
     height: 26dvh;
+    border-radius: 0.3em;
+    border-width: 0.3em;
   }
 }
-
+/* 
 @media (max-height: 767px) and (min-width: 1024px) {
   .fourCardContainer {
     height: 36dvh;
@@ -184,16 +235,18 @@
     width: 75%;
     height: 45%;
   }
-}
+} */
 
 @media screen and (min-width: 1200px) {
   .fourCardContainer {
     height: 38dvh;
+    border-width: 0.5em;
   }
 
   .fourImageContainer {
     width: 18dvh;
     height: 17dvh;
+    border-width: 0.4em;
   }
 
   .sixImageContainer {
@@ -202,10 +255,16 @@
   }
 
   .sixCardContainer {
-    border-radius: 0.2em;
+    border-radius: 0.1em;
     font-size: 4dvw;
     height: 34dvh;
     border-width: 0.1em;
+  }
+
+  .nineImageContainer {
+     width: 12dvh;
+    height: 10dvh;
+    border-width: 0.3em;
   }
 
   .nineCardContainer {
