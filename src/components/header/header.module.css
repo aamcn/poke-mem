@@ -1,7 +1,6 @@
 .headerContainer {
   grid-row: 1;
   align-items: center;
-  min-width: 320px;
   height: 10dvh;
 }
 
@@ -23,6 +22,7 @@
   text-decoration: double;
   text-decoration-thickness: 0.05em;
   font-weight: 600;
+  font-size: 6dvh;
 }
 
 @media screen and (min-width: 567px) and (orientation: landscape) {
@@ -44,7 +44,6 @@
     display: block;
     grid-column: 1;
     grid-row: 1;
-    font-size: 6dvw;
   }
 
   .titleContainer {
