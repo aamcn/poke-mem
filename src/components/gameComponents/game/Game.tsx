@@ -176,6 +176,22 @@ export const useGameContext = () => {
   return context;
 };
 
+interface pokemonDataObject {
+  name: string;
+  sprites: {
+    other: {
+      dream_world: {
+        front_default: string;
+      };
+    };
+  };
+  types: Array<{
+    type: {
+      name: string;
+    };
+  }>;
+}
+
 function Game() {
   // Use useReducer to manage the game state. Initial state is defined here.
   const [state, dispatch] = useReducer(gameReducer, {
@@ -188,7 +204,7 @@ function Game() {
     finalTime: "",
   });
 
-  const [allPokemonObjects, setAllPokemonObjects] = useState<Array<object>>([]);
+  const [allPokemonObjects, setAllPokemonObjects] = useState<Array<pokemonDataObject>>([]);
   const [leaderBoardFormVisible, setLeaderBoardFormVisible] =
     useState<boolean>(false);
   // Value to be provided by the GameContext
@@ -198,18 +214,18 @@ function Game() {
   useEffect(() => {
     setAllPokemonObjects([]); // Clear existing data before fetching new data
     const pokemonDataObjects = fetchAllPokemonObjects();
-    setAllPokemonObjects(pokemonDataObjects);
+    setAllPokemonObjects(pokemonDataObjects as Array<pokemonDataObject>);
   }, []);
 
   const chosenPokemon = useMemo(() => {
     // Get an array of random index numbers based on the current card total.
     const randomIndexNumbers = getRandomIndexArray(state.cardTotal);
     // Use the random index numbers to select Pokemon card data objects from allPokemonObjects.
-    const randomPokemonArray: Array<object> = [];
+    const randomPokemonArray: Array<pokemonDataObject> = [];
     if (allPokemonObjects.length !== 0) {
       //Add error handling for when allPokemonObjects is empty.
       for (let i = 0; i < state.cardTotal; i++) {
-        const pokeObject = allPokemonObjects[randomIndexNumbers[i]] as object;
+        const pokeObject = allPokemonObjects[randomIndexNumbers[i]] as pokemonDataObject;
         randomPokemonArray.push(pokeObject);
       }
     }
