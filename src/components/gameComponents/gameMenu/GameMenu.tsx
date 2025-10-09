@@ -34,7 +34,8 @@ function GameMenu() {
 
   return (
     <div className={styles.gameMenuContainer} data-testid="game-menu-container">
-      <div className={styles.titleContainer}>
+      <div className={styles.gameMenu}>
+         <div className={styles.titleContainer}>
         <h2 id="game-menu-title" aria-label="Game Menu">
           Menu
         </h2>
@@ -115,6 +116,8 @@ function GameMenu() {
           Start Game
         </button>
       </div>
+      </div>
+      
     </div>
   );
 }
