@@ -15,10 +15,11 @@
   border: double;
   border-width: 0.5em;
   border-radius: 2em;
-  padding: 1em;
   box-shadow: 0px 0px 1em 0.1em rgb(0, 0, 0);
   text-align: center;
   animation: menuAppear 1s;
+  min-width: 90%;
+  min-height: 90%;
 }
 
 .retryButton {
@@ -31,7 +32,7 @@
   padding: 0.3em 0.6em;
   margin-top: 0.5em;
   box-shadow: 0px 0.1em 0.1em 0px;
-  font-size: 4.5dvw;
+  font-size: 4dvw;
 }
 
 .retryButton:active {

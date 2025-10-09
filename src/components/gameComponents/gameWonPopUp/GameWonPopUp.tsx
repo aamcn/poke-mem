@@ -15,7 +15,8 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
 
   return (
     <div className={styles.gameWonWindow} data-testid="game-won-popup">
-      <h3 className={styles.gameWonTitle} aria-label="You Did It!">
+      <div className={styles.gameWonPopUp}>
+        <h3 className={styles.gameWonTitle} aria-label="You Did It!">
         You Did It!
       </h3>
       <div className={styles.gameWonText}>
@@ -31,12 +32,11 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
         >
           {state.finalTime}
         </p>
-      </div>
-      <div>
+
         <p aria-label="Would you like to play again?">
           Would you like to play again?
         </p>
-        <br></br>
+      </div>
         <div className={styles.winMenuButtonsContainer}>
           <button
             className={styles.newGameButton}
