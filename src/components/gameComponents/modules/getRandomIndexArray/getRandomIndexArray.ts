@@ -1,4 +1,3 @@
-
 // Get a random integer between min and max arguments.
 
 function getRandomInt(min: number, max: number): number {
@@ -15,14 +14,16 @@ function getRandomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (maxInt - minInt + 1) + minInt);
 }
 
-
- function getRandomIndexArray(cardTotal: number): Array<number> {
-   const randomIndexNumbers: Array<number> = [];
-   for (let i = 0; i < cardTotal; i++) {
-     const randomIndex: number = getRandomInt(0, 149);
-     randomIndexNumbers.push(randomIndex);
-   }
-   return randomIndexNumbers;
- }
+// Get an array of unique random index numbers based on the cardTotal argument.
+function getRandomIndexArray(cardTotal: number): Array<number> {
+  const randomIndexNumbers: Array<number> = [];
+  while (randomIndexNumbers.length !== cardTotal) {
+    const randomIndex: number = getRandomInt(0, 150);
+    if (!randomIndexNumbers.includes(randomIndex)) {
+      randomIndexNumbers.push(randomIndex);
+    }
+  }
+  return randomIndexNumbers;
+}
 
 export { getRandomInt, getRandomIndexArray };
