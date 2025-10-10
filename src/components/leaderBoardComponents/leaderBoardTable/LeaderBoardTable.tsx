@@ -63,13 +63,14 @@ function LeaderBoardTable({
                 <th
                   className={styles.leaderBoardCell}
                   aria-label="Leaderboard Position"
+                  data-testid="leaderboard-position-header"
                 >
                   Position
                 </th>
-                <th className={styles.leaderBoardCell} aria-label="Player Name">
+                <th className={styles.leaderBoardCell} aria-label="Player Name" data-testid="leaderboard-player-name-header">
                   Player Name
                 </th>
-                <th className={styles.leaderBoardCell} aria-label="Finish Time">
+                <th className={styles.leaderBoardCell} aria-label="Finish Time" data-testid="leaderboard-finish-time-header">
                   Finish Time
                 </th>
               </tr>
