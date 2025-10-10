@@ -76,7 +76,8 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
 
   return (
     !isHidden && (
-      <div className={cardContainerClass}>
+      <div className={cardContainerClass}
+      data-testid="cards-container">
         {/* Render your card components here */}
         {cardObjects &&
           cardObjects.map((card) => (
