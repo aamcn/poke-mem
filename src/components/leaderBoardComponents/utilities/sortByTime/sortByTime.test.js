@@ -22,7 +22,7 @@ describe("sortByTime", () => {
     const expected = [];
     const result = input.sort(sortByTime);
     expect(result).toEqual(expected);
-  });
+  }); 
 
   it("should handle an array with one element", () => {
     const input = [{ id: 1, finish_time: "00:20:50" }];
