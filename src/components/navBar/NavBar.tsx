@@ -16,6 +16,7 @@ function Navbar() {
         id="leaderboard-link"
         to="/leader-board"
         aria-label="Leaderboard Link"
+        data-testid="leaderboard-link"
       >
         Leader Board
       </Link>
