@@ -13,8 +13,8 @@ function LeaderBoardHeader({ selectedDifficulty }: LeaderBoardHeaderProps) {
       <h1
         className={styles.leaderBoardTitle}
         data-testid="leader-board-title"
-        aria-label={` Current Showing ${selectedDifficulty} Difficulty Leader Board`}
-      > {selectedDifficulty} Leader Board
+        aria-label={`Current Showing ${selectedDifficulty} Difficulty Leader Board`}
+      >{selectedDifficulty} Leader Board
       </h1>
     </div>
   );
