@@ -1,7 +1,7 @@
 import LeaderBoardTable from "./LeaderBoardTable";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import React from "react";
+import '@testing-library/jest-dom';
 
 const mockProps = [
   { id: 3, player_name: "mockPlayerOne", finish_time: "9 seconds" },
@@ -10,7 +10,7 @@ const mockProps = [
 
 describe("LeaderBoardTable", () => {
   it("renders Leader Board component", () => {
-    render(<LeaderBoardTable sortedLeaderBoardData={mockProps} />);
+    render(<LeaderBoardTable leaderBoardData={mockProps} />);
     expect(screen.getByTestId("leaderboard-container")).toBeInTheDocument();
   });
 
@@ -31,10 +31,10 @@ describe("LeaderBoardTable", () => {
       render(<LeaderBoardTable leaderBoardData={mockProps} />);
       const entryRow = screen.getByTestId("row-1");
       expect(entryRow.firstChild).toHaveTextContent("1");
-      expect(entryRow.firstChild.nextSibling).toHaveTextContent(
+      expect(entryRow?.firstChild?.nextSibling).toHaveTextContent(
         "MockPlayerOne",
       );
-      expect(entryRow.firstChild.nextSibling.nextSibling).toHaveTextContent(
+      expect(entryRow?.firstChild?.nextSibling?.nextSibling).toHaveTextContent(
         "9 seconds",
       );
     });
@@ -43,10 +43,10 @@ describe("LeaderBoardTable", () => {
       render(<LeaderBoardTable leaderBoardData={mockProps} />);
       const entryRowTwo = screen.getByTestId("row-2");
       expect(entryRowTwo.firstChild).toHaveTextContent("2");
-      expect(entryRowTwo.firstChild.nextSibling).toHaveTextContent(
+      expect(entryRowTwo?.firstChild?.nextSibling).toHaveTextContent(
         "MockPlayerTwo",
       );
-      expect(entryRowTwo.firstChild.nextSibling.nextSibling).toHaveTextContent(
+      expect(entryRowTwo.firstChild?.nextSibling?.nextSibling).toHaveTextContent(
         "15 seconds",
       );
     });

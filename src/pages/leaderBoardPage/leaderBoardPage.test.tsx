@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { describe, it, expect } from "vitest";
 import React from "react";
 
-const renderWithRouter = (component) => {
+const renderWithRouter = (component: React.ReactNode) => {
   return render(<BrowserRouter>{component}</BrowserRouter>);
 };
 

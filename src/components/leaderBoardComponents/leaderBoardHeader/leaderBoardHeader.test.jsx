@@ -2,7 +2,6 @@ import LeaderBoardHeader from "./LeaderBoardHeader";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { BrowserRouter } from "react-router-dom";
-import React from "react";
 
 const mockProps = {
   selectedDifficulty: "Easy",

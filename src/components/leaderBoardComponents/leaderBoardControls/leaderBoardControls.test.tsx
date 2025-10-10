@@ -1,7 +1,7 @@
-import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls";
+import LeaderBoardControls from "./LeaderBoardControls";
 import { screen, render, fireEvent } from "@testing-library/react";
 import { expect, vi, it, describe, beforeEach } from "vitest";
-import React from "react";
+
 
 const mockProps = {
   selectedDifficulty: "Easy",
@@ -37,7 +37,7 @@ describe("LeaderBoardControls", () => {
     it("should render the selector with default value 'Easy'", () => {
       render(<LeaderBoardControls {...mockProps} />);
       const select = screen.getByTestId("difficulty-selector");
-      expect(select.value).toBe("Easy");
+      expect(select).toHaveValue("Easy");
     });
   });
 
@@ -66,7 +66,7 @@ describe("LeaderBoardControls", () => {
     it("Does not call setSelectedDifficulty when option is not changed", () => {
       render(<LeaderBoardControls {...mockProps} />);
       const select = screen.getByTestId("difficulty-selector");
-      expect(select.value).toBe("Easy");
+      expect(select).toHaveValue("Easy");
       expect(mockProps.setSelectedDifficulty).not.toHaveBeenCalled();
     });
   });
