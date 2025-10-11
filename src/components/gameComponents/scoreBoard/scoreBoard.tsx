@@ -1,4 +1,4 @@
-import { useGameContext } from "../../gameComponents/game/useGameContext";
+import { useGameContext } from "../game/useGameContext/useGameContext";
 import { initHighScore } from "./utilities/initHighScore";
 import styles from "./scoreBoard.module.css";
 

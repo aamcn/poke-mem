@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./timer.module.css";
-import { useGameContext } from "../game/useGameContext";
+import { useGameContext } from "../game/useGameContext/useGameContext";
 
 function Timer() {
   const { state, dispatch } = useGameContext();

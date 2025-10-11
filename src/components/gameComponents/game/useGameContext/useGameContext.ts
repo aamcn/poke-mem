@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import type { AppActions, gameObjectState } from "./utilities/gameState";
+import type { AppActions, gameObjectState } from "../gameState/gameState";
 
 
 export interface GameContextType {

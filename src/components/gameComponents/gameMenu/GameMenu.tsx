@@ -1,5 +1,5 @@
 import styles from "./gameMenu.module.css";
-import { useGameContext } from "../game/useGameContext";
+import { useGameContext } from "../game/useGameContext/useGameContext";
 import { useEffect, useState } from "react";
 
 function GameMenu() {

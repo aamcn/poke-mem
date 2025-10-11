@@ -1,4 +1,4 @@
-import { useGameContext } from "../game/useGameContext";
+import { useGameContext } from "../game/useGameContext/useGameContext";
 import styles from "./gameOverPopUp.module.css";
 
 function GameOverPopUp() {

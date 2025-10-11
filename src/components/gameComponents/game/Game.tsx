@@ -9,9 +9,9 @@ import Timer from "../timer/Timer";
 import LeaderBoardForm from "../leaderBoardForm/LeaderBoardForm";
 import { fetchAllPokemonObjects } from "./utilities/fetchAllPokemonObjects/fetchAllPokemonObjects";
 import { getRandomIndexArray } from "./utilities/getRandomIndexArray/getRandomIndexArray";
-import { gameReducer } from "./utilities/gameState";
-import { GameContext } from "./useGameContext";
-import type { GameContextType } from "./useGameContext";
+import { gameReducer } from "./gameState/gameState";
+import { GameContext } from "./useGameContext/useGameContext";
+import type { GameContextType } from "./useGameContext/useGameContext";
 
 // Define the shape of the pokemon data object fetched from the API.
 interface pokemonDataObject {
