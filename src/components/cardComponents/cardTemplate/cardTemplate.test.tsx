@@ -61,7 +61,6 @@ beforeEach(() => {
 });
 
 describe("CardTemplate Component", () => {
-
   //Rendering Tests
 
   it("renders without crashing", () => {
@@ -90,7 +89,9 @@ describe("CardTemplate Component", () => {
     const cardContainer = screen.getByTestId("playing-card-container");
     expect(cardContainer.getAttribute("class")).toContain("fourCardContainer");
     const imageContainer = cardContainer.firstChild as HTMLElement;
-    expect(imageContainer.getAttribute("class")).toContain("fourImageContainer");
+    expect(imageContainer.getAttribute("class")).toContain(
+      "fourImageContainer"
+    );
   });
 
   it("applies correct class names for 6 cards", () => {
@@ -108,7 +109,9 @@ describe("CardTemplate Component", () => {
     const cardContainer = screen.getByTestId("playing-card-container");
     expect(cardContainer.getAttribute("class")).toContain("nineCardContainer");
     const imageContainer = cardContainer.firstChild as HTMLElement;
-    expect(imageContainer.getAttribute("class")).toContain("nineImageContainer");
+    expect(imageContainer.getAttribute("class")).toContain(
+      "nineImageContainer"
+    );
   });
 
   // User Interaction Tests
@@ -177,11 +180,10 @@ describe("CardTemplate Component", () => {
   });
 
   it("No action is performed if no card is clicked", async () => {
-    const user = userEvent.setup();
     render(<CardTemplate {...mockCardTemplateProps} />);
     expect(mockDispatch).not.toHaveBeenCalled();
     expect(setIsHidden).not.toHaveBeenCalled();
     expect(cardDetails.isClicked).toBe(false);
     // No click action performed
-    });
+  });
 });

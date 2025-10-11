@@ -1,27 +1,32 @@
 import CardDisplay from "./CardsDIsplay";
-import { describe, expect, it, vi, afterEach } from "vitest";
+import { describe, expect, it, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-// Create a mock function that we can control
-const mockUseGameContext = vi.fn();
+// Mock the useGameContext hook
+const mockDispatch = vi.fn();
 
-// Mock the Game module
-vi.mock("../../gameComponents/game/Game", () => ({
-  useGameContext: () => mockUseGameContext(),
-}));
-
-// Define the Pokemon type for testing purposes
-type Pokemon = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  sprites: { other: { dream_world: { front_default: string } } };
-  types: { type: { name: string } }[];
+// initial mock state
+let mockState = {
+  gameStarted: false,
+  gameWon: false,
+  gameLost: false,
+  gameDifficulty: "easy",
+  cardTotal: 0,
+  score: 0,
+  finalTime: "",
 };
 
+vi.mock("../../gameComponents/game/Game", () => ({
+  useGameContext: vi.fn(() => ({
+    state: mockState,
+    dispatch: mockDispatch,
+  })),
+}));
+
+
 // Mock props for testing
-const chosenPokemon: Pokemon[] = [
+const chosenPokemon= [
   {
     id: 1,
     name: "Pikachu",
@@ -36,37 +41,35 @@ const chosenPokemon: Pokemon[] = [
     sprites: { other: { dream_world: { front_default: "sprite-2" } } },
     types: [{ type: { name: "fire" } }],
   },
-] as Pokemon[];
+];
 
 const CardDisplayprops = { chosenPokemon };
 
-mockUseGameContext.mockReturnValue({
-  state: {
-    gameStarted: false,
-    gameWon: false,
-    gameLost: false,
-    gameDifficulty: "easy",
-    cardTotal: 0,
-    score: 0,
-    finalTime: "",
-  },
-  dispatch: vi.fn(),
-});
-
-describe("CardDisplay Component", () => {
-  afterEach(() => {
+ beforeEach(() => {
     vi.clearAllMocks();
+    // Reset mock state before each test
+    mockState = {
+      gameStarted: false,
+      gameWon: false,
+      gameLost: false,
+      gameDifficulty: "easy",
+      cardTotal: 0,
+      score: 0,
+      finalTime: "",
+    };
   });
 
-  it("renders the card display container when not hidden", () => {
-    // Set up the mock to return basic states
+describe("CardDisplay Component", () => {
+ 
+  it("initially renders with cards visible", () => {
     render(<CardDisplay {...CardDisplayprops} />);
-    expect(screen.getByTestId("cards-container")).toBeInTheDocument();
+    const container = screen.getByTestId("cards-container");
+    expect(container).toBeInTheDocument();
   });
 
   it("applies correct CSS class for 4 cards", () => {
     // Mock useGameContext to return cardTotal of 4
-    mockUseGameContext.mockReturnValue({ state: { cardTotal: 4 } });
+    mockState.cardTotal = 4;
     render(<CardDisplay {...CardDisplayprops} />);
     const container = screen.getByTestId("cards-container");
     expect(container.getAttribute("class")).toMatch(/fourCardsContainer/);
@@ -74,7 +77,7 @@ describe("CardDisplay Component", () => {
 
   it("applies correct CSS class for 6 cards", () => {
     // Mock useGameContext to return cardTotal of 6
-    mockUseGameContext.mockReturnValue({ state: { cardTotal: 6 } });
+    mockState.cardTotal = 6;
     render(<CardDisplay {...CardDisplayprops} />);
     const container = screen.getByTestId("cards-container");
     expect(container.getAttribute("class")).toMatch(/sixCardsContainer/);
@@ -82,31 +85,27 @@ describe("CardDisplay Component", () => {
 
   it("applies correct CSS class for 9 cards", () => {
     // Mock useGameContext to return cardTotal of 9
-    mockUseGameContext.mockReturnValue({ state: { cardTotal: 9 } });
+    mockState.cardTotal = 9;
     render(<CardDisplay {...CardDisplayprops} />);
     const container = screen.getByTestId("cards-container");
     expect(container.getAttribute("class")).toMatch(/nineCardsContainer/);
   });
 
-  it("applies correct CSS class for 9 cards", () => {
-    // Mock useGameContext to return cardTotal of 9
-    mockUseGameContext.mockReturnValue({ state: { cardTotal: 4 } });
+  it("applies correct CSS class when cardTotal changes", () => {
+    // Start with 4 cards
+    mockState.cardTotal = 4;
     const { rerender } = render(<CardDisplay {...CardDisplayprops} />);
     const container = screen.getByTestId("cards-container");
     expect(container.getAttribute("class")).toMatch(/fourCardsContainer/);
-    mockUseGameContext.mockReturnValue({ state: { cardTotal: 6 } });
+    // Change to 6 cards  
+    mockState.cardTotal = 6; 
     rerender(<CardDisplay {...CardDisplayprops} />);
     expect(container.getAttribute("class")).toMatch(/sixCardsContainer/);
-    mockUseGameContext.mockReturnValue({ state: { cardTotal: 9 } });
+    // Change to 9 cards
+    mockState.cardTotal = 9;
     rerender(<CardDisplay {...CardDisplayprops} />);
     expect(container.getAttribute("class")).toMatch(/nineCardsContainer/);
   });
 
-  it("initially renders with cards visible", () => {
-    render(<CardDisplay {...CardDisplayprops} />);
-    // The container should be visible and contain cards
-    const container = screen.getByTestId("cards-container");
-    expect(container).toBeInTheDocument();
-  });
   
 });
