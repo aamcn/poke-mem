@@ -16,12 +16,6 @@ describe("shuffleArray", () => {
     expect(shuffled).not.toBe(testArray);
   });
 
-  it("Should return error if input is not an array", () => {
-    expect(() => {
-      shuffleArray("not an array");
-    }).toThrow("Expected input to be an array");
-  });
-
   it("Should return an Array the same length as passed in", () => {
     const testArray = [{ name: "tony" }, { name: "trevor" }, { name: "bob" }, { name: "gary" }];
     const shuffled = shuffleArray(testArray as PokemonCardObject[]);

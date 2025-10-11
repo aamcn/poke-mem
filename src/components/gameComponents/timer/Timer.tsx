@@ -10,7 +10,7 @@ function Timer() {
 
   useEffect(() => {
     const currentDate: Date = new Date();
-    let intervalId: number;
+    let intervalId: ReturnType<typeof setInterval>;
     if (state.gameStarted && !state.gameWon && !state.gameLost) {
       // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
       intervalId = setInterval(
