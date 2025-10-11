@@ -1,6 +1,6 @@
 import Header from "../../components/header/Header";
 import LeaderBoard from "../../components/leaderBoardComponents/leaderBoard/LeaderBoard";
-import styles from "./LeaderBoardPage.module.css";
+import styles from "./leaderBoardPage.module.css";
 
 function LeaderBoardPage() {
   return (
