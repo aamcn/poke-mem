@@ -50,15 +50,16 @@ function GameMenu() {
           Choose Your Difficulty
         </p>
         {error && (
-          <p className={styles.errorText}>
+          <p className={styles.errorText}
+            data-testid="error-message">
             Please select a difficulty before starting the game.
           </p>
         )}
         {state.cardTotal > 0 && (
           <p
-            data-testid="difficultyText"
             aria-label={`Current Difficulty: ${state.gameDifficulty} and Card Total: ${state.cardTotal}`}
             className={styles.currentDifficultyText}
+            data-testid="difficulty-text"
           >
             {state.gameDifficulty} - {state.cardTotal} Cards
           </p>
