@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { vi, it, describe, beforeEach, expect } from "vitest";
 
-
+// Initial mock state
 let mockState = {
   gameStarted: false,
   gameWon: false,
@@ -14,16 +14,18 @@ let mockState = {
   finalTime: "",
 };
 
-const dispatch = vi.fn();
+// Create mock dispatch function
+const mockDispatch = vi.fn();
 
-vi.mock("../../gameComponents/game/Game", () => ({
-  useGameContext: () => ({
+// Mock the useGameContext hook
+vi.mock("../../gameComponents/game/useGameContext", () => ({
+  useGameContext: vi.fn(() => ({
     state: mockState,
-    dispatch,
-  }),
+    dispatch: mockDispatch,
+  })),
 }));
 
-
+// Reset mock state before each test
 beforeEach(() => {
   vi.clearAllMocks();
   // Reset mock state before each test

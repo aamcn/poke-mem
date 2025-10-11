@@ -20,11 +20,11 @@ let mockState = {
 };
 
 // Mock the useGameContext to return mock state and dispatch
-vi.mock("../../gameComponents/game/Game", () => ({
-  useGameContext: () => ({
+vi.mock("../../gameComponents/game/useGameContext", () => ({
+  useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,
-  }),
+  })),
 }));
 
 // mock cardDetails and setIsHidden function
@@ -44,9 +44,9 @@ const setIsHidden = vi.fn();
 // Combine props for easy passing
 const mockCardTemplateProps = { cardDetails, setIsHidden };
 
+// Clear mocks and reset state before each test 
 beforeEach(() => {
   vi.clearAllMocks();
-  // Reset mock state before each test
   mockState = {
     gameStarted: false,
     gameWon: false,
@@ -56,7 +56,6 @@ beforeEach(() => {
     score: 0,
     finalTime: "",
   };
-  // Reset card state
   cardDetails.isClicked = false;
 });
 

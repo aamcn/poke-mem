@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import userEvent from "@testing-library/user-event";
 
+// Initial mock state
 let mockState = {
   gameStarted: false,
   gameWon: true,
@@ -12,16 +13,18 @@ let mockState = {
   score: 0,
   finalTime: "02:34:00",
 };
-
+// Create mock dispatch function
 let mockDispatch = vi.fn();
 
-vi.mock("../../gameComponents/game/Game", () => ({
-  useGameContext: () => ({
+// Mock the useGameContext hook
+vi.mock("../../gameComponents/game/useGameContext", () => ({
+  useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,
-  }),
+  })),
 }));
 
+// Reset mock state and dispatch before each test
 beforeEach(() => {
   mockState = {
     gameStarted: false,
@@ -35,6 +38,7 @@ beforeEach(() => {
   mockDispatch = vi.fn();
 });
 
+// Setup user event
 const user = userEvent.setup();
 
 describe("GameOverPopUp Component", () => {
