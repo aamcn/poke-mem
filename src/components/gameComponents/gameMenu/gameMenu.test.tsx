@@ -121,12 +121,12 @@ describe("GameMenu Component", () => {
     expect(currentDifficultyText.textContent).toBe("hard - 9 Cards");
   });
 
-    it("shows error message when starting game without selecting difficulty", async () => {
+  it("shows error message when starting game without selecting difficulty", async () => {
     render(<GameMenu />);
     const startButton = screen.getByText("Start Game");
     await user.click(startButton);
     const errorMessage = screen.getByText(
-      "Please select a difficulty before starting the game."
+      "Please select a difficulty before starting the game.",
     );
     expect(errorMessage).toBeInTheDocument();
   });

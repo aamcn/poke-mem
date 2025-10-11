@@ -1,9 +1,8 @@
 {
-    "routes": [
-      { "src": "/landing-page", "dest": "/" },
-      { "src": "/game-page", "dest": "/" },
-      { "src": "/topics", "dest": "/" },
-      { "src": "/leader-board", "dest": "/" }
-    ]
-  }
-
+  "routes": [
+    { "src": "/landing-page", "dest": "/" },
+    { "src": "/game-page", "dest": "/" },
+    { "src": "/topics", "dest": "/" },
+    { "src": "/leader-board", "dest": "/" }
+  ]
+}

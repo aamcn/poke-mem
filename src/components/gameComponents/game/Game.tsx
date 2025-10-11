@@ -71,7 +71,7 @@ function Game() {
         randomPokemonArray.push(allPokemonObjects[index] as pokemonDataObject);
       });
     }
-  // Memoized value of the chosen Pokemon array
+    // Memoized value of the chosen Pokemon array
     return randomPokemonArray;
   }, [allPokemonObjects, state.cardTotal]);
 

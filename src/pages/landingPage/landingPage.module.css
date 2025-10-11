@@ -38,20 +38,20 @@
   text-align: center;
 }
 
-  @media screen and (min-width: 567px) and (orientation: landscape) {
-    .mainHeading {
-      font-size: 10vw;
-    }
-
-    .mainImage {
-      width: 50vw;
-      margin-bottom: 5em;
-    }
-
-    .startButton {
-      font-size: 4vw;
-    }
+@media screen and (min-width: 567px) and (orientation: landscape) {
+  .mainHeading {
+    font-size: 10vw;
   }
+
+  .mainImage {
+    width: 50vw;
+    margin-bottom: 5em;
+  }
+
+  .startButton {
+    font-size: 4vw;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .mainHeading {
@@ -127,7 +127,6 @@
     font-size: 2vw;
   }
 }
-
 
 @keyframes appear {
   0% {

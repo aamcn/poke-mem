@@ -43,72 +43,79 @@ function LeaderBoardTable({
 
   // Render the leaderboard table with data.
   return (
-      <div
-        className={styles.leaderBoardContainer}
-        data-testid="leaderboard-container"
-      >
-        <LeaderBoardHeader 
-          selectedDifficulty={selectedDifficulty}/>
-        <LeaderBoardControls
-          setSelectedDifficulty={setSelectedDifficulty}
-          selectedDifficulty={selectedDifficulty}
-        />
-        <div className={styles.tableWrapper}>
-          <table
-            className={styles.leaderBoardTable}
-            aria-label="Leader Board Table"
-          >
-            <thead className={styles.leaderBoardHeader}>
-              <tr className={styles.leaderBoardHeadRow}>
-                <th
-                  className={styles.leaderBoardCell}
-                  aria-label="Leaderboard Position"
-                  data-testid="leaderboard-position-header"
+    <div
+      className={styles.leaderBoardContainer}
+      data-testid="leaderboard-container"
+    >
+      <LeaderBoardHeader selectedDifficulty={selectedDifficulty} />
+      <LeaderBoardControls
+        setSelectedDifficulty={setSelectedDifficulty}
+        selectedDifficulty={selectedDifficulty}
+      />
+      <div className={styles.tableWrapper}>
+        <table
+          className={styles.leaderBoardTable}
+          aria-label="Leader Board Table"
+        >
+          <thead className={styles.leaderBoardHeader}>
+            <tr className={styles.leaderBoardHeadRow}>
+              <th
+                className={styles.leaderBoardCell}
+                aria-label="Leaderboard Position"
+                data-testid="leaderboard-position-header"
+              >
+                Position
+              </th>
+              <th
+                className={styles.leaderBoardCell}
+                aria-label="Player Name"
+                data-testid="leaderboard-player-name-header"
+              >
+                Player Name
+              </th>
+              <th
+                className={styles.leaderBoardCell}
+                aria-label="Finish Time"
+                data-testid="leaderboard-finish-time-header"
+              >
+                Finish Time
+              </th>
+            </tr>
+          </thead>
+          <tbody className={styles.leaderBoardBody}>
+            {leaderBoardData.map((entry: LeaderBoardEntry, index) => (
+              <tr
+                key={entry.id}
+                className={styles.leaderBoardRow}
+                data-testid={`row-${index + 1}`}
+                aria-label={`Row ${index + 1}`}
+              >
+                <td
+                  className={styles.leaderBoardEntryCell}
+                  aria-label={`Leaderboard Position ${index + 1}`}
                 >
-                  Position
-                </th>
-                <th className={styles.leaderBoardCell} aria-label="Player Name" data-testid="leaderboard-player-name-header">
-                  Player Name
-                </th>
-                <th className={styles.leaderBoardCell} aria-label="Finish Time" data-testid="leaderboard-finish-time-header">
-                  Finish Time
-                </th>
+                  {index + 1}
+                </td>
+                <td
+                  className={styles.leaderBoardEntryCell}
+                  aria-label={`Player Name ${capitaliseString(
+                    entry.player_name,
+                  )}`}
+                >
+                  {capitaliseString(entry.player_name)}
+                </td>
+                <td
+                  className={styles.leaderBoardEntryCell}
+                  aria-label={`Finish Time ${entry.finish_time}`}
+                >
+                  {entry.finish_time}
+                </td>
               </tr>
-            </thead>
-            <tbody className={styles.leaderBoardBody}>
-              {leaderBoardData.map((entry: LeaderBoardEntry, index) => (
-                <tr
-                  key={entry.id}
-                  className={styles.leaderBoardRow}
-                  data-testid={`row-${index + 1}`}
-                  aria-label={`Row ${index + 1}`}
-                >
-                  <td
-                    className={styles.leaderBoardEntryCell}
-                    aria-label={`Leaderboard Position ${index + 1}`}
-                  >
-                    {index + 1}
-                  </td>
-                  <td
-                    className={styles.leaderBoardEntryCell}
-                    aria-label={`Player Name ${capitaliseString(
-                      entry.player_name,
-                    )}`}
-                  >
-                    {capitaliseString(entry.player_name)}
-                  </td>
-                  <td
-                    className={styles.leaderBoardEntryCell}
-                    aria-label={`Finish Time ${entry.finish_time}`}
-                  >
-                    {entry.finish_time}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
+    </div>
   );
 }
 

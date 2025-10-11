@@ -58,18 +58,16 @@
   }
 }
 
-
- @media screen and (min-width:1200px) {
-  
+@media screen and (min-width: 1200px) {
   .gameTitle {
     grid-column: 1;
-    grid-row: 1; 
+    grid-row: 1;
     font-size: 10dvh;
- }
+  }
 
   .headerContainer {
     justify-content: center;
-    min-width:max-content;
+    min-width: max-content;
   }
 }
 

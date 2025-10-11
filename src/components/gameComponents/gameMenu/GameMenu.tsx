@@ -35,90 +35,91 @@ function GameMenu() {
   return (
     <div className={styles.gameMenuContainer} data-testid="game-menu-container">
       <div className={styles.gameMenu}>
-         <div className={styles.titleContainer}>
-        <h2 id="game-menu-title" aria-label="Game Menu">
-          Menu
-        </h2>
-      </div>
+        <div className={styles.titleContainer}>
+          <h2 id="game-menu-title" aria-label="Game Menu">
+            Menu
+          </h2>
+        </div>
 
-      <div className={styles.difficultyContainer}>
-        <p
-          data-testid="difficulty-prompt"
-          className={styles.difficultyPrompt}
-          aria-label="Choose Your Difficulty"
-        >
-          Choose Your Difficulty
-        </p>
-        {error && (
-          <p className={styles.errorText}
-            data-testid="error-message">
-            Please select a difficulty before starting the game.
-          </p>
-        )}
-        {state.cardTotal > 0 && (
+        <div className={styles.difficultyContainer}>
           <p
-            aria-label={`Current Difficulty: ${state.gameDifficulty} and Card Total: ${state.cardTotal}`}
-            className={styles.currentDifficultyText}
-            data-testid="difficulty-text"
+            data-testid="difficulty-prompt"
+            className={styles.difficultyPrompt}
+            aria-label="Choose Your Difficulty"
           >
-            {state.gameDifficulty} - {state.cardTotal} Cards
+            Choose Your Difficulty
           </p>
-        )}
+          {error && (
+            <p className={styles.errorText} data-testid="error-message">
+              Please select a difficulty before starting the game.
+            </p>
+          )}
+          {state.cardTotal > 0 && (
+            <p
+              aria-label={`Current Difficulty: ${state.gameDifficulty} and Card Total: ${state.cardTotal}`}
+              className={styles.currentDifficultyText}
+              data-testid="difficulty-text"
+            >
+              {state.gameDifficulty} - {state.cardTotal} Cards
+            </p>
+          )}
 
-        <div className={styles.difficultyButtons}>
-          <button
-            data-testid="easy-button"
-            className={styles.menuButton}
-            // Dispatch an action to update the game difficulty and card total
-            onClick={() =>
-              dispatch({ type: "toggleGameDifficulty", payload: ["Easy", 4] })
-            }
-            value={4}
-            aria-label="Set Difficulty to Easy"
-          >
-            Easy
-          </button>
+          <div className={styles.difficultyButtons}>
+            <button
+              data-testid="easy-button"
+              className={styles.menuButton}
+              // Dispatch an action to update the game difficulty and card total
+              onClick={() =>
+                dispatch({ type: "toggleGameDifficulty", payload: ["Easy", 4] })
+              }
+              value={4}
+              aria-label="Set Difficulty to Easy"
+            >
+              Easy
+            </button>
 
-          <button
-            data-testid="medium-button"
-            className={styles.menuButton}
-            // Dispatch an action to update the game difficulty and card total
-            onClick={() =>
-              dispatch({ type: "toggleGameDifficulty", payload: ["Medium", 6] })
-            }
-            value={6}
-            aria-label="Set Difficulty to Medium"
-          >
-            Medium
-          </button>
+            <button
+              data-testid="medium-button"
+              className={styles.menuButton}
+              // Dispatch an action to update the game difficulty and card total
+              onClick={() =>
+                dispatch({
+                  type: "toggleGameDifficulty",
+                  payload: ["Medium", 6],
+                })
+              }
+              value={6}
+              aria-label="Set Difficulty to Medium"
+            >
+              Medium
+            </button>
 
+            <button
+              data-testid="hard-button"
+              className={styles.menuButton}
+              // Dispatch an action to update the game difficulty and card total
+              onClick={() =>
+                dispatch({ type: "toggleGameDifficulty", payload: ["Hard", 9] })
+              }
+              value={9}
+              aria-label="Set Difficulty to Hard"
+            >
+              Hard
+            </button>
+          </div>
+        </div>
+        <div id="menu-buttons-container">
           <button
-            data-testid="hard-button"
+            data-testid="start-button"
             className={styles.menuButton}
-            // Dispatch an action to update the game difficulty and card total
-            onClick={() =>
-              dispatch({ type: "toggleGameDifficulty", payload: ["Hard", 9] })
-            }
-            value={9}
-            aria-label="Set Difficulty to Hard"
+            // Dispatch an action to start the game
+            onClick={handleStartGame}
+            aria-label="Start Game"
           >
-            Hard
+            Start Game
           </button>
         </div>
       </div>
-      <div id="menu-buttons-container">
-        <button
-          data-testid="start-button"
-          className={styles.menuButton}
-          // Dispatch an action to start the game
-          onClick={handleStartGame}
-          aria-label="Start Game"
-        >
-          Start Game
-        </button>
-      </div>
-      </div>
-      
     </div>
   );
 }

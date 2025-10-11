@@ -1,14 +1,14 @@
 import React, { createContext, useContext } from "react";
 import type { AppActions, gameObjectState } from "../gameState/gameState";
 
-
 export interface GameContextType {
   state: gameObjectState;
   dispatch: React.Dispatch<AppActions>;
 }
 
- export const GameContext = createContext<GameContextType>({} as GameContextType);
-
+export const GameContext = createContext<GameContextType>(
+  {} as GameContextType,
+);
 
 // Custom hook to use the GameContext
 export const useGameContext = () => {

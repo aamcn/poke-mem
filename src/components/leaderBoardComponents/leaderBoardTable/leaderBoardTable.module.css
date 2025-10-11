@@ -54,7 +54,7 @@
     align-self: center;
   }
 
-  .leaderBoardHeadRow { 
+  .leaderBoardHeadRow {
     font-size: 5dvh;
     padding: 1em;
   }
@@ -72,7 +72,7 @@
     width: 80dvw;
   }
 
-  .leaderBoardHeadRow { 
+  .leaderBoardHeadRow {
     font-size: 3dvh;
     border: 0.1em solid rgb(24, 61, 61);
   }
@@ -81,7 +81,6 @@
     border: 0.1em solid rgb(24, 61, 61);
     font-size: 3dvh;
   }
-
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
@@ -89,12 +88,12 @@
     width: 80dvw;
     height: 72dvh;
     align-self: end;
-    margin: 3em 0em 1em 0em;  
+    margin: 3em 0em 1em 0em;
     top: 40%;
     left: 50%;
   }
 
-  .leaderBoardHeadRow { 
+  .leaderBoardHeadRow {
     font-size: 3dvh;
     border: 0.1em solid rgb(24, 61, 61);
   }
@@ -102,7 +101,7 @@
   .leaderBoardTable {
     border-collapse: collapse;
   }
-  
+
   .leaderBoardEntryCell {
     font-size: 3dvh;
   }
@@ -114,11 +113,9 @@
     padding: 1em;
     border: 0.1em solid rgb(24, 61, 61);
   }
-
 }
 
 @media screen and (min-width: 1200px) and (orientation: landscape) {
   .leaderBoardContainer {
   }
-
 }

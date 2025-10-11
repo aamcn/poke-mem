@@ -25,9 +25,8 @@ vi.mock("../../gameComponents/game/useGameContext/useGameContext", () => ({
   })),
 }));
 
-
 // Mock props for testing
-const chosenPokemon= [
+const chosenPokemon = [
   {
     id: 1,
     name: "Pikachu",
@@ -48,21 +47,20 @@ const chosenPokemon= [
 const CardDisplayprops = { chosenPokemon };
 
 // Reset mock state before each test
- beforeEach(() => {
-    vi.clearAllMocks();
-    mockState = {
-      gameStarted: false,
-      gameWon: false,
-      gameLost: false,
-      gameDifficulty: "easy",
-      cardTotal: 0,
-      score: 0,
-      finalTime: "",
-    };
-  });
+beforeEach(() => {
+  vi.clearAllMocks();
+  mockState = {
+    gameStarted: false,
+    gameWon: false,
+    gameLost: false,
+    gameDifficulty: "easy",
+    cardTotal: 0,
+    score: 0,
+    finalTime: "",
+  };
+});
 
 describe("CardDisplay Component", () => {
- 
   it("initially renders with cards visible", () => {
     render(<CardDisplay {...CardDisplayprops} />);
     const container = screen.getByTestId("cards-container");
@@ -99,8 +97,8 @@ describe("CardDisplay Component", () => {
     const { rerender } = render(<CardDisplay {...CardDisplayprops} />);
     const container = screen.getByTestId("cards-container");
     expect(container.getAttribute("class")).toMatch(/fourCardsContainer/);
-    // Change to 6 cards  
-    mockState.cardTotal = 6; 
+    // Change to 6 cards
+    mockState.cardTotal = 6;
     rerender(<CardDisplay {...CardDisplayprops} />);
     expect(container.getAttribute("class")).toMatch(/sixCardsContainer/);
     // Change to 9 cards
@@ -108,6 +106,4 @@ describe("CardDisplay Component", () => {
     rerender(<CardDisplay {...CardDisplayprops} />);
     expect(container.getAttribute("class")).toMatch(/nineCardsContainer/);
   });
-
-  
 });

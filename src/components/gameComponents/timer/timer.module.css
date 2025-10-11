@@ -17,14 +17,13 @@
 }
 
 @media screen and (min-width: 567px) and (orientation: landscape) {
+  .timerContainer {
+    font-size: 2.5dvw;
+  }
 
-.timerContainer {
-  font-size: 2.5dvw;
-}
-
-.timerDigits {
-  font-size: 2.5dvw;
-}
+  .timerDigits {
+    font-size: 2.5dvw;
+  }
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {

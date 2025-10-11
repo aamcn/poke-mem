@@ -17,26 +17,26 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
     <div className={styles.gameWonWindow} data-testid="game-won-popup">
       <div className={styles.gameWonPopUp}>
         <h3 className={styles.gameWonTitle} aria-label="You Did It!">
-        You Did It!
-      </h3>
-      <div className={styles.gameWonText}>
-        <p aria-label="You Beat This Round">You Beat This Round</p>
-        <p aria-label="Nice Work!">Nice Work!</p>
-      </div>
-      <div>
-        <p aria-label="Your final time was:">Your final time was:</p>
-        <p
-          data-testid="win-final-time"
-          className={styles.winTimeText}
-          aria-label="Final Time"
-        >
-          {state.finalTime}
-        </p>
+          You Did It!
+        </h3>
+        <div className={styles.gameWonText}>
+          <p aria-label="You Beat This Round">You Beat This Round</p>
+          <p aria-label="Nice Work!">Nice Work!</p>
+        </div>
+        <div>
+          <p aria-label="Your final time was:">Your final time was:</p>
+          <p
+            data-testid="win-final-time"
+            className={styles.winTimeText}
+            aria-label="Final Time"
+          >
+            {state.finalTime}
+          </p>
 
-        <p aria-label="Would you like to play again?">
-          Would you like to play again?
-        </p>
-      </div>
+          <p aria-label="Would you like to play again?">
+            Would you like to play again?
+          </p>
+        </div>
         <div className={styles.winMenuButtonsContainer}>
           <button
             className={styles.newGameButton}

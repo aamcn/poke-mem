@@ -3,7 +3,6 @@
   height: 90dvh;
   grid-template-rows: 1fr 11fr;
   position: relative;
-
 }
 
 .gameInfoContainer {
@@ -14,7 +13,6 @@
 
 @media screen and (min-width: 576px) and (orientation: landscape) {
   .gameContainer {
-
   }
 
   .gameInfoContainer {

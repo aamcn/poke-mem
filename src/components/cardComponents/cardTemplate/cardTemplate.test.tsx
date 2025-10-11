@@ -43,7 +43,7 @@ const setIsHidden = vi.fn();
 // Combine props for easy passing
 const mockCardTemplateProps = { cardDetails, setIsHidden };
 
-// Clear mocks and reset state before each test 
+// Clear mocks and reset state before each test
 beforeEach(() => {
   vi.clearAllMocks();
   mockState = {
@@ -88,7 +88,7 @@ describe("CardTemplate Component", () => {
     expect(cardContainer.getAttribute("class")).toContain("fourCardContainer");
     const imageContainer = cardContainer.firstChild as HTMLElement;
     expect(imageContainer.getAttribute("class")).toContain(
-      "fourImageContainer"
+      "fourImageContainer",
     );
   });
 
@@ -108,7 +108,7 @@ describe("CardTemplate Component", () => {
     expect(cardContainer.getAttribute("class")).toContain("nineCardContainer");
     const imageContainer = cardContainer.firstChild as HTMLElement;
     expect(imageContainer.getAttribute("class")).toContain(
-      "nineImageContainer"
+      "nineImageContainer",
     );
   });
 

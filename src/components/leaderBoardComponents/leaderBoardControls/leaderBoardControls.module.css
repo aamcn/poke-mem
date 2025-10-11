@@ -32,24 +32,22 @@
 }
 
 @media screen and (min-width: 567px) and (orientation: landscape) {
-  
   .leaderBoardControls {
-  font-size: 1dvh;
-  border: solid rgb(30, 1, 30);
-  border-radius: 2em;
-  padding: 1em;
-}
+    font-size: 1dvh;
+    border: solid rgb(30, 1, 30);
+    border-radius: 2em;
+    padding: 1em;
+  }
 
-.leaderBoardLabel {
-  letter-spacing: 0.05em;
-  font-size: 5dvh;
-}
+  .leaderBoardLabel {
+    letter-spacing: 0.05em;
+    font-size: 5dvh;
+  }
 
-.leaderBoardSelect {
-  font-size: 4dvh;
-  padding: 0.2em 1em 0.2em 1em;
-}
-
+  .leaderBoardSelect {
+    font-size: 4dvh;
+    padding: 0.2em 1em 0.2em 1em;
+  }
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
@@ -68,7 +66,6 @@
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
-
   .leaderBoardSelect {
     padding: 0.1em 0.2em 0.1em 0.2em;
     font-size: 3dvh;

@@ -45,7 +45,7 @@ const setLeaderBoardFormVisible = vi.fn();
 describe("GameWonPopUp Component", () => {
   it("renders without crashing", () => {
     render(
-      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const popupElement = screen.getByTestId("game-won-popup");
     expect(popupElement).toBeInTheDocument();
@@ -53,31 +53,32 @@ describe("GameWonPopUp Component", () => {
 
   it("displays the correct final time from state", () => {
     render(
-      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const finalTimeElement = screen.getByTestId("win-final-time");
     expect(finalTimeElement).toHaveTextContent(mockState.finalTime);
   });
 
-   it("calls setLeaderBoardFormVisible when 'new game' button is clicked", async () => {
+  it("calls setLeaderBoardFormVisible when 'new game' button is clicked", async () => {
     render(
-      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const user = userEvent.setup();
     const newGameButton = screen.getByLabelText("Start a New Game Button");
     await user.click(newGameButton);
-    expect(mockDispatch).toHaveBeenCalledWith({ type: "resetGame", payload: null });
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: "resetGame",
+      payload: null,
+    });
   });
 
   it("calls setLeaderBoardFormVisible when 'Submit Score' button is clicked", async () => {
     render(
-      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <GameWonPopUp setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const user = userEvent.setup();
     const submitButton = screen.getByTestId("submit-score-button");
     await user.click(submitButton);
     expect(setLeaderBoardFormVisible).toHaveBeenCalledWith(true);
   });
-
-  
 });

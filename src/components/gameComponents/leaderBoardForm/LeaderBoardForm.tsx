@@ -87,8 +87,6 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
           />
         </div>
 
-       
-
         <div className={styles.formButtonsContainer}>
           <button
             type="submit"

@@ -54,7 +54,7 @@ const user = userEvent.setup();
 describe("LeaderBoardForm Component", () => {
   it("renders without crashing", () => {
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const formElement = screen.getByTestId("leaderboard-form");
     expect(formElement).toBeInTheDocument();
@@ -62,7 +62,7 @@ describe("LeaderBoardForm Component", () => {
 
   it("calls setLeaderBoardFormVisible and dispatch on cancel", async () => {
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const cancelButton = screen.getByText("Cancel");
     await user.click(cancelButton);
@@ -75,7 +75,7 @@ describe("LeaderBoardForm Component", () => {
 
   it("Calls resetGame and setLeaderBoardFormVisible on form submit", async () => {
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     await userEvent.type(screen.getByLabelText("Player Name"), "Test Player");
     const submitButton = screen.getByText("Submit");
@@ -89,7 +89,7 @@ describe("LeaderBoardForm Component", () => {
 
   it("submits form when user clicks submit", async () => {
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     await userEvent.type(screen.getByLabelText("Player Name"), "Test Player");
     const submitButton = screen.getByText("Submit");
@@ -99,7 +99,7 @@ describe("LeaderBoardForm Component", () => {
 
   it("does not submit form when user clicks submit without entering name", async () => {
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     const submitButton = screen.getByText("Submit");
     await user.click(submitButton);
@@ -110,7 +110,7 @@ describe("LeaderBoardForm Component", () => {
     mockState.gameDifficulty = "easy";
     const easyLeaderBoardUrl = postToLeaderBoardUrls.easy;
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     await user.type(screen.getByLabelText("Player Name"), "Test Player");
     const submitButton = screen.getByText("Submit");
@@ -118,7 +118,7 @@ describe("LeaderBoardForm Component", () => {
     expect(axios.post).toHaveBeenCalledWith(
       easyLeaderBoardUrl,
       expect.any(Object),
-      { method: "cors" }
+      { method: "cors" },
     );
   });
 
@@ -126,7 +126,7 @@ describe("LeaderBoardForm Component", () => {
     mockState.gameDifficulty = "medium";
     const mediumLeaderBoardUrl = postToLeaderBoardUrls.medium;
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     await user.type(screen.getByLabelText("Player Name"), "Test Player");
     const submitButton = screen.getByText("Submit");
@@ -134,7 +134,7 @@ describe("LeaderBoardForm Component", () => {
     expect(axios.post).toHaveBeenCalledWith(
       mediumLeaderBoardUrl,
       expect.any(Object),
-      { method: "cors" }
+      { method: "cors" },
     );
   });
 
@@ -142,7 +142,7 @@ describe("LeaderBoardForm Component", () => {
     mockState.gameDifficulty = "hard";
     const hardLeaderBoardUrl = postToLeaderBoardUrls.hard;
     render(
-      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />
+      <LeaderBoardForm setLeaderBoardFormVisible={setLeaderBoardFormVisible} />,
     );
     await user.type(screen.getByLabelText("Player Name"), "Test Player");
     const submitButton = screen.getByText("Submit");
@@ -150,7 +150,7 @@ describe("LeaderBoardForm Component", () => {
     expect(axios.post).toHaveBeenCalledWith(
       hardLeaderBoardUrl,
       expect.any(Object),
-      { method: "cors" }
+      { method: "cors" },
     );
   });
 });

@@ -1,4 +1,3 @@
-
 // Define action types for the reducer
 interface ToggleGameStartedAction {
   type: "toggleGameStarted";

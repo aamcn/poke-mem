@@ -42,8 +42,7 @@ beforeEach(() => {
 const user = userEvent.setup();
 
 describe("GameOverPopUp Component", () => {
-  
- it("renders without crashing", () => {
+  it("renders without crashing", () => {
     render(<GameOverPopUp />);
     const gameOverPopUp = screen.getByTestId("game-over-popup");
     expect(gameOverPopUp).toBeInTheDocument();
@@ -53,15 +52,21 @@ describe("GameOverPopUp Component", () => {
     render(<GameOverPopUp />);
     const retryButton = screen.getByTestId("retry-button");
     await user.click(retryButton);
-    expect(mockDispatch).toHaveBeenCalledWith({ type: "resetGame", payload: null });
-  });   
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: "resetGame",
+      payload: null,
+    });
+  });
 
-    it("displays the correct game over text", () => {
+  it("displays the correct game over text", () => {
     render(<GameOverPopUp />);
     expect(screen.getByLabelText("Game Over")).toBeInTheDocument();
     expect(screen.getByLabelText("Oh no...")).toBeInTheDocument();
-    expect(screen.getByLabelText("You already clicked on that")).toBeInTheDocument();
-    expect(screen.getByLabelText("Would you like to try again?")).toBeInTheDocument();      
-    });
-
+    expect(
+      screen.getByLabelText("You already clicked on that"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText("Would you like to try again?"),
+    ).toBeInTheDocument();
+  });
 });

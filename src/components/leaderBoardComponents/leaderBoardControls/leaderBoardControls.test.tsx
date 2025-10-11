@@ -2,7 +2,6 @@ import LeaderBoardControls from "./LeaderBoardControls";
 import { screen, render, fireEvent } from "@testing-library/react";
 import { expect, vi, it, describe, beforeEach } from "vitest";
 
-
 const mockProps = {
   selectedDifficulty: "Easy",
   setSelectedDifficulty: vi.fn(),

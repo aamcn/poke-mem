@@ -3,7 +3,7 @@ import { render, screen, act } from "@testing-library/react";
 import { it, describe, expect, vi } from "vitest";
 import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
 // Helper function to render component with Router context
 const renderWithRouter = (component: React.ReactNode) => {

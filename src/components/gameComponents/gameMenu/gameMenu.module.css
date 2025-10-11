@@ -7,7 +7,7 @@
   align-self: center;
 }
 
-.gameMenu{
+.gameMenu {
   display: grid;
   border-style: double;
   border-width: 0.5em;
