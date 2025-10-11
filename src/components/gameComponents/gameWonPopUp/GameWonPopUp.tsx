@@ -49,6 +49,7 @@ function GameWonPopUp({ setLeaderBoardFormVisible }: GameWonPopUpProps) {
             className={styles.newGameButton}
             onClick={handleLeaderBoardClick}
             aria-label="Submit Score Button"
+            data-testid="submit-score-button"
           >
             Submit Score
           </button>
