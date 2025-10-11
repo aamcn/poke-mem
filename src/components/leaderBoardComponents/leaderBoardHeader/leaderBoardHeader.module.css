@@ -16,7 +16,7 @@
 
 @media screen and (min-width: 567px) and (orientation: landscape) {
   .leaderBoardTitle{
-      font-size: 12dvh;
+      font-size: 9dvh;
     padding: 0.1em;
   }
 }

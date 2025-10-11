@@ -5,12 +5,14 @@
   flex-direction: column;
   background-color: rgb(86, 197, 176);
   padding: 1em;
-  margin: 1em 0em 2em 0em;
   border: double 0.5em rgb(24, 61, 61);
   border-radius: 1em;
-  justify-self: center;
   text-align: center;
   justify-content: space-evenly;
+  position: relative;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .leaderBoardHeader {
@@ -18,7 +20,7 @@
   z-index: 2;
   top: 0;
   background-color: rgb(50, 142, 142);
-  font-size: 5vw;
+  font-size: 5dvw;
   color: rgb(13, 35, 35);
 }
 
@@ -43,14 +45,13 @@
 
 @media screen and (min-width: 567px) and (orientation: landscape) {
   .leaderBoardContainer {
-    height: 75dvh;
+    height: 70dvh;
     width: 70dvw;
     padding: 1em;
-    margin: 0em;
     border-radius: 1em;
-    margin-bottom: 1em;
     text-align: center;
     justify-content: space-evenly;
+    align-self: center;
   }
 
   .leaderBoardHeadRow { 
@@ -86,9 +87,11 @@
 @media screen and (min-width: 1024px) and (orientation: landscape) {
   .leaderBoardContainer {
     width: 80dvw;
-    height: 70dvh;
+    height: 72dvh;
     align-self: end;
     margin: 3em 0em 1em 0em;  
+    top: 40%;
+    left: 50%;
   }
 
   .leaderBoardHeadRow { 
