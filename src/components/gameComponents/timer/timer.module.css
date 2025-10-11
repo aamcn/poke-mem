@@ -4,26 +4,27 @@
   align-content: center;
   grid-template-columns: 1fr 1fr;
   color: rgb(24, 61, 61);
-  font-size: 5vw;
+  font-size: 3dvh;
   padding: 0em 1em 0em 1em;
   font-weight: 1000;
 }
 
 .timerDigits {
   font-family: "VT323", monospace;
-  font-size: 5vw;
+  font-size: 3dvh;
   align-self: flex-end;
   padding-left: 1em;
 }
 
-@media screen and (min-width: 576px) and (orientation: landscape) {
-}
+@media screen and (min-width: 567px) and (orientation: landscape) {
+
 .timerContainer {
   font-size: 2.5dvw;
 }
 
 .timerDigits {
   font-size: 2.5dvw;
+}
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
@@ -36,7 +37,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .timerContainer {
     grid-column: 1;
     grid-row: 1;
