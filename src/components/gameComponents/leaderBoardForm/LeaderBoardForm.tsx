@@ -47,12 +47,12 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
   };
 
   return (
-    <form className={styles.leaderBoardForm} onSubmit={handleSubmitScore}>
+    <form className={styles.leaderBoardForm} onSubmit={handleSubmitScore} data-testid="leaderboard-form">
       <h2 aria-label="Submit Your Score">Submit Your Score</h2>
       <label htmlFor="playerName" aria-label="Player Name">
         Name:{" "}
       </label>
-      <input id="playerName" type="text" name="playerName" />
+      <input id="playerName" type="text" name="playerName" required/>
       <label htmlFor="finishTime" aria-label="Finish Time">
         Finish Time:{" "}
       </label>
