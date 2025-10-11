@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./cardsDisplay.module.css";
-import { useGameContext } from "../../gameComponents/game/Game";
+import { useGameContext } from "../../gameComponents/game/useGameContext";
 import { v4 as uuidv4 } from "uuid";
 import PokemonCardObject from "../utilities/cardConstructor/cardConstructor";
 import CardTemplate from "../cardTemplate/CardTemplate";

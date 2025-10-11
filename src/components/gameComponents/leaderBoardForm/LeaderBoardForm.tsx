@@ -1,6 +1,6 @@
 import styles from "./leaderBoardForm.module.css";
 import axios from "axios";
-import { useGameContext } from "../game/Game";
+import { useGameContext } from "../game/useGameContext";
 import { postToLeaderBoardUrls } from "./constants/postToLeaderBoardUrls.ts";
 import type { MouseEventHandler } from "react";
 

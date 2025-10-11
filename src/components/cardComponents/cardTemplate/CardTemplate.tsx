@@ -1,5 +1,5 @@
 import type PokemonCardObject from "../utilities/cardConstructor/cardConstructor";
-import { useGameContext } from "../../gameComponents/game/Game";
+import { useGameContext } from "../../gameComponents/game/useGameContext";
 import styles from "./cardTemplate.module.css";
 import { useMemo } from "react";
 

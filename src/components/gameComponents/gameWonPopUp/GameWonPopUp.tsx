@@ -1,5 +1,5 @@
 import styles from "./GameWonPopUp.module.css";
-import { useGameContext } from "../game/Game";
+import { useGameContext } from "../game/useGameContext";
 
 interface GameWonPopUpProps {
   setLeaderBoardFormVisible: (value: boolean) => void; // Function to set the visibility of the leaderboard form
