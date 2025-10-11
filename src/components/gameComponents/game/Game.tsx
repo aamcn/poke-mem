@@ -36,7 +36,7 @@ function Game() {
     gameStarted: false,
     gameWon: false,
     gameLost: false,
-    gameDifficulty: "easy",
+    gameDifficulty: "Easy",
     cardTotal: 0,
     score: 0,
     finalTime: "",
