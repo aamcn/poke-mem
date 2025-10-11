@@ -58,14 +58,13 @@
   }
 }
 
-/* 
+
  @media screen and (min-width:1200px) {
   
   .gameTitle {
     grid-column: 1;
     grid-row: 1; 
-    font-size: 7vw;
-    text-shadow:rgb(138, 5, 45) 0.05em 0.05em 0.05em;
+    font-size: 10dvh;
  }
 
   .headerContainer {
@@ -74,7 +73,7 @@
   }
 }
 
-
+/*
 @media (orientation: landscape) and (max-height: 850px) {
   .gameTitle {
     grid-column: 1;
