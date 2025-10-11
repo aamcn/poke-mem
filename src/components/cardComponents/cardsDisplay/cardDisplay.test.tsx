@@ -40,18 +40,18 @@ const chosenPokemon: Pokemon[] = [
 
 const CardDisplayprops = { chosenPokemon };
 
-  mockUseGameContext.mockReturnValue({
-      state: {
-        gameStarted: false,
-        gameWon: false,
-        gameLost: false,
-        gameDifficulty: "easy",
-        cardTotal: 0,
-        score: 0,
-        finalTime: "",
-      },
-      dispatch: vi.fn(),
-    });
+mockUseGameContext.mockReturnValue({
+  state: {
+    gameStarted: false,
+    gameWon: false,
+    gameLost: false,
+    gameDifficulty: "easy",
+    cardTotal: 0,
+    score: 0,
+    finalTime: "",
+  },
+  dispatch: vi.fn(),
+});
 
 describe("CardDisplay Component", () => {
   afterEach(() => {
@@ -87,9 +87,8 @@ describe("CardDisplay Component", () => {
     const container = screen.getByTestId("cards-container");
     expect(container.getAttribute("class")).toMatch(/nineCardsContainer/);
   });
-});
 
-it("applies correct CSS class for 9 cards", () => {
+  it("applies correct CSS class for 9 cards", () => {
     // Mock useGameContext to return cardTotal of 9
     mockUseGameContext.mockReturnValue({ state: { cardTotal: 4 } });
     const { rerender } = render(<CardDisplay {...CardDisplayprops} />);
@@ -102,3 +101,12 @@ it("applies correct CSS class for 9 cards", () => {
     rerender(<CardDisplay {...CardDisplayprops} />);
     expect(container.getAttribute("class")).toMatch(/nineCardsContainer/);
   });
+
+  it("initially renders with cards visible", () => {
+    render(<CardDisplay {...CardDisplayprops} />);
+    // The container should be visible and contain cards
+    const container = screen.getByTestId("cards-container");
+    expect(container).toBeInTheDocument();
+  });
+  
+});

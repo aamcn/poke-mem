@@ -44,7 +44,7 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
   return (
     <div
       key={cardDetails.id}
-      data-testid="playingCard"
+      data-testid="playing-card-container"
       className={cardClassSize[0]}
       onClick={handleCardClick}
       aria-label={`Click to select ${cardDetails.name} card`}
@@ -53,7 +53,7 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
         <img
           className={styles.cardImage}
           src={cardDetails.imageUrl}
-          alt={`${cardDetails.name} Pokemon`}
+          alt={`${cardDetails.name} Image`}
           data-testid="card-image"
         />
       </div>
