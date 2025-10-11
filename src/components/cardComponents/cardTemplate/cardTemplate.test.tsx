@@ -8,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 // Create mock dispatch function
 const mockDispatch = vi.fn();
 
-// Create a mutable mock state that can be updated during tests
+// Initial mock state
 let mockState = {
   gameStarted: false,
   gameWon: false,
@@ -19,7 +19,7 @@ let mockState = {
   finalTime: "",
 };
 
-// Mock the Game module to control useGameContext output
+// Mock the useGameContext to return mock state and dispatch
 vi.mock("../../gameComponents/game/Game", () => ({
   useGameContext: () => ({
     state: mockState,
@@ -27,6 +27,7 @@ vi.mock("../../gameComponents/game/Game", () => ({
   }),
 }));
 
+// mock cardDetails and setIsHidden function
 const cardDetails: PokemonCardObject = {
   id: "1",
   name: "Pikachu",
@@ -37,7 +38,10 @@ const cardDetails: PokemonCardObject = {
   validateInputs: () => true,
 };
 
+// Mock setIsHidden function
 const setIsHidden = vi.fn();
+
+// Combine props for easy passing
 const mockCardTemplateProps = { cardDetails, setIsHidden };
 
 beforeEach(() => {
@@ -57,6 +61,9 @@ beforeEach(() => {
 });
 
 describe("CardTemplate Component", () => {
+
+  //Rendering Tests
+
   it("renders without crashing", () => {
     render(<CardTemplate {...mockCardTemplateProps} />);
     expect(screen.getByTestId("playing-card-container")).toBeInTheDocument();
@@ -64,7 +71,8 @@ describe("CardTemplate Component", () => {
 
   it("displays the correct card name", () => {
     render(<CardTemplate {...mockCardTemplateProps} />);
-    expect(screen.getByText(cardDetails.name)).toBeInTheDocument();
+    const cardName = screen.getByTestId("card-name");
+    expect(cardName.textContent).toBe(cardDetails.name);
   });
 
   it("displays the correct card image and alt text", () => {
@@ -74,11 +82,43 @@ describe("CardTemplate Component", () => {
     expect(cardImage.getAttribute("alt")).toBe(`${cardDetails.name} Image`);
   });
 
-  it("dispatches toggleGameLost on second click", () => {
+  // Class Name Tests
+
+  it("applies correct class names for 4 cards", () => {
+    mockState.cardTotal = 4;
     render(<CardTemplate {...mockCardTemplateProps} />);
     const cardContainer = screen.getByTestId("playing-card-container");
-    cardContainer.click(); // First click
-    cardContainer.click(); // Second click
+    expect(cardContainer.getAttribute("class")).toContain("fourCardContainer");
+    const imageContainer = cardContainer.firstChild as HTMLElement;
+    expect(imageContainer.getAttribute("class")).toContain("fourImageContainer");
+  });
+
+  it("applies correct class names for 6 cards", () => {
+    mockState.cardTotal = 6;
+    render(<CardTemplate {...mockCardTemplateProps} />);
+    const cardContainer = screen.getByTestId("playing-card-container");
+    expect(cardContainer.getAttribute("class")).toContain("sixCardContainer");
+    const imageContainer = cardContainer.firstChild as HTMLElement;
+    expect(imageContainer.getAttribute("class")).toContain("sixImageContainer");
+  });
+
+  it("applies correct class names for 9 cards", () => {
+    mockState.cardTotal = 9;
+    render(<CardTemplate {...mockCardTemplateProps} />);
+    const cardContainer = screen.getByTestId("playing-card-container");
+    expect(cardContainer.getAttribute("class")).toContain("nineCardContainer");
+    const imageContainer = cardContainer.firstChild as HTMLElement;
+    expect(imageContainer.getAttribute("class")).toContain("nineImageContainer");
+  });
+
+  // User Interaction Tests
+
+  it("dispatches toggleGameLost on second click", async () => {
+    const user = userEvent.setup();
+    render(<CardTemplate {...mockCardTemplateProps} />);
+    const cardContainer = screen.getByTestId("playing-card-container");
+    await user.click(cardContainer); // First click
+    await user.click(cardContainer); // Second click
     expect(mockDispatch).toHaveBeenCalledWith({
       type: "toggleGameLost",
       payload: true,
@@ -118,4 +158,30 @@ describe("CardTemplate Component", () => {
     });
     expect(cardDetails.isClicked).toBe(true);
   });
+
+  it("does not dispatch incrementScore or toggleGameWon when card is already clicked", async () => {
+    cardDetails.isClicked = true; // Simulate already clicked card
+    const user = userEvent.setup();
+    render(<CardTemplate {...mockCardTemplateProps} />);
+    const cardContainer = screen.getByTestId("playing-card-container");
+    await user.click(cardContainer);
+    expect(setIsHidden).not.toHaveBeenCalled();
+    expect(mockDispatch).not.toHaveBeenCalledWith({
+      type: "incrementScore",
+      payload: null,
+    });
+    expect(mockDispatch).not.toHaveBeenCalledWith({
+      type: "toggleGameWon",
+      payload: true,
+    });
+  });
+
+  it("No action is performed if no card is clicked", async () => {
+    const user = userEvent.setup();
+    render(<CardTemplate {...mockCardTemplateProps} />);
+    expect(mockDispatch).not.toHaveBeenCalled();
+    expect(setIsHidden).not.toHaveBeenCalled();
+    expect(cardDetails.isClicked).toBe(false);
+    // No click action performed
+    });
 });
