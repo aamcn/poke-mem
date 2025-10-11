@@ -1,6 +1,7 @@
 import GameOverPopUp from "./GameOverPopUp";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
+import userEvent from "@testing-library/user-event";
 
 let mockState = {
   gameStarted: false,
@@ -34,6 +35,8 @@ beforeEach(() => {
   mockDispatch = vi.fn();
 });
 
+const user = userEvent.setup();
+
 describe("GameOverPopUp Component", () => {
   
  it("renders without crashing", () => {
@@ -42,10 +45,10 @@ describe("GameOverPopUp Component", () => {
     expect(gameOverPopUp).toBeInTheDocument();
   });
 
-  it("dispatches resetGame action when 'Retry?' button is clicked", () => {
+  it("dispatches resetGame action when 'Retry?' button is clicked", async () => {
     render(<GameOverPopUp />);
     const retryButton = screen.getByTestId("retry-button");
-    fireEvent.click(retryButton);
+    await user.click(retryButton);
     expect(mockDispatch).toHaveBeenCalledWith({ type: "resetGame", payload: null });
   });   
 
