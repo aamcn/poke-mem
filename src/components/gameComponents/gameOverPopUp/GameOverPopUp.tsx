@@ -30,6 +30,7 @@ function GameOverPopUp() {
             className={styles.retryButton}
             onClick={() => dispatch({ type: "resetGame", payload: null })}
             aria-label="Retry Button"
+            data-testid="retry-button"
           >
             Retry?
           </button>
