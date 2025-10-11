@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import styles from "./LeaderBoardControls.module.css";
+import styles from "./leaderBoardControls.module.css";
 
 // Define the props for LeaderBoardControls
 interface LeaderBoardControlsProps {
