@@ -19,14 +19,13 @@ let mockState = {
   finalTime: "",
 };
 
-// Mock the useGameContext to return mock state and dispatch
-vi.mock("../../gameComponents/game/useGameContext", () => ({
+// Mock the useGameContext hook
+vi.mock("../../gameComponents/game/useGameContext/useGameContext", () => ({
   useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,
   })),
 }));
-
 // mock cardDetails and setIsHidden function
 const cardDetails: PokemonCardObject = {
   id: "1",

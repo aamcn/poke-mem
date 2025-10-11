@@ -17,7 +17,7 @@ let mockState = {
 let mockDispatch = vi.fn();
 
 // Mock the useGameContext hook
-vi.mock("../../gameComponents/game/useGameContext", () => ({
+vi.mock("../../gameComponents/game/useGameContext/useGameContext", () => ({
   useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,

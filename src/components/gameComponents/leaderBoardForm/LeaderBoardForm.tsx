@@ -31,7 +31,6 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
   //Post form data to the server.
   function postForm(formData: object) {
     const body: object = formData;
-    console.log(formData);
     axios
       .post(leaderBoardPostUrl, body, { method: "cors" })
       .catch((error: unknown) => {
