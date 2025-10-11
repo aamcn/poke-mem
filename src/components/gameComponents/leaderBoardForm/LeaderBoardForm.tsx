@@ -30,6 +30,7 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
 
   //Post form data to the server.
   function postForm(formData: object) {
+    console.log("Posting to leaderboard:", leaderBoardPostUrl);
     const body: object = formData;
     axios
       .post(leaderBoardPostUrl, body, { method: "cors" })
@@ -46,34 +47,67 @@ function LeaderBoardForm({ setLeaderBoardFormVisible }: LeaderBoardFormProps) {
   };
 
   return (
-    <form className={styles.leaderBoardForm} onSubmit={handleSubmitScore} data-testid="leaderboard-form">
-      <h2 aria-label="Submit Your Score">Submit Your Score</h2>
-      <label htmlFor="playerName" aria-label="Player Name">
-        Name:{" "}
-      </label>
-      <input id="playerName" type="text" name="playerName" required/>
-      <label htmlFor="finishTime" aria-label="Finish Time">
-        Finish Time:{" "}
-      </label>
-      <input
-        id="finishTime"
-        type="string"
-        name="finishTime"
-        readOnly
-        value={state.finalTime}
-        aria-label="Your finish time, read only"
-      />
-      <button type="submit" aria-label="Submit button">
-        Submit
-      </button>
-      <button
-        onClick={handleCancelForm}
-        type="button"
-        aria-label="Cancel button"
+    <div className={styles.leaderBoardFormContainer}>
+      <form
+        className={styles.leaderBoardForm}
+        onSubmit={handleSubmitScore}
+        data-testid="leaderboard-form"
       >
-        Cancel
-      </button>
-    </form>
+        <div className={styles.leaderBoardFormTitleContainer}>
+          <h2
+            aria-label="Submit Your Score"
+            className={styles.leaderBoardFormTitle}
+          >
+            Submit Your Score
+          </h2>
+        </div>
+
+        <div className={styles.leaderBoardFormInputContainer}>
+          <label htmlFor="playerName" aria-label="Player Name">
+            Name:{" "}
+          </label>
+          <input
+            id="playerName"
+            type="text"
+            name="playerName"
+            className={styles.leaderBoardFormInput}
+            required
+          />
+          <label htmlFor="finishTime" aria-label="Finish Time">
+            Time:{" "}
+          </label>
+          <input
+            id="finishTime"
+            type="string"
+            name="finishTime"
+            readOnly
+            value={state.finalTime}
+            aria-label="Your finish time, read only"
+            className={styles.leaderBoardFormInput}
+          />
+        </div>
+
+       
+
+        <div className={styles.formButtonsContainer}>
+          <button
+            type="submit"
+            aria-label="Submit button"
+            className={styles.leaderBoardFormButton}
+          >
+            Submit
+          </button>
+          <button
+            onClick={handleCancelForm}
+            type="button"
+            className={styles.leaderBoardFormButton}
+            aria-label="Cancel button"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 
