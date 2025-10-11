@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls";
-import styles from "./LeaderBoardTable.module.css";
+import styles from "./leaderBoardTable.module.css";
 import { capitaliseString } from "../../../modules/capitaliseString";
 import LeaderBoardHeader from "../leaderBoardHeader/LeaderBoardHeader";
 

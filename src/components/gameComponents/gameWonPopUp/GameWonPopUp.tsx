@@ -1,4 +1,4 @@
-import styles from "./GameWonPopUp.module.css";
+import styles from "./gameWonPopUp.module.css";
 import { useGameContext } from "../game/useGameContext/useGameContext";
 
 interface GameWonPopUpProps {
