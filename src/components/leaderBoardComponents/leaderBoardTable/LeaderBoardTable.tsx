@@ -26,7 +26,6 @@ function LeaderBoardTable({
 }: LeaderBoardTableProps) {
   if (!leaderBoardData || leaderBoardData.length === 0) {
     return (
-      <div>
         <div
           className={styles.leaderBoardContainer}
           data-testid="leaderboard-container"
@@ -37,7 +36,6 @@ function LeaderBoardTable({
           />
           <p>No data available</p>
         </div>
-      </div>
     );
   }
 

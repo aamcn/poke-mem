@@ -115,7 +115,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .gameMenuContainer {
     width: 40dvw;
     height: 40dvh;
@@ -157,7 +157,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (orientation: landscape) {
   .gameMenuContainer {
     width: 30dvw;
     height: 40dvh;

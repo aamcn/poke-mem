@@ -152,6 +152,7 @@
 
   .nineCardContainer {
     height: 24dvh;
+    width: 15dvh;
     border-width: 0.5em;
     border-radius: 0.3em;
   }
@@ -159,8 +160,13 @@
   .nineImageContainer {
     border-width: 0.4em;
     width: 12dvh;
-    height: 11dvh;
+    height: 10dvh;
   }
+}
+
+
+@media screen and (min-width: 1024px) and (orientation: portrait) {
+  
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
@@ -190,13 +196,14 @@
   }
 
   .nineImageContainer {
-    width: 12dvh;
-    height: 10dvh;
+    width: 14dvh;
+    height: 11dvh;
     border-width: 0.3em;
   }
 
   .nineCardContainer {
     height: 26dvh;
+    width: 17dvh;
     border-radius: 0.3em;
     border-width: 0.3em;
   }
@@ -237,7 +244,7 @@
   }
 } */
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (orientation: landscape) {
   .fourCardContainer {
     height: 38dvh;
     border-width: 0.5em;
@@ -262,15 +269,18 @@
   }
 
   .nineImageContainer {
-    width: 12dvh;
-    height: 10dvh;
+    width: 14dvh;
+    height: 11dvh;
     border-width: 0.3em;
   }
 
   .nineCardContainer {
-    height: 26dvh;
+    height: 27dvh;
+    width: 18dvh;
   }
 }
+
+
 
 @keyframes cardAppear {
   0% {

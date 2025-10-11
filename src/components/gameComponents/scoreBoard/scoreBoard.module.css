@@ -36,7 +36,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   .scoreBoardContainer {
     grid-column: 1;
     grid-row: 2;
