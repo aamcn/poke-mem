@@ -9,6 +9,7 @@ import axios from "axios";
 // Mock axios post
 vi.spyOn(axios, "post").mockResolvedValue({ data: {} });
 
+// Initial mock state
 let mockState = {
   gameStarted: false,
   gameWon: false,
@@ -22,11 +23,12 @@ let mockState = {
 // Create mock dispatch function
 const mockDispatch = vi.fn();
 
-vi.mock("../../gameComponents/game/Game", () => ({
-  useGameContext: () => ({
+// Mock the useGameContext hook
+vi.mock("../../gameComponents/game/useGameContext", () => ({
+  useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,
-  }),
+  })),
 }));
 
 // Mock setLeaderBoardFormVisible function
@@ -46,6 +48,7 @@ beforeEach(() => {
   };
 });
 
+// Setup user event
 const user = userEvent.setup();
 
 describe("LeaderBoardForm Component", () => {

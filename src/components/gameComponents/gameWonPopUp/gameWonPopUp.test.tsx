@@ -15,14 +15,15 @@ let mockState = {
   finalTime: "02:34:00",
   // Add other state properties as needed
 };
-
+// Create mock dispatch function
 const mockDispatch = vi.fn();
 
-vi.mock("../../gameComponents/game/Game", () => ({
-  useGameContext: () => ({
+// Mock the useGameContext hook
+vi.mock("../../gameComponents/game/useGameContext", () => ({
+  useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,
-  }),
+  })),
 }));
 
 // Reset mock state before each test
@@ -38,6 +39,7 @@ beforeEach(() => {
   };
 });
 
+// Mock setLeaderBoardFormVisible function
 const setLeaderBoardFormVisible = vi.fn();
 
 describe("GameWonPopUp Component", () => {

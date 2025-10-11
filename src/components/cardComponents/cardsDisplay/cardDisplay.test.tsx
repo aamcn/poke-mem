@@ -17,7 +17,8 @@ let mockState = {
   finalTime: "",
 };
 
-vi.mock("../../gameComponents/game/Game", () => ({
+// Mock the useGameContext hook
+vi.mock("../../gameComponents/game/useGameContext", () => ({
   useGameContext: vi.fn(() => ({
     state: mockState,
     dispatch: mockDispatch,
@@ -43,11 +44,12 @@ const chosenPokemon= [
   },
 ];
 
+// Combine props for easy passing
 const CardDisplayprops = { chosenPokemon };
 
+// Reset mock state before each test
  beforeEach(() => {
     vi.clearAllMocks();
-    // Reset mock state before each test
     mockState = {
       gameStarted: false,
       gameWon: false,
