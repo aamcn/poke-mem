@@ -9,9 +9,12 @@ function Navbar() {
       id="navbar"
       aria-label="navbar"
     >
+     
       <Link id="game-link" to="/game-page" aria-label="Game Page Link">
         Game
       </Link>
+
+      <p>|</p>
       <Link
         id="leaderboard-link"
         to="/leader-board"
@@ -19,6 +22,15 @@ function Navbar() {
         data-testid="leaderboard-link"
       >
         Leader Board
+      </Link>
+      <p>|</p>
+       <Link
+        id="howToPlay-link"
+        to="/how-to-play"
+        aria-label="Hot To Play Link"
+        data-testid="howToPlayLink"
+      >
+        How To Play
       </Link>
     </nav>
   );
