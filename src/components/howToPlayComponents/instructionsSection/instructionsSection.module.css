@@ -1,0 +1,24 @@
+
+.instructionsSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-width: 0.5em;
+  animation: menuAppear 1s;
+}
+
+.instructionsHeader{
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.instructionsTitle{
+  font-size: 4dvh;
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+
+} 
+
+.instructionsWelcomeMessage{
+  font-size: 2.2dvh;
+}
