@@ -23,7 +23,7 @@ body {
   height: 100dvh;
   background: linear-gradient(
     0deg,
-    rgb(26, 36, 36),
+    rgb(11, 95, 95),
     rgb(86, 197, 176),
     rgb(179, 246, 246)
   );
@@ -32,6 +32,10 @@ body {
   margin: 0px;
   font-weight: 800;
   min-width: 320px;
+}
+
+#root {
+  height: 100dvh;
 }
 
 h1 {

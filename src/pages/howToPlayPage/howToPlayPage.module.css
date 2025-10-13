@@ -1,0 +1,7 @@
+
+.howToPlayPage {    
+    display: flex;
+    justify-content: center;
+    row-gap: 20px;
+    height: 90dvh;
+}
