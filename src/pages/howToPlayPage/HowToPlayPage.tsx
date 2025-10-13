@@ -5,10 +5,10 @@ import styles from "./howToPlayPage.module.css";
 function HowToPlayPage() {
   return (
     <>
-    <Header />
-    <div className={styles.howToPlayPage}>
-      <InstructionsSection />
-    </div>
+      <Header />
+      <div className={styles.howToPlayPage}>
+        <InstructionsSection />
+      </div>
     </>
   );
 }

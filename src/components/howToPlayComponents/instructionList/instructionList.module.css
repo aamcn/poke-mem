@@ -1,63 +1,60 @@
-
 .instructionsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    animation: menuAppear 1s;
-    height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: menuAppear 1s;
+  height: 80%;
 }
 
 .instructionsListContainer {
-    height: 100%;
-    overflow: scroll;
-    border-top: solid white 0.2em;
-    border-bottom: solid white 0.2em;
-    margin-top: 2em;
+  height: 100%;
+  overflow: scroll;
+  border-top: solid white 0.2em;
+  border-bottom: solid white 0.2em;
+  margin-top: 2em;
 }
 
-.instructionsList{
-    padding-top:2em;
-    color: rgb(24, 61, 61);
+.instructionsList {
+  padding-top: 2em;
+  color: rgb(24, 61, 61);
 }
 
-
-.instructionsLists{
-    display: flex;
-    flex-direction: column;
-    margin: 1em 0em 1em 0em;
-    list-style: square antiquewhite;
-    color: antiquewhite;
-    justify-content: center;
-    list-style-position: inside;
-    padding: 1.5em;
+.instructionsLists {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0em 1em 0em;
+  list-style: square antiquewhite;
+  color: antiquewhite;
+  justify-content: center;
+  list-style-position: inside;
+  padding: 1.5em;
 }
 
-
-.instructionsListItem{
-    text-align: left;
-    margin: 0.5em 0em 0.5em 0em;
-    padding: 0em;
-    font-size: 2dvh;
-    color: rgb(24, 61, 61);
-    font-weight: 1000;
+.instructionsListItem {
+  text-align: left;
+  margin: 0.5em 0em 0.5em 0em;
+  padding: 0em;
+  font-size: 2dvh;
+  color: rgb(24, 61, 61);
+  font-weight: 1000;
 }
 
-.instructionsSectionTitle{
-    font-size: 4dvh;
-    color: rgb(255, 255, 255);
-    margin: 0.5em 0em 2em 0em;
-    text-align: center;
-    text-decoration: underline;
+.instructionsSectionTitle {
+  font-size: 4dvh;
+  color: rgb(255, 255, 255);
+  margin: 0.5em 0em 2em 0em;
+  text-align: center;
+  text-decoration: underline;
 }
 
-.instructionsDivider{
+.instructionsDivider {
   margin: 4em 0em 4em 0em;
   border: solid rgb(34, 13, 13) 0.1em;
 }
 
-.instructionsWarning{
-    font-size:2.5dvh;
-    font-weight: 1000;
-    text-align: center;
-    text-decoration: underline;
+.instructionsWarning {
+  font-size: 2.5dvh;
+  font-weight: 1000;
+  text-align: center;
+  text-decoration: underline;
 }

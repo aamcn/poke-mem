@@ -26,16 +26,16 @@ function LeaderBoardTable({
 }: LeaderBoardTableProps) {
   if (!leaderBoardData || leaderBoardData.length === 0) {
     return (
-        <div
-          className={styles.leaderBoardContainer}
-          data-testid="leaderboard-container"
-        >
-          <LeaderBoardControls
-            setSelectedDifficulty={setSelectedDifficulty}
-            selectedDifficulty={selectedDifficulty}
-          />
-          <p>No data available</p>
-        </div>
+      <div
+        className={styles.leaderBoardContainer}
+        data-testid="leaderboard-container"
+      >
+        <LeaderBoardControls
+          setSelectedDifficulty={setSelectedDifficulty}
+          selectedDifficulty={selectedDifficulty}
+        />
+        <p>No data available</p>
+      </div>
     );
   }
 

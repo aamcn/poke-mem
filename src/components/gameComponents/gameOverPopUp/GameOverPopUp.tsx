@@ -22,7 +22,7 @@ function GameOverPopUp() {
           </p>
           <br></br>
           <p aria-label="Would you like to try again?">
-           Final Score: {state.score}
+            Final Score: {state.score}
           </p>
         </div>
         <div>

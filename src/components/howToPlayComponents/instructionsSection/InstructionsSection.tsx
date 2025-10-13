@@ -6,10 +6,11 @@ function InstructionsSection() {
     <div className={styles.instructionsSection}>
       <div className={styles.instructionsHeader}>
         <h2 className={styles.instructionsTitle}>Instructions</h2>
-      <p className={styles.instructionsWelcomeMessage}>Here's what you need to know:</p>
-     
+        <p className={styles.instructionsWelcomeMessage}>
+          Here's what you need to know:
+        </p>
       </div>
-       <InstructionList />
+      <InstructionList />
     </div>
   );
 }

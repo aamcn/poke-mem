@@ -164,9 +164,7 @@
   }
 }
 
-
 @media screen and (min-width: 1024px) and (orientation: portrait) {
-  
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
@@ -279,8 +277,6 @@
     width: 18dvh;
   }
 }
-
-
 
 @keyframes cardAppear {
   0% {
