@@ -41,14 +41,13 @@
 @media screen and (min-width: 1024px) and (orientation: landscape) {
   .gameTitle {
     display: block;
-    grid-column: 1;
-    grid-row: 1;
+    text-align: left;
+    font-size: 10dvh;
   }
 
   .titleContainer {
     display: block;
     padding-left: 4em;
-    text-align: left;
   }
 
   .headerContainer {
@@ -57,11 +56,14 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (orientation: landscape) {
   .gameTitle {
-    grid-column: 1;
-    grid-row: 1;
+    text-align: left;
     font-size: 10dvh;
+  }
+
+  .titleContainer{
+    text-align: left;
   }
 
   .headerContainer {
