@@ -3,7 +3,7 @@ import styles from "./gameOverPopUp.module.css";
 
 function GameOverPopUp() {
   // Access the game state and dispatch function from the context
-  const { dispatch } = useGameContext();
+  const { state, dispatch } = useGameContext();
 
   return (
     <div className={styles.lostGameWindow} data-testid="game-over-popup">
@@ -22,7 +22,7 @@ function GameOverPopUp() {
           </p>
           <br></br>
           <p aria-label="Would you like to try again?">
-            Would you like to try again?
+           Final Score: {state.score}
           </p>
         </div>
         <div>

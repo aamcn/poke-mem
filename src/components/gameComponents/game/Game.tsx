@@ -82,7 +82,7 @@ function Game() {
           className={styles.gameInfoContainer}
           data-testid="game-info-container"
         >
-          {state.gameStarted && (
+          {state.gameStarted && !state.gameLost && !state.gameWon && (
             <>
               <ScoreBoard />
               <Timer />
