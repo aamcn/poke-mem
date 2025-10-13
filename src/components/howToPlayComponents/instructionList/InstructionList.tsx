@@ -1,6 +1,6 @@
-import styles from "./instructions.module.css";
+import styles from "./instructionList.module.css";
 
-function Instructions() {
+function InstructionList() {
   return (
     <div className={styles.instructionsContainer}>
       <div className={styles.instructionsListContainer}>
@@ -49,4 +49,4 @@ function Instructions() {
   );
 }
 
-export default Instructions;
+export default InstructionList;

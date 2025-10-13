@@ -1,4 +1,4 @@
-import Instructions from "../instructions/Instructions";
+import InstructionList from "../instructionList/InstructionList";
 import styles from "./instructionsSection.module.css";
 
 function InstructionsSection() {
@@ -9,7 +9,7 @@ function InstructionsSection() {
       <p className={styles.instructionsWelcomeMessage}>Here's what you need to know:</p>
      
       </div>
-       <Instructions />
+       <InstructionList />
     </div>
   );
 }
