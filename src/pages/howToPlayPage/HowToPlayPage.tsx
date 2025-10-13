@@ -1,5 +1,5 @@
 import Header from "../../components/header/Header";
-import InstructionsContainer from "../../components/howToPlayComponents/instructionsSection/InstructionsSection";
+import InstructionsSection from "../../components/howToPlayComponents/instructionsSection/InstructionsSection";
 import styles from "./howToPlayPage.module.css";
 
 function HowToPlayPage() {
@@ -7,7 +7,7 @@ function HowToPlayPage() {
     <>
     <Header />
     <div className={styles.howToPlayPage}>
-      <InstructionsContainer />
+      <InstructionsSection />
     </div>
     </>
   );

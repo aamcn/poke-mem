@@ -1,7 +1,7 @@
 import Instructions from "../instructions/Instructions";
 import styles from "./instructionsSection.module.css";
 
-function InstructionsContainer() {
+function InstructionsSection() {
   return (
     <div className={styles.instructionsSection}>
       <div className={styles.instructionsHeader}>
@@ -14,4 +14,4 @@ function InstructionsContainer() {
   );
 }
 
-export default InstructionsContainer;
+export default InstructionsSection;
