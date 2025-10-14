@@ -2,9 +2,12 @@ import styles from "./instructionList.module.css";
 
 function InstructionList() {
   return (
-    <div className={styles.instructionsContainer}>
+    <div
+      className={styles.instructionsContainer}
+      data-testid="instruction-container"
+    >
       <div className={styles.instructionsListContainer}>
-        <section className={styles.instructionsList}>
+        <section className={styles.instructionsList} data-testid="game-play-instructions">
           <h3 className={styles.instructionsSectionTitle}>Game Play</h3>
           <ul className={styles.instructionsLists}>
             <li className={styles.instructionsListItem}>
@@ -23,7 +26,6 @@ function InstructionList() {
             <li className={styles.instructionsListItem}>
               If you win the round you can add your score to the leaderboard!
             </li>
-
             <p className={styles.instructionsWarning}>But be careful!</p>
             <li className={styles.instructionsListItem}>
               If you click on a card more than once its game over!
