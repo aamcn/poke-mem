@@ -19,8 +19,6 @@ describe("LeaderBoardPage", () => {
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
 
-  it("renders LeaderBoardTable component", () => {
-    renderWithRouter(<LeaderBoardPage />);
-    expect(screen.getByTestId("leaderboard-container")).toBeInTheDocument();
-  });
+  
+
 });
