@@ -7,7 +7,10 @@ function InstructionList() {
       data-testid="instruction-container"
     >
       <div className={styles.instructionsListContainer}>
-        <section className={styles.instructionsList} data-testid="game-play-instructions">
+        <section
+          className={styles.instructionsList}
+          data-testid="game-play-instructions"
+        >
           <h3 className={styles.instructionsSectionTitle}>Game Play</h3>
           <ul className={styles.instructionsLists}>
             <li className={styles.instructionsListItem}>

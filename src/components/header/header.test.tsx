@@ -8,7 +8,7 @@ describe("Header Component", () => {
     render(
       <Router>
         <Header />
-      </Router>
+      </Router>,
     );
     const headerElement = screen.getByTestId("header");
     expect(headerElement).toBeInTheDocument();
