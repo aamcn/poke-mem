@@ -1,13 +1,15 @@
 # Memory Game
 
-    A card game to test your memory skills. The game includes three difficulty levels and if the player wins the round they can upload their finish time to the leaderboard.
+A card game to test your memory skills. The game includes three difficulty levels and if the player wins the round they can upload their finish time to the leaderboard.
 
 # Features
 
 Card game featuring memorable characters.
 Clickable cards: Score a point if you haven't clicked it before or lose the round if you have.
-Multiple difficulty: Easy (4 cards), Medium (6 cards), and Hard (9 cards) game modes
-Multi-difficulty Leaderboards, one for each difficulty.
+Multiple difficulty: Easy (4 cards), Medium (6 cards), and Hard (9 cards) game modes.
+Timer logs how quickly you can click all the cards correctly.
+Submit your score to be stored in the database leaderboard tables.
+Leaderboard page displays each difficulties top scores.
 
 # Prerequisites
 
@@ -20,7 +22,7 @@ Node.js (v14 or higher)
 npm or yarn package manager
 
 Clone the repository
-git clone https://github.com/aamcn/memory-game
+git clone https://github.com/aamcn/poke-mem
 cd memory-game
 
 Install dependencies
@@ -48,7 +50,7 @@ npx eslint .
 
 # Format code with Prettier
 
-npx prettier --write .
+npx prettier . --write 
 
 # Backend Integration
 
@@ -71,7 +73,7 @@ finish_time VARCHAR(8) Completion time (MM:SS:MS)
 # Author
 
 Aaron McNulty
-Link: https://github.com/aamcn/memory-game
+Link: https://github.com/aamcn/poke-mem
 GitHub: @aamcn
 
 # Acknowledgments
