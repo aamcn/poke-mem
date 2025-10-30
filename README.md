@@ -50,7 +50,7 @@ npx eslint .
 
 # Format code with Prettier
 
-npx prettier . --write 
+npx prettier . --write
 
 # Backend Integration
 

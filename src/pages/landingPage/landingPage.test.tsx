@@ -9,7 +9,7 @@ describe("LandingPage", () => {
     render(
       <Router>
         <LandingPage />
-      </Router>
+      </Router>,
     );
     const container = screen.getByTestId("landing-page-container");
     expect(container).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("LandingPage", () => {
     render(
       <Router>
         <LandingPage />
-      </Router>
+      </Router>,
     );
     const mainImage = screen.getByAltText("Haunter floating gif");
     expect(mainImage.getAttribute("src")).toBe(landingPageGifUrl);
@@ -29,12 +29,12 @@ describe("LandingPage", () => {
     render(
       <Router>
         <LandingPage />
-      </Router>
+      </Router>,
     );
     const enterGameButton = screen.getByTestId("enter-game-button");
     expect(enterGameButton).toHaveTextContent("Enter");
     expect(enterGameButton.querySelector("a")?.getAttribute("href")).toBe(
-      "/game-page"
+      "/game-page",
     );
     expect(enterGameButton).toBeInTheDocument();
   });

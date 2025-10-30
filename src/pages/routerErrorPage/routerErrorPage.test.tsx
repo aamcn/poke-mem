@@ -1,6 +1,6 @@
 import RouterErrorPage from "./RouterErrorPage";
 import { render, screen } from "@testing-library/react";
-import {expect, it, describe} from "vitest";
+import { expect, it, describe } from "vitest";
 import { BrowserRouter as Router } from "react-router-dom";
 
 describe("RouterErrorPage", () => {
@@ -8,10 +8,10 @@ describe("RouterErrorPage", () => {
     render(
       <Router>
         <RouterErrorPage />
-      </Router>
+      </Router>,
     );
     const heading = screen.getByLabelText(
-      "Error Heading: Oh no, this route doesn't exist!"
+      "Error Heading: Oh no, this route doesn't exist!",
     );
     expect(heading).toBeInTheDocument();
     expect(heading).toHaveTextContent("Oh no, this route doesn't exist!");
@@ -21,13 +21,12 @@ describe("RouterErrorPage", () => {
     render(
       <Router>
         <RouterErrorPage />
-      </Router>
+      </Router>,
     );
     const link = screen.getByLabelText(
-      "Home Page Link: Go back to the home page by clicking here"
+      "Home Page Link: Go back to the home page by clicking here",
     );
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute("href", "/");
   });
-
-})
+});

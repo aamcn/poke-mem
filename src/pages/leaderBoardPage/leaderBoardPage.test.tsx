@@ -18,7 +18,4 @@ describe("LeaderBoardPage", () => {
     renderWithRouter(<LeaderBoardPage />);
     expect(screen.getByTestId("header")).toBeInTheDocument();
   });
-
-  
-
 });

@@ -20,7 +20,11 @@ function LandingPage() {
           Poke-Mem
         </h1>
       </div>
-      <div className={styles.startButton} aria-label="Enter Game Button" data-testid="enter-game-button">
+      <div
+        className={styles.startButton}
+        aria-label="Enter Game Button"
+        data-testid="enter-game-button"
+      >
         <Link to="/game-page">Enter</Link>
       </div>
     </div>
