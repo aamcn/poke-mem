@@ -1,6 +1,6 @@
 import InstructionsSection from "./InstructionsSection";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 
 describe("InstructionsSection", () => {
   it("renders the instruction without crashing", () => {

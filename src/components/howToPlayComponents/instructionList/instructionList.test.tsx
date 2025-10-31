@@ -1,6 +1,6 @@
 import InstructionList from "./InstructionList";
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it} from "vitest";
 
 describe("InstructionList", () => {
   it("renders the instruction without crashing", () => {
