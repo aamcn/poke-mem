@@ -43,7 +43,7 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
       return () => clearTimeout(timer);
     }
   }, [isHidden]);
- 
+
   // When chosenPokemon changes, create new card objects.
   useEffect(() => {
     if (chosenPokemon && chosenPokemon.length > 0) {

@@ -32,12 +32,9 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
 
   // Determine card className based on state.cardTotal value on render/ cardTotal change.
   const cardClassSize = useMemo(() => {
-    if (state.cardTotal === 9)
-      return 'nine'
-    if (state.cardTotal === 6)
-      return 'six'
-    if (state.cardTotal === 4)
-      return 'four'
+    if (state.cardTotal === 9) return "nine";
+    if (state.cardTotal === 6) return "six";
+    if (state.cardTotal === 4) return "four";
     return ["", ""];
   }, [state.cardTotal]);
 
@@ -49,9 +46,11 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
       onClick={handleCardClick}
       aria-label={`Click to select ${cardDetails.name} card`}
     >
-      <div className={styles.cardInner} >
+      <div className={styles.cardInner}>
         <div className={styles.cardFront}>
-          <div className={`${styles.imageContainer} ` + styles[`${cardClassSize}`]}>
+          <div
+            className={`${styles.imageContainer} ` + styles[`${cardClassSize}`]}
+          >
             <img
               className={styles.cardImage}
               src={cardDetails.imageUrl}

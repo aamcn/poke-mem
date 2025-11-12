@@ -25,7 +25,7 @@
   justify-content: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  animation: cardAppear 1s; 
+  animation: cardAppear 1s;
   width: 100%;
   height: 100%;
 }
@@ -59,7 +59,7 @@
   transform: rotateY(180deg);
 }
 
-.imageContainer{
+.imageContainer {
   display: flex;
   border: double rgb(36, 53, 53) 0.3em;
   background-color: rgb(173, 215, 223);
@@ -78,17 +78,17 @@
   height: 9dvh;
 }
 
+.imageContainer.nine {
+  width: 10dvh;
+  height: 9dvh;
+}
+
 .cardContainer.nine {
   aspect-ratio: 3/5;
   height: 22dvh;
   transform-style: preserve-3d;
   border-radius: 0.2em;
-  border-width: 0.em;
-}
-
-.imageContainer.nine {
-  width: 10dvh;
-  height: 9dvh;
+  border-width: 0em;
 }
 
 .cardTitleContainer {
@@ -113,38 +113,48 @@
     font-size: 3vh;
   }
 
-  .fourCardContainer {
+  .cardBack {
+    border-radius: 0.2em;
+    border-width: 0.1em;
+  }
+
+  .cardFront {
+    border-radius: 0.2em;
+    border-width: 0.1em;
+  }
+
+  .cardContainer.four {
     height: 50dvh;
     border-width: 0.4em;
     border-radius: 0.3em;
   }
 
-  .fourImageContainer {
+  .imageContainer.four {
     width: 22dvh;
     height: 20dvh;
     border-width: 0.2em;
   }
 
-  .sixImageContainer {
+  .imageContainer.six {
     border-width: 0.1em;
     width: 18dvh;
     height: 16dvh;
   }
 
-  .sixCardContainer {
+  .cardContainer.six {
     font-size: 5dvw;
     height: 38dvh;
     border-width: 0.1em;
     border-radius: 0.1em;
   }
 
-  .nineCardContainer {
+  .cardContainer.nine {
     height: 30dvh;
     border-width: 0.3em;
     border-radius: 0.2em;
   }
 
-  .nineImageContainer {
+  .imageContainer.nine {
     border-width: 0.2em;
     width: 14dvh;
     height: 12dvh;
@@ -156,33 +166,43 @@
     font-size: 2.5dvh;
   }
 
-  .fourCardContainer {
+  .cardBack {
+    border-radius: 0.5rem;
+    border-width: 0.5rem;
+  }
+
+  .cardFront {
+    border-radius: 0.5rem;
+    border-width: 0.5rem;
+  }
+
+  .cardContainer.four {
     height: 34dvh;
   }
 
-  .fourImageContainer {
+  .imageContainer.four {
     width: 17dvh;
     height: 15dvh;
   }
 
-  .sixImageContainer {
+  .imageContainer.six {
     width: 16dvh;
     height: 14dvh;
   }
 
-  .sixCardContainer {
+  .cardContainer.six {
     font-size: 5dvw;
     height: 32dvh;
   }
 
-  .nineCardContainer {
+  .cardContainer.nine {
     height: 24dvh;
     width: 15dvh;
     border-width: 0.5em;
     border-radius: 0.3em;
   }
 
-  .nineImageContainer {
+  .imageContainer.nine {
     border-width: 0.4em;
     width: 12dvh;
     height: 10dvh;
@@ -193,12 +213,21 @@
 }
 
 @media screen and (min-width: 1024px) and (orientation: landscape) {
-  .fourCardContainer {
+  .cardBack {
+    border-radius: 0.4rem;
+    border-width: 0.4rem;
+  }
+
+  .cardFront {
+    border-radius: 0.4rem;
+    border-width: 0.4rem;
+  }
+  .cardContainer.four {
     height: 34dvh;
     border-radius: 0.5em;
   }
 
-  .fourImageContainer {
+  .imageContainer.four {
     width: 16dvh;
     height: 14dvh;
   }
@@ -207,24 +236,24 @@
     font-size: 2dvh;
   }
 
-  .sixCardContainer {
+  .cardContainer.six {
     border-radius: 0.1em;
     height: 32dvh;
-    border-width: 0.15em;
+    border-width: 0.1em;
   }
 
-  .sixImageContainer {
+  .imageContainer.six {
     width: 15dvh;
     height: 13dvh;
   }
 
-  .nineImageContainer {
+  .imageContainer.nine {
     width: 14dvh;
     height: 11dvh;
     border-width: 0.3em;
   }
 
-  .nineCardContainer {
+  .cardContainer.nine {
     height: 26dvh;
     width: 17dvh;
     border-radius: 0.3em;
@@ -268,36 +297,36 @@
 } */
 
 @media screen and (min-width: 1200px) and (orientation: landscape) {
-  .fourCardContainer {
+  .cardContainer.four {
     height: 38dvh;
     border-width: 0.5em;
   }
 
-  .fourImageContainer {
+  .imageContainer.four {
     width: 18dvh;
     height: 17dvh;
     border-width: 0.4em;
   }
 
-  .sixImageContainer {
+  .imageContainer.six {
     width: 16dvh;
     height: 14dvh;
   }
 
-  .sixCardContainer {
+  .cardContainer.six {
     border-radius: 0.1em;
     font-size: 4dvw;
     height: 34dvh;
     border-width: 0.1em;
   }
 
-  .nineImageContainer {
+  .imageContainer.nine {
     width: 14dvh;
     height: 11dvh;
     border-width: 0.3em;
   }
 
-  .nineCardContainer {
+  .cardContainer.nine {
     height: 27dvh;
     width: 18dvh;
   }
