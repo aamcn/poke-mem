@@ -33,11 +33,11 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
   // Determine card className based on state.cardTotal value on render/ cardTotal change.
   const cardClassSize = useMemo(() => {
     if (state.cardTotal === 9)
-      return [styles.nineCardContainer, styles.nineImageContainer];
+      return 'nine'
     if (state.cardTotal === 6)
-      return [styles.sixCardContainer, styles.sixImageContainer];
+      return 'six'
     if (state.cardTotal === 4)
-      return [styles.fourCardContainer, styles.fourImageContainer];
+      return 'four'
     return ["", ""];
   }, [state.cardTotal]);
 
@@ -45,20 +45,25 @@ function CardTemplate({ cardDetails, setIsHidden }: CardTemplateProps) {
     <div
       key={cardDetails.id}
       data-testid="playing-card-container"
-      className={cardClassSize[0]}
+      className={`${styles.cardContainer} ` + styles[`${cardClassSize}`]}
       onClick={handleCardClick}
       aria-label={`Click to select ${cardDetails.name} card`}
     >
-      <div className={cardClassSize[1]}>
-        <img
-          className={styles.cardImage}
-          src={cardDetails.imageUrl}
-          alt={`${cardDetails.name} Image`}
-          data-testid="card-image"
-        />
-      </div>
-      <div className={styles.cardTitleContainer}>
-        <p data-testid="card-name">{cardDetails.name}</p>
+      <div className={styles.cardInner} >
+        <div className={styles.cardFront}>
+          <div className={`${styles.imageContainer} ` + styles[`${cardClassSize}`]}>
+            <img
+              className={styles.cardImage}
+              src={cardDetails.imageUrl}
+              alt={`${cardDetails.name} Image`}
+              data-testid="card-image"
+            />
+          </div>
+          <div className={styles.cardTitleContainer}>
+            <p data-testid="card-name">{cardDetails.name}</p>
+          </div>
+        </div>
+        <div className={styles.cardBack}></div>
       </div>
     </div>
   );

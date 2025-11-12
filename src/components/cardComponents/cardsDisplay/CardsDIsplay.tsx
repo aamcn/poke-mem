@@ -39,12 +39,11 @@ function CardsDisplay({ chosenPokemon }: CardsDisplayProps) {
       setCardObjects((currentCards) => shuffleArray(currentCards)); // Functional update to ensure latest state
       const timer = setTimeout(() => {
         setIsHidden(false);
-      }, 500);
-      // Cleanup function to prevent memory leaks
+      }, 5);
       return () => clearTimeout(timer);
     }
   }, [isHidden]);
-
+ 
   // When chosenPokemon changes, create new card objects.
   useEffect(() => {
     if (chosenPokemon && chosenPokemon.length > 0) {
