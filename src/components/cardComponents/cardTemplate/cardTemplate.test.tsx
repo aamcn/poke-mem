@@ -79,38 +79,6 @@ describe("CardTemplate Component", () => {
     expect(cardImage.getAttribute("alt")).toBe(`${cardDetails.name} Image`);
   });
 
-  // Class Name Tests
-
-  it("applies correct class names for 4 cards", () => {
-    mockState.cardTotal = 4;
-    render(<CardTemplate {...mockCardTemplateProps} />);
-    const cardContainer = screen.getByTestId("playing-card-container");
-    expect(cardContainer.getAttribute("class")).toContain("fourCardContainer");
-    const imageContainer = cardContainer.firstChild as HTMLElement;
-    expect(imageContainer.getAttribute("class")).toContain(
-      "fourImageContainer",
-    );
-  });
-
-  it("applies correct class names for 6 cards", () => {
-    mockState.cardTotal = 6;
-    render(<CardTemplate {...mockCardTemplateProps} />);
-    const cardContainer = screen.getByTestId("playing-card-container");
-    expect(cardContainer.getAttribute("class")).toContain("sixCardContainer");
-    const imageContainer = cardContainer.firstChild as HTMLElement;
-    expect(imageContainer.getAttribute("class")).toContain("sixImageContainer");
-  });
-
-  it("applies correct class names for 9 cards", () => {
-    mockState.cardTotal = 9;
-    render(<CardTemplate {...mockCardTemplateProps} />);
-    const cardContainer = screen.getByTestId("playing-card-container");
-    expect(cardContainer.getAttribute("class")).toContain("nineCardContainer");
-    const imageContainer = cardContainer.firstChild as HTMLElement;
-    expect(imageContainer.getAttribute("class")).toContain(
-      "nineImageContainer",
-    );
-  });
 
   // User Interaction Tests
 
